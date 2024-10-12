@@ -1,14 +1,21 @@
 from typing import Tuple
 
 import pandas as pd
-from src.feature_engineering import FeatureEngineering
+from typing_extensions import Annotated
 from zenml import step
+
+from src.feature_engineering import FeatureEngineering
 
 
 @step
 def feature_engineering(
-    trajectory_df: pd.DataFrame, train_df: pd.DataFrame, test_df: pd.DataFrame
-) -> Tuple[pd.DataFrame, pd.Series]:
+    trajectory_df: Annotated[pd.DataFrame, "Trajectory df"],
+    train_df: Annotated[pd.DataFrame, "Train df"],
+    test_df: Annotated[pd.DataFrame, "Test df"],
+) -> Tuple[
+    Annotated[pd.DataFrame, "Engineered features"],
+    Annotated[pd.Series, "Target variable"],
+]:
     """Performs feature engineering and prepares data for modeling."""
 
     fe = FeatureEngineering()

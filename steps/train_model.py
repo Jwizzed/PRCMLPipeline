@@ -1,13 +1,17 @@
 from typing import Any
 
 import pandas as pd
+from typing_extensions import Annotated
 from zenml import step
 
 
 @step
 def train_model(
-    X_train: pd.DataFrame, y_train: pd.Series, X_test: pd.DataFrame, y_test: pd.Series
-) -> Any:
+    X_train: Annotated[pd.DataFrame, "Train features"],
+    y_train: Annotated[pd.Series, "Train labels"],
+    X_test: Annotated[pd.DataFrame, "Test features"],
+    y_test: Annotated[pd.Series, "Test labels"],
+) -> Annotated[Any, "Trained model"]:
     """Trains the CatBoost regression model."""
     from catboost import CatBoostRegressor
 

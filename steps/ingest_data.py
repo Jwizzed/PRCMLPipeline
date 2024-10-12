@@ -1,10 +1,15 @@
 from zenml import step
 import pandas as pd
 from typing import Tuple
+from typing_extensions import Annotated
 
 
 @step
-def ingest_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def ingest_data() -> Tuple[
+    Annotated[pd.DataFrame, "Trajectory df"],
+    Annotated[pd.DataFrame, "Train df"],
+    Annotated[pd.DataFrame, "Test df"],
+]:
     """Reads the trajectory, train, and test data."""
     trajectory_file_path = "data/2022-01-01.parquet"
     challenge_file_path = "data/challenge_set.csv"
