@@ -5,3 +5,4 @@ sklearn
 scikit-learn
 tqdm
 catboost
+Black
