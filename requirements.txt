@@ -1,0 +1,7 @@
+zenml==0.35.1
+pandas
+mlflow
+sklearn
+scikit-learn
+tqdm
+catboost
