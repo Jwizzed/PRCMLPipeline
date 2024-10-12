@@ -1,6 +1,7 @@
 from typing import Tuple
 
 import pandas as pd
+from typing_extensions import Annotated
 from zenml import step
 
 from src.data_cleaning import DataCleaning
@@ -8,8 +9,14 @@ from src.data_cleaning import DataCleaning
 
 @step
 def clean_data(
-    trajectory_df: pd.DataFrame, train_df: pd.DataFrame, test_df: pd.DataFrame
-) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    trajectory_df: Annotated[pd.DataFrame, "Trajectory df"],
+    train_df: Annotated[pd.DataFrame, "Train df"],
+    test_df: Annotated[pd.DataFrame, "Test df"],
+) -> Tuple[
+    Annotated[pd.DataFrame, "Cleaned trajectory df"],
+    Annotated[pd.DataFrame, "Cleaned train df"],
+    Annotated[pd.DataFrame, "Cleaned test df"],
+]:
     """Cleans the trajectory, train, and test data."""
     data_cleaning = DataCleaning()
 

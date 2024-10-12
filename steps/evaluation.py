@@ -1,11 +1,17 @@
 from typing import Any
 
 import pandas as pd
+from typing_extensions import Annotated
 from zenml import step
 
 
 @step
-def evaluate_model(model: Any, X_test: pd.DataFrame, y_test: pd.Series) -> None:
+def evaluate_model(
+    model: Annotated[Any, "Trained model"],
+    X_test: Annotated[pd.DataFrame, "Test features"],
+    y_test: Annotated[pd.Series, "Test labels"],
+) -> None:
+    """Evaluates the model performance and prints feature importance."""
     """Evaluates the model performance and prints feature importance."""
     from sklearn.metrics import mean_squared_error
     import numpy as np

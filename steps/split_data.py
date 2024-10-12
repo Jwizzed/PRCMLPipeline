@@ -1,13 +1,19 @@
 from typing import Tuple
 
 import pandas as pd
+from typing_extensions import Annotated
 from zenml import step
 
 
 @step
 def split_data(
-    X: pd.DataFrame, y: pd.Series
-) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+    X: Annotated[pd.DataFrame, "Features"], y: Annotated[pd.Series, "Target"]
+) -> Tuple[
+    Annotated[pd.DataFrame, "Train features"],
+    Annotated[pd.DataFrame, "Test features"],
+    Annotated[pd.Series, "Train labels"],
+    Annotated[pd.Series, "Test labels"],
+]:
     """Splits data into training and testing sets."""
     from sklearn.model_selection import train_test_split
 
