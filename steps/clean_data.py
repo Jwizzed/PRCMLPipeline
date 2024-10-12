@@ -8,9 +8,7 @@ from src.data_cleaning import DataCleaning
 
 @step
 def clean_data(
-        trajectory_df: pd.DataFrame,
-        train_df: pd.DataFrame,
-        test_df: pd.DataFrame
+    trajectory_df: pd.DataFrame, train_df: pd.DataFrame, test_df: pd.DataFrame
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Cleans the trajectory, train, and test data."""
     data_cleaning = DataCleaning()
