@@ -10,17 +10,15 @@ from config import Config
 
 @step
 def clean_data(
-        config: Config,
-        data: Union[
-            Tuple[
-                Annotated[pd.DataFrame, "Train df"],
-                Annotated[pd.DataFrame, "Test df"]],
-            Tuple[
-                Annotated[pd.DataFrame, "Trajectory df"],
-                Annotated[pd.DataFrame, "Train df"],
-                Annotated[pd.DataFrame, "Test df"],
-            ],
+    config: Config,
+    data: Union[
+        Tuple[Annotated[pd.DataFrame, "Train df"], Annotated[pd.DataFrame, "Test df"]],
+        Tuple[
+            Annotated[pd.DataFrame, "Trajectory df"],
+            Annotated[pd.DataFrame, "Train df"],
+            Annotated[pd.DataFrame, "Test df"],
         ],
+    ],
 ) -> Union[
     Tuple[
         Annotated[pd.DataFrame, "Cleaned train df"],

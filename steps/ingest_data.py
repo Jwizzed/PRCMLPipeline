@@ -16,7 +16,7 @@ def ingest_data(config: Config) -> Union[
         Annotated[pd.DataFrame, "Trajectory df"],
         Annotated[pd.DataFrame, "Train df"],
         Annotated[pd.DataFrame, "Test df"],
-    ]
+    ],
 ]:
     """Reads the trajectory, train, and test data based on configuration."""
     challenge_file_path = "data/challenge_set.csv"
