@@ -2,11 +2,11 @@ from zenml.config import DockerSettings
 from zenml.pipelines import pipeline
 
 from steps.clean_data import clean_data
-from steps.evaluation import evaluate_model
+from steps.evaluation import evaluate_models
 from steps.feature_engineering import feature_engineering
 from steps.ingest_data import ingest_data
 from steps.split_data import split_data
-from steps.train_model import train_model
+from steps.train_model import train_models
 
 docker_settings = DockerSettings(required_integrations=["catboost"])
 
@@ -20,5 +20,5 @@ def train_pipeline():
     )
     X, y = feature_engineering(trajectory_df_cleaned, train_df_cleaned, test_df_cleaned)
     X_train, X_test, y_train, y_test = split_data(X, y)
-    model = train_model(X_train, y_train, X_test, y_test)
-    evaluate_model(model, X_test, y_test)
+    model = train_models(X_train, y_train, X_test, y_test)
+    evaluate_models(model, X_test, y_test)
