@@ -17,20 +17,23 @@ experiment_tracker = Client().active_stack.experiment_tracker
 
 @step(experiment_tracker=experiment_tracker.name)
 def train_models(
-        X_train: Annotated[pd.DataFrame, "Train features"],
-        y_train: Annotated[pd.Series, "Train labels"],
-        X_test: Annotated[pd.DataFrame, "Test features"],
-        y_test: Annotated[pd.Series, "Test labels"],
+    X_train: Annotated[pd.DataFrame, "Train features"],
+    y_train: Annotated[pd.Series, "Train labels"],
+    X_test: Annotated[pd.DataFrame, "Test features"],
+    y_test: Annotated[pd.Series, "Test labels"],
 ) -> Annotated[Dict[str, Any], "Trained models"]:
     """Trains multiple regression models and logs them with MLflow."""
 
     models = {
-        "CatBoost": CatBoostRegressor(iterations=1000, learning_rate=0.1,
-                                      depth=6, random_state=42),
-        "XGBoost": XGBRegressor(n_estimators=1000, learning_rate=0.1,
-                                max_depth=6, random_state=42),
-        "RandomForest": RandomForestRegressor(n_estimators=1000, max_depth=6,
-                                              random_state=42)
+        "CatBoost": CatBoostRegressor(
+            iterations=1000, learning_rate=0.1, depth=6, random_state=42
+        ),
+        "XGBoost": XGBRegressor(
+            n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
+        ),
+        "RandomForest": RandomForestRegressor(
+            n_estimators=1000, max_depth=6, random_state=42
+        ),
     }
 
     trained_models = {}
@@ -39,10 +42,11 @@ def train_models(
         with mlflow.start_run(run_name=f"{model_name}_training", nested=True):
             if model_name == "CatBoost":
                 model.fit(
-                    X_train, y_train,
+                    X_train,
+                    y_train,
                     eval_set=(X_test, y_test),
                     early_stopping_rounds=50,
-                    verbose=100
+                    verbose=100,
                 )
             else:
                 model.fit(X_train, y_train)

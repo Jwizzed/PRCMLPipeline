@@ -10,18 +10,18 @@ from src.feature_engineering import FeatureEngineering
 
 @step
 def feature_engineering(
-        config: Config,
-        data: Union[
-            Tuple[
-                Annotated[pd.DataFrame, "Cleaned train df"],
-                Annotated[pd.DataFrame, "Cleaned test df"],
-            ],
-            Tuple[
-                Annotated[pd.DataFrame, "Cleaned trajectory df"],
-                Annotated[pd.DataFrame, "Cleaned train df"],
-                Annotated[pd.DataFrame, "Cleaned test df"],
-            ],
+    config: Config,
+    data: Union[
+        Tuple[
+            Annotated[pd.DataFrame, "Cleaned train df"],
+            Annotated[pd.DataFrame, "Cleaned test df"],
         ],
+        Tuple[
+            Annotated[pd.DataFrame, "Cleaned trajectory df"],
+            Annotated[pd.DataFrame, "Cleaned train df"],
+            Annotated[pd.DataFrame, "Cleaned test df"],
+        ],
+    ],
 ) -> Tuple[
     Annotated[pd.DataFrame, "Engineered features"],
     Annotated[pd.Series, "Target variable"],
@@ -29,8 +29,7 @@ def feature_engineering(
     """Performs feature engineering and prepares data for modeling."""
     fe = FeatureEngineering()
     external_information = fe.get_external_information()
-    fe.external_df = pd.DataFrame.from_dict(external_information,
-                                            orient="index")
+    fe.external_df = pd.DataFrame.from_dict(external_information, orient="index")
     fe.external_df.reset_index(inplace=True)
     fe.external_df.rename(columns={"index": "aircraft_type"}, inplace=True)
 
@@ -39,10 +38,8 @@ def feature_engineering(
     else:
         train_df, test_df = data
 
-    fe.train_df = pd.merge(train_df, fe.external_df, on="aircraft_type",
-                           how="left")
-    fe.test_df = pd.merge(test_df, fe.external_df, on="aircraft_type",
-                          how="left")
+    fe.train_df = pd.merge(train_df, fe.external_df, on="aircraft_type", how="left")
+    fe.test_df = pd.merge(test_df, fe.external_df, on="aircraft_type", how="left")
 
     aircraft_types_with_info = external_information.keys()
     fe.train_df = fe.train_df[
