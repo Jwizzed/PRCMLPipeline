@@ -1,28 +1,73 @@
-from typing import Any
+import logging
+from typing import Any, Dict
 
+import mlflow
+import numpy as np
 import pandas as pd
+from catboost import CatBoostRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
 from typing_extensions import Annotated
+from xgboost import XGBRegressor
 from zenml import step
+from zenml.client import Client
+
+experiment_tracker = Client().active_stack.experiment_tracker
 
 
-@step
-def train_model(
-    X_train: Annotated[pd.DataFrame, "Train features"],
-    y_train: Annotated[pd.Series, "Train labels"],
-    X_test: Annotated[pd.DataFrame, "Test features"],
-    y_test: Annotated[pd.Series, "Test labels"],
-) -> Annotated[Any, "Trained model"]:
-    """Trains the CatBoost regression model."""
-    from catboost import CatBoostRegressor
+@step(experiment_tracker=experiment_tracker.name)
+def train_models(
+        X_train: Annotated[pd.DataFrame, "Train features"],
+        y_train: Annotated[pd.Series, "Train labels"],
+        X_test: Annotated[pd.DataFrame, "Test features"],
+        y_test: Annotated[pd.Series, "Test labels"],
+) -> Annotated[Dict[str, Any], "Trained models"]:
+    """Trains multiple regression models and logs them with MLflow."""
 
-    model = CatBoostRegressor(
-        iterations=1000, learning_rate=0.1, depth=6, random_state=42
-    )
-    model.fit(
-        X_train,
-        y_train,
-        eval_set=(X_test, y_test),
-        early_stopping_rounds=50,
-        verbose=100,
-    )
-    return model
+    models = {
+        "CatBoost": CatBoostRegressor(iterations=1000, learning_rate=0.1,
+                                      depth=6, random_state=42),
+        "XGBoost": XGBRegressor(n_estimators=1000, learning_rate=0.1,
+                                max_depth=6, random_state=42),
+        "RandomForest": RandomForestRegressor(n_estimators=1000, max_depth=6,
+                                              random_state=42)
+    }
+
+    trained_models = {}
+
+    for model_name, model in models.items():
+        with mlflow.start_run(run_name=f"{model_name}_training", nested=True):
+            if model_name == "CatBoost":
+                model.fit(
+                    X_train, y_train,
+                    eval_set=(X_test, y_test),
+                    early_stopping_rounds=50,
+                    verbose=100
+                )
+            else:
+                model.fit(X_train, y_train)
+
+            y_pred = model.predict(X_test)
+
+            mse = mean_squared_error(y_test, y_pred)
+            rmse = np.sqrt(mse)
+            r2 = r2_score(y_test, y_pred)
+
+            mlflow.log_params(model.get_params())
+
+            mlflow.log_metric("mse", mse)
+            mlflow.log_metric("rmse", rmse)
+            mlflow.log_metric("r2", r2)
+
+            if model_name == "CatBoost":
+                mlflow.catboost.log_model(model, f"{model_name}_model")
+            elif model_name == "XGBoost":
+                mlflow.xgboost.log_model(model, f"{model_name}_model")
+            else:
+                mlflow.sklearn.log_model(model, f"{model_name}_model")
+
+            trained_models[model_name] = model
+
+            logging.info(f"{model_name} - RMSE: {rmse:.4f}, R2: {r2:.4f}")
+
+    return trained_models
