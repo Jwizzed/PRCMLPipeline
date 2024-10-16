@@ -5,12 +5,13 @@ import pandas as pd
 from scipy import signal
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
+from config import Config
 
 
 class FeatureEngineering:
-    def __init__(self):
-        self.g = 32.17405  #
-        # ft/s^2
+    def __init__(self, config: Config):
+        self.g = 32.17405
+        self.config = config
         self.kt_to_ft_per_sec = 1.6878098571012
         self.m_to_ft = 3.28084
 
@@ -86,8 +87,7 @@ class FeatureEngineering:
         group["dWi_dt"] = V_wind_along.diff() / time_diff
         return group
 
-    @staticmethod
-    def identify_flight_phases(group):
+    def identify_flight_phases(self, group):
         group = group.sort_values("timestamp").reset_index(drop=True)
         group["altitude_diff"] = group["altitude"].diff()
 
@@ -102,11 +102,15 @@ class FeatureEngineering:
         group["ROC"] = np.gradient(
             altitude_smooth, group["timestamp"].astype(int) / 1e9
         )
-        max_altitude = group["altitude"].max()
-        takeoff_end_idx = group[
-            group["altitude"] > group["altitude"].quantile(0.1)
-        ].index[0]
-        top_of_climb_idx = group[group["altitude"] > max_altitude * 0.95].index[0]
+        if self.config.USE_MANUAL_PHASE:
+            takeoff_end_idx = group[group["altitude"] > 5000].index[0]
+            top_of_climb_idx = group[group["altitude"] > 15000].index[0]
+        else:
+            max_altitude = group["altitude"].max()
+            takeoff_end_idx = group[
+                group["altitude"] > group["altitude"].quantile(0.1)
+            ].index[0]
+            top_of_climb_idx = group[group["altitude"] > max_altitude * 0.95].index[0]
 
         takeoff_phase = group.loc[:takeoff_end_idx]
         initial_climb_phase = group.loc[takeoff_end_idx:top_of_climb_idx]
@@ -190,19 +194,32 @@ class FeatureEngineering:
 
         return df_normalized
 
-    @staticmethod
-    def encode_categorical_features(df):
-        from sklearn.preprocessing import OneHotEncoder
+    def encode_categorical_features(self, df):
+        from sklearn.preprocessing import LabelEncoder
 
-        encoder = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
-        encoded_features = encoder.fit_transform(df[["wtc"]])
-        feature_names = encoder.get_feature_names_out(["wtc"])
-        encoded_df = pd.DataFrame(
-            encoded_features, columns=feature_names, index=df.index
-        )
-        df_encoded = pd.concat([df, encoded_df], axis=1)
-        df_encoded = df_encoded.drop(["wtc"], axis=1)
-        return df_encoded
+        categorical_col = [
+            "adep",
+            "country_code_adep",
+            "ades",
+            "country_code_ades",
+            "aircraft_type",
+            "airline",
+        ]
+
+        encoder = LabelEncoder()
+
+        for col in categorical_col:
+            df[col + "_encoded"] = encoder.fit_transform(df[col])
+
+        df = df.drop(columns=categorical_col)
+
+        oneHot_col = ["wtc"]
+        df = pd.get_dummies(df, columns=oneHot_col, drop_first=True)
+
+        if "wtc_M" in df.columns:
+            df["wtc_M"] = df["wtc_M"].astype(int)
+
+        return df
 
     @staticmethod
     def drop_unnecessary_features(df):
@@ -210,19 +227,22 @@ class FeatureEngineering:
             "flight_id",
             "date",
             "callsign",
-            "adep",
-            "ades",
+            "name_adep",
+            "name_ades",
             "actual_offblock_time",
             "arrival_time",
-            "aircraft_type",
-            "airline",
-            "name_adep",
-            "country_code_adep",
-            "name_ades",
-            "country_code_ades",
         ]
         df_dropped = df.drop(columns=drop_cols, errors="ignore")
         return df_dropped
+
+    @staticmethod
+    def get_duration(df):
+        df["actual_offblock_time"] = pd.to_datetime(df["actual_offblock_time"])
+        df["arrival_time"] = pd.to_datetime(df["arrival_time"])
+        df["duration"] = (
+            df["arrival_time"] - df["actual_offblock_time"]
+        ).dt.total_seconds() / 60
+        return df
 
     @staticmethod
     def get_external_information():
@@ -330,9 +350,9 @@ class FeatureEngineering:
                 "V2 (IAS)": 165,
             },
             "B789": {
-                "MTOW(kg)": 228000,
-                "passengers": 210,
-                "ROC_Initial_Climb(ft/min)": 2700,
+                "MTOW(kg)": 253000,
+                "passengers": 406,
+                "ROC_Initial_Climb(ft/min)": 3000,
                 "V2 (IAS)": 165,
             },
             "BCS1": {
@@ -351,7 +371,7 @@ class FeatureEngineering:
                 "MTOW(kg)": 23000,
                 "passengers": 78,
                 "ROC_Initial_Climb(ft/min)": 1350,
-                "V2 (IAS)": 110,
+                "V2 (IAS)": 116,
             },
             "B772": {
                 "MTOW(kg)": 247210,
