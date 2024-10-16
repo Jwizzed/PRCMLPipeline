@@ -1,3 +1,4 @@
+import os
 import logging
 from typing import Any, Dict
 
@@ -23,6 +24,21 @@ def train_models(
     y_test: Annotated[pd.Series, "Test labels"],
 ) -> Annotated[Dict[str, Any], "Trained models"]:
     """Trains multiple regression models and logs them with MLflow."""
+
+    with mlflow.start_run(run_name="data_logging", nested=True):
+        mlflow.log_table(data=X_train, artifact_file="X_train.parquet")
+        mlflow.log_table(
+            data=pd.DataFrame(y_train, columns=["target"]),
+            artifact_file="y_train.parquet",
+        )
+
+        mlflow.log_table(data=X_test, artifact_file="X_test.parquet")
+        mlflow.log_table(
+            data=pd.DataFrame(y_test, columns=["target"]),
+            artifact_file="y_test.parquet",
+        )
+        artifact_uri = mlflow.get_artifact_uri()
+        mlflow.log_param("artifact_uri", artifact_uri)
 
     models = {
         "CatBoost": CatBoostRegressor(
