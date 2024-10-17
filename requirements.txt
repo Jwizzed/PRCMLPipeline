@@ -1,10 +1,13 @@
-zenml==0.35.1
+zenml
+zenml[server]==0.67.0
 pandas
 mlflow
-sklearn
 scikit-learn
 tqdm
 catboost
 xgboost
 Black
 kaleido
+optuna
+pycaret
+icecream

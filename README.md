@@ -1,8 +1,9 @@
 # PRCMLPipeline
 End-to-End PRC Data Challenge Pipeline
 
-
 # Installation
+required python 3.9
+
 pip install "zenml["server"]"
 
 ```angular2html
