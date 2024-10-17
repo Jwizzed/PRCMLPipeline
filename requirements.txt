@@ -1,5 +1,5 @@
 zenml
-zenml[server]==0.67.0
+zenml[server]
 pandas
 mlflow
 scikit-learn
