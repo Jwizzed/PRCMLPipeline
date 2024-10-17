@@ -1,14 +1,12 @@
-import os
 import logging
 from typing import Any, Dict
+from typing_extensions import Annotated
 
 import mlflow
 import numpy as np
 import pandas as pd
 from catboost import CatBoostRegressor
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
-from typing_extensions import Annotated
 from xgboost import XGBRegressor
 from zenml import step
 from zenml.client import Client
@@ -18,10 +16,10 @@ experiment_tracker = Client().active_stack.experiment_tracker
 
 @step(experiment_tracker=experiment_tracker.name)
 def train_models(
-    X_train: Annotated[pd.DataFrame, "Train features"],
-    y_train: Annotated[pd.Series, "Train labels"],
-    X_test: Annotated[pd.DataFrame, "Test features"],
-    y_test: Annotated[pd.Series, "Test labels"],
+        X_train: Annotated[pd.DataFrame, "Train features"],
+        y_train: Annotated[pd.Series, "Train labels"],
+        X_test: Annotated[pd.DataFrame, "Test features"],
+        y_test: Annotated[pd.Series, "Test labels"],
 ) -> Annotated[Dict[str, Any], "Trained models"]:
     """Trains multiple regression models and logs them with MLflow."""
 
@@ -47,9 +45,9 @@ def train_models(
         "XGBoost": XGBRegressor(
             n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
         ),
-        "RandomForest": RandomForestRegressor(
-            n_estimators=1000, max_depth=6, random_state=42
-        ),
+        # "RandomForest": RandomForestRegressor(
+        #     n_estimators=1000, max_depth=6, random_state=42
+        # ),
     }
 
     trained_models = {}
@@ -79,12 +77,17 @@ def train_models(
             mlflow.log_metric("rmse", rmse)
             mlflow.log_metric("r2", r2)
 
+            input_example = X_test.iloc[[0]]
+
             if model_name == "CatBoost":
-                mlflow.catboost.log_model(model, f"{model_name}_model")
+                mlflow.catboost.log_model(model, f"{model_name}_model",
+                                          input_example=input_example)
             elif model_name == "XGBoost":
-                mlflow.xgboost.log_model(model, f"{model_name}_model")
+                mlflow.xgboost.log_model(model, f"{model_name}_model",
+                                         input_example=input_example)
             else:
-                mlflow.sklearn.log_model(model, f"{model_name}_model")
+                mlflow.sklearn.log_model(model, f"{model_name}_model",
+                                         input_example=input_example)
 
             trained_models[model_name] = model
 

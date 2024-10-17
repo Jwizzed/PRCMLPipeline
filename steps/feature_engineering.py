@@ -24,7 +24,7 @@ def feature_engineering(
     ],
 ) -> Tuple[
     Annotated[pd.DataFrame, "Engineered features"],
-    Annotated[pd.Series, "Target variable"],
+    Annotated[pd.DataFrame, "Target variable"],
 ]:
     """Performs feature engineering and prepares data for modeling."""
     fe = FeatureEngineering(config)
@@ -83,6 +83,6 @@ def feature_engineering(
     merged_df = fe.normalize_dataframe(merged_df, exclude_columns=exclude_cols)
     merged_df = fe.encode_categorical_features(merged_df)
     X = merged_df.drop("tow", axis=1)
-    y = merged_df["tow"]
+    y = merged_df[["tow"]]
 
     return X, y
