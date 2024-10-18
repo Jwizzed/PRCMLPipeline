@@ -8,6 +8,7 @@ from steps.ingest_data import ingest_data
 from steps.split_data import split_data
 from steps.feature_selection import feature_selection
 from steps.train_models import train_models
+from steps.predict_and_save import predict_and_save
 
 docker_settings = DockerSettings(required_integrations=["MLFLOW"])
 
@@ -24,4 +25,5 @@ def train_pipeline():
         config, X_train, y_train, X_test
     )
     # best_model_info = select_best_model(X_train_selected, y_train, config)
-    train_models(X_train_selected, y_train, X_test_selected, y_test)
+    trained_models = train_models(X_train_selected, y_train, X_test_selected, y_test)
+    predict_and_save(trained_models, X_test_selected)
