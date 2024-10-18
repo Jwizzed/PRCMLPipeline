@@ -5,9 +5,14 @@ from typing_extensions import Annotated
 import mlflow
 import numpy as np
 import pandas as pd
+
 from catboost import CatBoostRegressor
-from sklearn.metrics import mean_squared_error, r2_score
 from xgboost import XGBRegressor
+from lightgbm import LGBMRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression, ElasticNet
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.ensemble import GradientBoostingRegressor
 from zenml import step
 from zenml.client import Client
 
@@ -48,6 +53,18 @@ def train_models(
         # "RandomForest": RandomForestRegressor(
         #     n_estimators=1000, max_depth=6, random_state=42
         # ),
+        # "LightGBM": LGBMRegressor(
+        #     n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
+        # ),
+        # "RandomForest": RandomForestRegressor(
+        #     n_estimators=1000, max_depth=6, random_state=42
+        # ),
+        # "LinearRegression": LinearRegression(),
+        # "ElasticNet": ElasticNet(alpha=1.0, l1_ratio=0.5, random_state=42),
+        # "GradientBoosting": GradientBoostingRegressor(
+        #     n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
+        # ),
+
     }
 
     trained_models = {}
