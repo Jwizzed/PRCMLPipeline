@@ -7,12 +7,16 @@ import numpy as np
 import pandas as pd
 
 from catboost import CatBoostRegressor
-from xgboost import XGBRegressor
 from lightgbm import LGBMRegressor
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LinearRegression, ElasticNet
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import \
+    GradientBoostingRegressor
+from sklearn.linear_model import LinearRegression, Lasso
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
+
+from sklearn.metrics import mean_squared_error, r2_score
 from zenml import step
 from zenml.client import Client
 
@@ -44,27 +48,20 @@ def train_models(
         mlflow.log_param("artifact_uri", artifact_uri)
 
     models = {
-        "CatBoost": CatBoostRegressor(
-            iterations=2000, learning_rate=0.03, depth=6, random_state=42
-        ),
+        # "CatBoost": CatBoostRegressor(
+        #     iterations=5000, learning_rate=0.1, depth=6, random_state=42
+        # ),
         # "XGBoost": XGBRegressor(
-        #     n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
+        #     n_estimators=5000, learning_rate=0.1, max_depth=6, random_state=42
         # ),
         # "RandomForest": RandomForestRegressor(
-        #     n_estimators=1000, max_depth=6, random_state=42
+        #     n_estimators=5000, max_depth=6, random_state=42
         # ),
-        # "LightGBM": LGBMRegressor(
-        #     n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
-        # ),
-        # "RandomForest": RandomForestRegressor(
-        #     n_estimators=1000, max_depth=6, random_state=42
-        # ),
-        # "LinearRegression": LinearRegression(),
-        # "ElasticNet": ElasticNet(alpha=1.0, l1_ratio=0.5, random_state=42),
-        # "GradientBoosting": GradientBoostingRegressor(
-        #     n_estimators=1000, learning_rate=0.1, max_depth=6, random_state=42
-        # ),
-
+        # "LightGBM": LGBMRegressor(n_estimators=5000, learning_rate=0.1,
+        #                           max_depth=6, random_state=42),
+        # "AdaBoost": AdaBoostRegressor(n_estimators=5000, random_state=42),
+        # "KNN": KNeighborsRegressor(n_neighbors=5)
+        # "Lasso": Lasso(alpha=1.0),
     }
 
     trained_models = {}
