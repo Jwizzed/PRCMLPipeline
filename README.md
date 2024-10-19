@@ -18,7 +18,6 @@ zenml stack register mlflow_stack -a default -o default -d mlflow -e mlflow_trac
 mlflow ui --backend-store-uri "file:/Users/krittinsetdhavanich/Library/Application Support/zenml/local_stores/236ebb32-3647-47d2-a01b-db56888775bb/mlruns"
 ```
 
-
 ## KubeFlow
 ### Installation
 #### Install Prerequisite Tools

@@ -5,6 +5,7 @@ from typing_extensions import Annotated
 import mlflow
 import numpy as np
 import pandas as pd
+
 from catboost import CatBoostRegressor
 from lightgbm import LGBMRegressor
 from sklearn.ensemble import AdaBoostRegressor
@@ -14,7 +15,8 @@ from sklearn.linear_model import LinearRegression, Lasso
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.svm import SVR
-from xgboost import XGBRegressor
+
+from sklearn.metrics import mean_squared_error, r2_score
 from zenml import step
 from zenml.client import Client
 
