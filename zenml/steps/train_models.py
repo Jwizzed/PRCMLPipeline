@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from catboost import CatBoostRegressor
-from lightgbm import LGBMRegressor
+# from lightgbm import LGBMRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.ensemble import \
     GradientBoostingRegressor
@@ -48,9 +48,9 @@ def train_models(
         mlflow.log_param("artifact_uri", artifact_uri)
 
     models = {
-        # "CatBoost": CatBoostRegressor(
-        #     iterations=5000, learning_rate=0.1, depth=6, random_state=42
-        # ),
+        "CatBoost": CatBoostRegressor(
+            iterations=5000, learning_rate=0.1, depth=6, random_state=42
+        ),
         # "XGBoost": XGBRegressor(
         #     n_estimators=5000, learning_rate=0.1, max_depth=6, random_state=42
         # ),
