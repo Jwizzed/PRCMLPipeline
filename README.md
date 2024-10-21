@@ -65,3 +65,4 @@ In case an error occurs change port to 9091
 ```angular2html
 kubectl edit deployment -n kubeflow workflow-controller
 ```
+If there is any crash or an error occurs -> wait and try it again.
