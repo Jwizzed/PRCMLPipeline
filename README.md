@@ -77,6 +77,12 @@ kubectl edit deployment -n kubeflow workflow-controller
 ```
 If there is any crash or an error occurs -> wait and try it again.
 
+Pause
+```angular2html
+multipass pause k3s
+multipass start k3s
+multipass restart k3s
+```
 
 Delete
 ```angular2html
