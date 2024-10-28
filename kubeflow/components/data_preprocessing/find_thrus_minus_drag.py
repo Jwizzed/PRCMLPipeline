@@ -2,7 +2,7 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(
-    packages_to_install=['pandas', 'cipy', 'numpy', 'tqdm', 'scipy']
+    packages_to_install=['pandas', 'numpy', 'tqdm', 'scipy']
 )
 def calculate_and_aggregate_features(
         trajectory_df_path: InputPath('CSV'),
