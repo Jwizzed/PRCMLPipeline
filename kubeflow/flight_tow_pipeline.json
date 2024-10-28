@@ -192,7 +192,19 @@
               "schemaVersion": "0.0.1"
             }
           },
+          "metrics": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
           "metrics_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "parameters_file": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
@@ -327,11 +339,11 @@
           "command": [
             "sh",
             "-c",
-            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'xgboost' 'catboost' 'mlflow' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'xgboost' 'catboost' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        catboost_model_file: OutputPath('Joblib'),\n        xgboost_model_file: OutputPath('Joblib'),\n        predictions_file: OutputPath('CSV'),\n        metrics_file: OutputPath('CSV')\n):\n    \"\"\"Trains ensemble of CatBoost and XGBoost models.\"\"\"\n    import pandas as pd\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import cross_val_score\n    import joblib\n    import mlflow\n\n    mlflow.start_run()\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    X_train = train_df.drop(['tow'], axis=1)\n    y_train = train_df['tow']\n\n    mlflow.log_param(\"train_samples\", len(X_train))\n    mlflow.log_param(\"features\", list(X_train.columns))\n\n    catboost_params = {\n        'random_state': 42,\n        'depth': 9,\n        'iterations': 2000,\n        'learning_rate': 0.15\n    }\n    mlflow.log_params({\"catboost_\" + k: v for k, v in catboost_params.items()})\n\n    catboost_model = CatBoostRegressor(**catboost_params)\n    catboost_model.fit(X_train, y_train)\n\n    catboost_cv_scores = cross_val_score(\n        catboost_model, X_train, y_train,\n        cv=5, scoring='neg_root_mean_squared_error'\n    )\n\n    xgboost_params = {\n        'random_state': 42,\n        'learning_rate': 0.05,\n        'max_depth': 8,\n        'n_estimators': 2000\n    }\n    mlflow.log_params({\"xgboost_\" + k: v for k, v in xgboost_params.items()})\n\n    xgboost_model = XGBRegressor(**xgboost_params)\n    xgboost_model.fit(X_train, y_train)\n\n    xgboost_cv_scores = cross_val_score(\n        xgboost_model, X_train, y_train,\n        cv=5, scoring='neg_root_mean_squared_error'\n    )\n\n    mlflow.log_metric(\"catboost_rmse_mean\", -catboost_cv_scores.mean())\n    mlflow.log_metric(\"catboost_rmse_std\", catboost_cv_scores.std())\n    mlflow.log_metric(\"xgboost_rmse_mean\", -xgboost_cv_scores.mean())\n    mlflow.log_metric(\"xgboost_rmse_std\", xgboost_cv_scores.std())\n\n    catboost_pred = catboost_model.predict(test_df)\n    xgboost_pred = xgboost_model.predict(test_df)\n    ensemble_pred = (catboost_pred + xgboost_pred) / 2\n\n    joblib.dump(catboost_model, catboost_model_file)\n    joblib.dump(xgboost_model, xgboost_model_file)\n\n    mlflow.sklearn.log_model(catboost_model, \"catboost_model\")\n    mlflow.sklearn.log_model(xgboost_model, \"xgboost_model\")\n\n    results_df = pd.DataFrame({\n        'flight_id': test_df['flight_id'],\n        'tow': ensemble_pred\n    })\n    results_df.to_csv(predictions_file, index=False)\n\n    metrics_df = pd.DataFrame({\n        'metric': [\n            'CatBoost CV RMSE (mean)',\n            'CatBoost CV RMSE (std)',\n            'XGBoost CV RMSE (mean)',\n            'XGBoost CV RMSE (std)'\n        ],\n        'value': [\n            -catboost_cv_scores.mean(),\n            catboost_cv_scores.std(),\n            -xgboost_cv_scores.mean(),\n            xgboost_cv_scores.std()\n        ]\n    })\n    metrics_df.to_csv(metrics_file, index=False)\n\n    mlflow.end_run()\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        catboost_model_file: OutputPath('Joblib'),\n        xgboost_model_file: OutputPath('Joblib'),\n        predictions_file: OutputPath('CSV'),\n        metrics_file: OutputPath('CSV'),\n        parameters_file: OutputPath('JSON'),\n        metrics: Output[Metrics]\n):\n    \"\"\"Trains an ensemble of CatBoost and XGBoost models.\"\"\"\n    import pandas as pd\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.metrics import mean_squared_error\n    import numpy as np\n    import joblib\n    import json\n\n    train_df = pd.read_csv(train_file)\n\n    X_train = train_df.drop(['tow'], axis=1)\n    y_train = train_df['tow']\n\n\n    catboost_params = {\n        'random_state': 42,\n        'depth': 9,\n        'iterations': 2000,\n        'learning_rate': 0.15\n    }\n\n    xgboost_params = {\n        'random_state': 42,\n        'learning_rate': 0.05,\n        'max_depth': 8,\n        'n_estimators': 2000\n    }\n\n    parameters = {\n        'train_samples': len(X_train),\n        'features': list(X_train.columns),\n        'catboost_params': catboost_params,\n        'xgboost_params': xgboost_params\n    }\n\n    with open(parameters_file, 'w') as f:\n        json.dump(parameters, f)\n\n    catboost_model = CatBoostRegressor(**catboost_params)\n    catboost_model.fit(X_train, y_train)\n    catboost_pred = catboost_model.predict(X_train)\n    catboost_rmse = np.sqrt(mean_squared_error(y_train, catboost_pred))\n\n    xgboost_model = XGBRegressor(**xgboost_params)\n    xgboost_model.fit(X_train, y_train)\n    xgboost_pred = xgboost_model.predict(X_train)\n    xgboost_rmse = np.sqrt(mean_squared_error(y_train, xgboost_pred))\n\n    metrics.log_metric(\"catboost_rmse\", catboost_rmse)\n    metrics.log_metric(\"xgboost_rmse\", xgboost_rmse)\n\n    ensemble_pred = (catboost_pred + xgboost_pred) / 2\n    ensemble_rmse = np.sqrt(mean_squared_error(y_train, ensemble_pred))\n    metrics.log_metric(\"ensemble_rmse\", ensemble_rmse)\n\n    joblib.dump(catboost_model, catboost_model_file)\n    joblib.dump(xgboost_model, xgboost_model_file)\n\n    results_df = pd.DataFrame({\n        'flight_id': X_train['flight_id'],\n        'tow': ensemble_pred\n    })\n    results_df.to_csv(predictions_file, index=False)\n\n    metrics_df = pd.DataFrame({\n        'metric': [\n            'CatBoost RMSE',\n            'XGBoost RMSE',\n            'Ensemble RMSE'\n        ],\n        'value': [\n            catboost_rmse,\n            xgboost_rmse,\n            ensemble_rmse\n        ]\n    })\n    metrics_df.to_csv(metrics_file, index=False)\n\n"
           ],
           "image": "python:3.7"
         }
@@ -344,6 +356,18 @@
   },
   "root": {
     "dag": {
+      "outputs": {
+        "artifacts": {
+          "train-ensemble-model-metrics": {
+            "artifactSelectors": [
+              {
+                "outputArtifactKey": "metrics",
+                "producerSubtask": "train-ensemble-model"
+              }
+            ]
+          }
+        }
+      },
       "tasks": {
         "add-external-data": {
           "cachingOptions": {
@@ -519,6 +543,16 @@
       "parameters": {
         "data_path": {
           "parameterType": "STRING"
+        }
+      }
+    },
+    "outputDefinitions": {
+      "artifacts": {
+        "train-ensemble-model-metrics": {
+          "artifactType": {
+            "schemaTitle": "system.Metrics",
+            "schemaVersion": "0.0.1"
+          }
         }
       }
     }

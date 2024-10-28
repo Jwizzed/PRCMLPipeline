@@ -1,7 +1,8 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
+
 @component(
-    packages_to_install=['pandas', 'cipy', 'numpy', 'tqdm']  # Corrected 'cipy' to 'cipy'
+    packages_to_install=['pandas', 'cipy', 'numpy', 'tqdm', 'scipy']
 )
 def calculate_and_aggregate_features(
         trajectory_df_path: InputPath('CSV'),
@@ -13,6 +14,8 @@ def calculate_and_aggregate_features(
     """Calculates thrust minus drag for flight phases and aggregates features."""
     import pandas as pd
     import numpy as np
+    from scipy import signal
+    from tqdm import tqdm
 
     import math
 
