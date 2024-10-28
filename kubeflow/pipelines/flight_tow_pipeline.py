@@ -1,239 +1,5 @@
 from kfp.v2 import dsl
-from kfp.v2.dsl import component, InputPath, OutputPath
-
-
-@component(
-    packages_to_install=['pandas', 'fsspec', 'gcsfs']
-)
-def load_data(
-        data_path: str,
-        train_file: OutputPath('CSV'),
-        test_file: OutputPath('CSV')
-):
-    """Loads and preprocesses the data."""
-    import pandas as pd
-
-    train_df = pd.read_csv(f"{data_path}/challenge_set.csv",
-                           parse_dates=['date', 'actual_offblock_time',
-                                        'arrival_time'])
-    test_df = pd.read_csv(f"{data_path}/submission_set.csv",
-                          parse_dates=['date', 'actual_offblock_time',
-                                       'arrival_time']).drop(["tow"], axis=1)
-
-    def get_duration(df):
-        df['duration'] = (df['arrival_time'] - df[
-            'actual_offblock_time']).dt.total_seconds() / 60
-        return df
-
-    train_df = get_duration(train_df)
-    test_df = get_duration(test_df)
-
-    datetime_columns = ['date', 'actual_offblock_time', 'arrival_time']
-    for col in datetime_columns:
-        train_df[col] = train_df[col].dt.strftime('%Y-%m-%d %H:%M:%S')
-        test_df[col] = test_df[col].dt.strftime('%Y-%m-%d %H:%M:%S')
-
-    train_df.to_csv(train_file, index=False)
-    test_df.to_csv(test_file, index=False)
-
-
-@component(
-    packages_to_install=['pandas']
-)
-def add_external_data(
-        train_file: InputPath('CSV'),
-        test_file: InputPath('CSV'),
-        train_enriched_file: OutputPath('CSV'),
-        test_enriched_file: OutputPath('CSV')
-):
-    """Adds external aircraft information."""
-    import pandas as pd
-
-    external_information = {
-        "B738": {
-            "MTOW(kg)": 70530,
-            "passengers": 162,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 145,
-        },
-        "A333": {
-            "MTOW(kg)": 230000,
-            "passengers": 295,
-            "ROC_Initial_Climb(ft/min)": 2000,
-            "V2 (IAS)": 145,
-        },
-        "B77W": {
-            "MTOW(kg)": 351500,
-            "passengers": 365,
-            "ROC_Initial_Climb(ft/min)": 2000,
-            "V2 (IAS)": 149,
-        },
-        "B38M": {
-            "MTOW(kg)": 82600,
-            "passengers": 162,
-            "ROC_Initial_Climb(ft/min)": 2500,
-            "V2 (IAS)": 145,
-        },
-        "A320": {
-            "MTOW(kg)": 73900,
-            "passengers": 150,
-            "ROC_Initial_Climb(ft/min)": 2500,
-            "V2 (IAS)": 145,
-        },
-        "E190": {
-            "MTOW(kg)": 45995,
-            "passengers": 94,
-            "ROC_Initial_Climb(ft/min)": 3400,
-            "V2 (IAS)": 138,
-        },
-        "CRJ9": {
-            "MTOW(kg)": 38330,
-            "passengers": 80,
-            "ROC_Initial_Climb(ft/min)": 2500,
-            "V2 (IAS)": 140,
-        },
-        "A21N": {
-            "MTOW(kg)": 97000,
-            "passengers": 180,
-            "ROC_Initial_Climb(ft/min)": 2000,
-            "V2 (IAS)": 145,
-        },
-        "A20N": {
-            "MTOW(kg)": 79000,
-            "passengers": 150,
-            "ROC_Initial_Climb(ft/min)": 2200,
-            "V2 (IAS)": 145,
-        },
-        "B739": {
-            "MTOW(kg)": 79015,
-            "passengers": 177,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 149,
-        },
-        "BCS3": {
-            "MTOW(kg)": 69900,
-            "passengers": 120,
-            "ROC_Initial_Climb(ft/min)": 3100,
-            "V2 (IAS)": 165,
-        },
-        "E195": {
-            "MTOW(kg)": 52290,
-            "passengers": 100,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 140,
-        },
-        "A321": {
-            "MTOW(kg)": 83000,
-            "passengers": 185,
-            "ROC_Initial_Climb(ft/min)": 2500,
-            "V2 (IAS)": 145,
-        },
-        "A359": {
-            "MTOW(kg)": 268000,
-            "passengers": 314,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 150,
-        },
-        "A319": {
-            "MTOW(kg)": 64000,
-            "passengers": 124,
-            "ROC_Initial_Climb(ft/min)": 2500,
-            "V2 (IAS)": 135,
-        },
-        "A332": {
-            "MTOW(kg)": 230000,
-            "passengers": 253,
-            "ROC_Initial_Climb(ft/min)": 2000,
-            "V2 (IAS)": 145,
-        },
-        "B788": {
-            "MTOW(kg)": 228000,
-            "passengers": 210,
-            "ROC_Initial_Climb(ft/min)": 2700,
-            "V2 (IAS)": 165,
-        },
-        "B789": {
-            "MTOW(kg)": 253000,
-            "passengers": 406,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 165,
-        },
-        "BCS1": {
-            "MTOW(kg)": 63100,
-            "passengers": 100,
-            "ROC_Initial_Climb(ft/min)": 3500,
-            "V2 (IAS)": 140,
-        },
-        "B763": {
-            "MTOW(kg)": 186880,
-            "passengers": 269,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 160,
-        },
-        "AT76": {
-            "MTOW(kg)": 23000,
-            "passengers": 78,
-            "ROC_Initial_Climb(ft/min)": 1350,
-            "V2 (IAS)": 116,
-        },
-        "B772": {
-            "MTOW(kg)": 247210,
-            "passengers": 305,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 170,
-        },
-        "B737": {
-            "MTOW(kg)": 66320,
-            "passengers": 128,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 150,
-        },
-        "A343": {
-            "MTOW(kg)": 275000,
-            "passengers": 295,
-            "ROC_Initial_Climb(ft/min)": 1400,
-            "V2 (IAS)": 145,
-        },
-        "B39M": {
-            "MTOW(kg)": 88300,
-            "passengers": 178,
-            "ROC_Initial_Climb(ft/min)": 2300,
-            "V2 (IAS)": 150,
-        },
-        "B752": {
-            "MTOW(kg)": 115680,
-            "passengers": 200,
-            "ROC_Initial_Climb(ft/min)": 3500,
-            "V2 (IAS)": 145,
-        },
-        "B773": {
-            "MTOW(kg)": 299370,
-            "passengers": 368,
-            "ROC_Initial_Climb(ft/min)": 3000,
-            "V2 (IAS)": 168,
-        },
-        "E290": {
-            "MTOW(kg)": 45995,
-            "passengers": 94,
-            "ROC_Initial_Climb(ft/min)": 3400,
-            "V2 (IAS)": 138,
-        },
-    }
-
-    train_df = pd.read_csv(train_file)
-    test_df = pd.read_csv(test_file)
-
-    external_df = pd.DataFrame.from_dict(external_information, orient='index')
-    external_df.reset_index(inplace=True)
-    external_df.rename(columns={'index': 'aircraft_type'}, inplace=True)
-
-    train_enriched = pd.merge(train_df, external_df, on='aircraft_type',
-                              how='left')
-    test_enriched = pd.merge(test_df, external_df, on='aircraft_type',
-                             how='left')
-
-    train_enriched.to_csv(train_enriched_file, index=False)
-    test_enriched.to_csv(test_enriched_file, index=False)
+from kfp.v2.dsl import component, InputPath, OutputPath, Metrics, Output
 
 
 @component(
@@ -351,8 +117,7 @@ def select_feature(
 
 
 @component(
-    packages_to_install=['pandas', 'scikit-learn', 'xgboost', 'catboost',
-                         'mlflow']
+    packages_to_install=['pandas', 'scikit-learn', 'xgboost', 'catboost']
 )
 def train_ensemble_model(
         train_file: InputPath('CSV'),
@@ -360,26 +125,24 @@ def train_ensemble_model(
         catboost_model_file: OutputPath('Joblib'),
         xgboost_model_file: OutputPath('Joblib'),
         predictions_file: OutputPath('CSV'),
-        metrics_file: OutputPath('CSV')
+        metrics_file: OutputPath('CSV'),
+        parameters_file: OutputPath('JSON'),
+        metrics: Output[Metrics]
 ):
-    """Trains ensemble of CatBoost and XGBoost models."""
+    """Trains an ensemble of CatBoost and XGBoost models."""
     import pandas as pd
     from catboost import CatBoostRegressor
     from xgboost import XGBRegressor
-    from sklearn.model_selection import cross_val_score
+    from sklearn.metrics import mean_squared_error
+    import numpy as np
     import joblib
-    import mlflow
-
-    mlflow.start_run()
+    import json
 
     train_df = pd.read_csv(train_file)
-    test_df = pd.read_csv(test_file)
 
     X_train = train_df.drop(['tow'], axis=1)
     y_train = train_df['tow']
 
-    mlflow.log_param("train_samples", len(X_train))
-    mlflow.log_param("features", list(X_train.columns))
 
     catboost_params = {
         'random_state': 42,
@@ -387,15 +150,6 @@ def train_ensemble_model(
         'iterations': 2000,
         'learning_rate': 0.15
     }
-    mlflow.log_params({"catboost_" + k: v for k, v in catboost_params.items()})
-
-    catboost_model = CatBoostRegressor(**catboost_params)
-    catboost_model.fit(X_train, y_train)
-
-    catboost_cv_scores = cross_val_score(
-        catboost_model, X_train, y_train,
-        cv=5, scoring='neg_root_mean_squared_error'
-    )
 
     xgboost_params = {
         'random_state': 42,
@@ -403,54 +157,56 @@ def train_ensemble_model(
         'max_depth': 8,
         'n_estimators': 2000
     }
-    mlflow.log_params({"xgboost_" + k: v for k, v in xgboost_params.items()})
+
+    parameters = {
+        'train_samples': len(X_train),
+        'features': list(X_train.columns),
+        'catboost_params': catboost_params,
+        'xgboost_params': xgboost_params
+    }
+
+    with open(parameters_file, 'w') as f:
+        json.dump(parameters, f)
+
+    catboost_model = CatBoostRegressor(**catboost_params)
+    catboost_model.fit(X_train, y_train)
+    catboost_pred = catboost_model.predict(X_train)
+    catboost_rmse = np.sqrt(mean_squared_error(y_train, catboost_pred))
 
     xgboost_model = XGBRegressor(**xgboost_params)
     xgboost_model.fit(X_train, y_train)
+    xgboost_pred = xgboost_model.predict(X_train)
+    xgboost_rmse = np.sqrt(mean_squared_error(y_train, xgboost_pred))
 
-    xgboost_cv_scores = cross_val_score(
-        xgboost_model, X_train, y_train,
-        cv=5, scoring='neg_root_mean_squared_error'
-    )
+    metrics.log_metric("catboost_rmse", catboost_rmse)
+    metrics.log_metric("xgboost_rmse", xgboost_rmse)
 
-    mlflow.log_metric("catboost_rmse_mean", -catboost_cv_scores.mean())
-    mlflow.log_metric("catboost_rmse_std", catboost_cv_scores.std())
-    mlflow.log_metric("xgboost_rmse_mean", -xgboost_cv_scores.mean())
-    mlflow.log_metric("xgboost_rmse_std", xgboost_cv_scores.std())
-
-    catboost_pred = catboost_model.predict(test_df)
-    xgboost_pred = xgboost_model.predict(test_df)
     ensemble_pred = (catboost_pred + xgboost_pred) / 2
+    ensemble_rmse = np.sqrt(mean_squared_error(y_train, ensemble_pred))
+    metrics.log_metric("ensemble_rmse", ensemble_rmse)
 
     joblib.dump(catboost_model, catboost_model_file)
     joblib.dump(xgboost_model, xgboost_model_file)
 
-    mlflow.sklearn.log_model(catboost_model, "catboost_model")
-    mlflow.sklearn.log_model(xgboost_model, "xgboost_model")
-
     results_df = pd.DataFrame({
-        'flight_id': test_df['flight_id'],
+        'flight_id': X_train['flight_id'],
         'tow': ensemble_pred
     })
     results_df.to_csv(predictions_file, index=False)
 
     metrics_df = pd.DataFrame({
         'metric': [
-            'CatBoost CV RMSE (mean)',
-            'CatBoost CV RMSE (std)',
-            'XGBoost CV RMSE (mean)',
-            'XGBoost CV RMSE (std)'
+            'CatBoost RMSE',
+            'XGBoost RMSE',
+            'Ensemble RMSE'
         ],
         'value': [
-            -catboost_cv_scores.mean(),
-            catboost_cv_scores.std(),
-            -xgboost_cv_scores.mean(),
-            xgboost_cv_scores.std()
+            catboost_rmse,
+            xgboost_rmse,
+            ensemble_rmse
         ]
     })
     metrics_df.to_csv(metrics_file, index=False)
-
-    mlflow.end_run()
 
 
 @dsl.pipeline(

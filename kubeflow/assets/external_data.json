@@ -1,0 +1,170 @@
+{
+  "B738": {
+      "MTOW(kg)": 70530,
+      "passengers": 162,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 145
+  },
+  "A333": {
+      "MTOW(kg)": 230000,
+      "passengers": 295,
+      "ROC_Initial_Climb(ft/min)": 2000,
+      "V2 (IAS)": 145
+  },
+  "B77W": {
+      "MTOW(kg)": 351500,
+      "passengers": 365,
+      "ROC_Initial_Climb(ft/min)": 2000,
+      "V2 (IAS)": 149
+  },
+  "B38M": {
+      "MTOW(kg)": 82600,
+      "passengers": 162,
+      "ROC_Initial_Climb(ft/min)": 2500,
+      "V2 (IAS)": 145
+  },
+  "A320": {
+      "MTOW(kg)": 73900,
+      "passengers": 150,
+      "ROC_Initial_Climb(ft/min)": 2500,
+      "V2 (IAS)": 145
+  },
+  "E190": {
+      "MTOW(kg)": 45995,
+      "passengers": 94,
+      "ROC_Initial_Climb(ft/min)": 3400,
+      "V2 (IAS)": 138
+  },
+  "CRJ9": {
+      "MTOW(kg)": 38330,
+      "passengers": 80,
+      "ROC_Initial_Climb(ft/min)": 2500,
+      "V2 (IAS)": 140
+  },
+  "A21N": {
+      "MTOW(kg)": 97000,
+      "passengers": 180,
+      "ROC_Initial_Climb(ft/min)": 2000,
+      "V2 (IAS)": 145
+  },
+  "A20N": {
+      "MTOW(kg)": 79000,
+      "passengers": 150,
+      "ROC_Initial_Climb(ft/min)": 2200,
+      "V2 (IAS)": 145
+  },
+  "B739": {
+      "MTOW(kg)": 79015,
+      "passengers": 177,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 149
+  },
+  "BCS3": {
+      "MTOW(kg)": 69900,
+      "passengers": 120,
+      "ROC_Initial_Climb(ft/min)": 3100,
+      "V2 (IAS)": 165
+  },
+  "E195": {
+      "MTOW(kg)": 52290,
+      "passengers": 100,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 140
+  },
+  "A321": {
+      "MTOW(kg)": 83000,
+      "passengers": 185,
+      "ROC_Initial_Climb(ft/min)": 2500,
+      "V2 (IAS)": 145
+  },
+  "A359": {
+      "MTOW(kg)": 268000,
+      "passengers": 314,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 150
+  },
+  "A319": {
+      "MTOW(kg)": 64000,
+      "passengers": 124,
+      "ROC_Initial_Climb(ft/min)": 2500,
+      "V2 (IAS)": 135
+  },
+  "A332": {
+      "MTOW(kg)": 230000,
+      "passengers": 253,
+      "ROC_Initial_Climb(ft/min)": 2000,
+      "V2 (IAS)": 145
+  },
+  "B788": {
+      "MTOW(kg)": 228000,
+      "passengers": 210,
+      "ROC_Initial_Climb(ft/min)": 2700,
+      "V2 (IAS)": 165
+  },
+  "B789": {
+      "MTOW(kg)": 253000,
+      "passengers": 406,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 165
+  },
+  "BCS1": {
+      "MTOW(kg)": 63100,
+      "passengers": 100,
+      "ROC_Initial_Climb(ft/min)": 3500,
+      "V2 (IAS)": 140
+  },
+  "B763": {
+      "MTOW(kg)": 186880,
+      "passengers": 269,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 160
+  },
+  "AT76": {
+      "MTOW(kg)": 23000,
+      "passengers": 78,
+      "ROC_Initial_Climb(ft/min)": 1350,
+      "V2 (IAS)": 116
+  },
+  "B772": {
+      "MTOW(kg)": 247210,
+      "passengers": 305,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 170
+  },
+  "B737": {
+      "MTOW(kg)": 66320,
+      "passengers": 128,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 150
+  },
+  "A343": {
+      "MTOW(kg)": 275000,
+      "passengers": 295,
+      "ROC_Initial_Climb(ft/min)": 1400,
+      "V2 (IAS)": 145
+  },
+  "B39M": {
+      "MTOW(kg)": 88300,
+      "passengers": 178,
+      "ROC_Initial_Climb(ft/min)": 2300,
+      "V2 (IAS)": 150
+  },
+  "B752": {
+      "MTOW(kg)": 115680,
+      "passengers": 200,
+      "ROC_Initial_Climb(ft/min)": 3500,
+      "V2 (IAS)": 145
+  },
+  "B773": {
+      "MTOW(kg)": 299370,
+      "passengers": 368,
+      "ROC_Initial_Climb(ft/min)": 3000,
+      "V2 (IAS)": 168
+  },
+  "E290": {
+      "MTOW(kg)": 45995,
+      "passengers": 94,
+      "ROC_Initial_Climb(ft/min)": 3400,
+      "V2 (IAS)": 138
+  }
+}
