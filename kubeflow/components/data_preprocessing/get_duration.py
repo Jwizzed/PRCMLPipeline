@@ -1,10 +1,10 @@
-import pandas as pd
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(packages_to_install=["pandas"])
 def calculate_flight_duration(input_df: InputPath("CSV"), output_df: OutputPath("CSV")):
     """Calculates flight duration in minutes."""
+    import pandas as pd
 
     def get_duration(df):
         df["actual_offblock_time"] = pd.to_datetime(df["actual_offblock_time"])

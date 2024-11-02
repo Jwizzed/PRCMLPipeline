@@ -1,19 +1,21 @@
-import json
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
-@component(packages_to_install=["pandas"])
+@component(packages_to_install=["pandas", "fsspec", "gcsfs"])
 def add_external_data(
-    train_file: InputPath("CSV"),
-    test_file: InputPath("CSV"),
-    external_info_file: InputPath("JSON"),
-    train_enriched_file: OutputPath("CSV"),
-    test_enriched_file: OutputPath("CSV"),
+        train_file: InputPath("CSV"),
+        test_file: InputPath("CSV"),
+        external_info_file: str,
+        train_enriched_file: OutputPath("CSV"),
+        test_enriched_file: OutputPath("CSV"),
 ):
     """Adds external aircraft information."""
     import pandas as pd
+    import fsspec
+    import json
 
-    with open(external_info_file, "r") as file:
+    # Read JSON file from GCS using fsspec
+    with fsspec.open(external_info_file, "r") as file:
         external_information = json.load(file)
 
     external_df = pd.DataFrame.from_dict(external_information, orient="index")
@@ -23,8 +25,10 @@ def add_external_data(
     train_df = pd.read_csv(train_file)
     test_df = pd.read_csv(test_file)
 
-    train_enriched = pd.merge(train_df, external_df, on="aircraft_type", how="left")
-    test_enriched = pd.merge(test_df, external_df, on="aircraft_type", how="left")
+    train_enriched = pd.merge(train_df, external_df, on="aircraft_type",
+                              how="left")
+    test_enriched = pd.merge(test_df, external_df, on="aircraft_type",
+                             how="left")
 
     train_enriched.to_csv(train_enriched_file, index=False)
     test_enriched.to_csv(test_enriched_file, index=False)

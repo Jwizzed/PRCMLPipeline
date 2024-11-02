@@ -16,6 +16,11 @@
               "schemaVersion": "0.0.1"
             }
           }
+        },
+        "parameters": {
+          "external_info_file": {
+            "parameterType": "STRING"
+          }
         }
       },
       "outputDefinitions": {
@@ -35,33 +40,35 @@
         }
       }
     },
-    "comp-clean-with-isolation-forest": {
-      "executorLabel": "exec-clean-with-isolation-forest",
+    "comp-calculate-and-aggregate-features": {
+      "executorLabel": "exec-calculate-and-aggregate-features",
       "inputDefinitions": {
         "artifacts": {
-          "test_file": {
+          "train_df_path": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
             }
           },
-          "train_file": {
+          "trajectory_df_path": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
             }
           }
+        },
+        "parameters": {
+          "flight_phases_refinement": {
+            "parameterType": "BOOLEAN"
+          },
+          "use_trajectory": {
+            "parameterType": "BOOLEAN"
+          }
         }
       },
       "outputDefinitions": {
         "artifacts": {
-          "test_cleaned_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "train_cleaned_file": {
+          "aggregated_features_path": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
@@ -70,17 +77,11 @@
         }
       }
     },
-    "comp-encode-features": {
-      "executorLabel": "exec-encode-features",
+    "comp-calculate-flight-duration": {
+      "executorLabel": "exec-calculate-flight-duration",
       "inputDefinitions": {
         "artifacts": {
-          "test_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "train_file": {
+          "input_df": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
@@ -90,13 +91,95 @@
       },
       "outputDefinitions": {
         "artifacts": {
-          "test_encoded_file": {
+          "output_df": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
             }
-          },
-          "train_encoded_file": {
+          }
+        }
+      }
+    },
+    "comp-clean-dataframe-with-isolation-forest": {
+      "executorLabel": "exec-clean-dataframe-with-isolation-forest",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "contamination": {
+            "defaultValue": 0.01,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-clean-trajectory-with-isolation-forest": {
+      "executorLabel": "exec-clean-trajectory-with-isolation-forest",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "contamination": {
+            "defaultValue": 0.01,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-encode-categorical-features": {
+      "executorLabel": "exec-encode-categorical-features",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "preserve_columns": {
+            "parameterType": "LIST"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
@@ -127,37 +210,8 @@
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
             }
-          }
-        }
-      }
-    },
-    "comp-select-feature": {
-      "executorLabel": "exec-select-feature",
-      "inputDefinitions": {
-        "artifacts": {
-          "test_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
           },
-          "train_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          }
-        }
-      },
-      "outputDefinitions": {
-        "artifacts": {
-          "test_selected_feature_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "train_selected_feature_file": {
+          "trajectory_file": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
@@ -166,57 +220,31 @@
         }
       }
     },
-    "comp-train-ensemble-model": {
-      "executorLabel": "exec-train-ensemble-model",
+    "comp-normalize-dataframe": {
+      "executorLabel": "exec-normalize-dataframe",
       "inputDefinitions": {
         "artifacts": {
-          "test_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "train_file": {
+          "input_file": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
             }
           }
+        },
+        "parameters": {
+          "exclude_columns": {
+            "parameterType": "LIST"
+          },
+          "split_by_flown_distance": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
         }
       },
       "outputDefinitions": {
         "artifacts": {
-          "catboost_model_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "metrics": {
-            "artifactType": {
-              "schemaTitle": "system.Metrics",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "metrics_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "parameters_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "predictions_file": {
-            "artifactType": {
-              "schemaTitle": "system.Artifact",
-              "schemaVersion": "0.0.1"
-            }
-          },
-          "xgboost_model_file": {
+          "output_file": {
             "artifactType": {
               "schemaTitle": "system.Artifact",
               "schemaVersion": "0.0.1"
@@ -239,22 +267,102 @@
           "command": [
             "sh",
             "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'fsspec' 'gcsfs' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef add_external_data(\n        train_file: InputPath(\"CSV\"),\n        test_file: InputPath(\"CSV\"),\n        external_info_file: str,\n        train_enriched_file: OutputPath(\"CSV\"),\n        test_enriched_file: OutputPath(\"CSV\"),\n):\n    \"\"\"Adds external aircraft information.\"\"\"\n    import pandas as pd\n    import fsspec\n    import json\n\n    # Read JSON file from GCS using fsspec\n    with fsspec.open(external_info_file, \"r\") as file:\n        external_information = json.load(file)\n\n    external_df = pd.DataFrame.from_dict(external_information, orient=\"index\")\n    external_df.reset_index(inplace=True)\n    external_df.rename(columns={\"index\": \"aircraft_type\"}, inplace=True)\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    train_enriched = pd.merge(train_df, external_df, on=\"aircraft_type\",\n                              how=\"left\")\n    test_enriched = pd.merge(test_df, external_df, on=\"aircraft_type\",\n                             how=\"left\")\n\n    train_enriched.to_csv(train_enriched_file, index=False)\n    test_enriched.to_csv(test_enriched_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-calculate-and-aggregate-features": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "calculate_and_aggregate_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'numpy' 'tqdm' 'scipy' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_and_aggregate_features(\n    trajectory_df_path: InputPath(\"CSV\"),\n    train_df_path: InputPath(\"CSV\"),\n    aggregated_features_path: OutputPath(\"CSV\"),\n    use_trajectory: bool,\n    flight_phases_refinement: bool,\n):\n    \"\"\"Calculates thrust minus drag for flight phases and aggregates features.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from scipy import signal\n    from tqdm import tqdm\n\n    import math\n\n    trajectory_df = pd.read_csv(trajectory_df_path)\n    train_df = pd.read_csv(train_df_path)\n    ktstofts = 1.6878098571012\n\n    def isa(alt):\n        T0 = 288.15\n        p0 = 101325\n        rho0 = 1.225\n        a0 = 340.294\n        k = 1.4\n        R = 287.05287\n        betabelow = -0.0065\n        trop = 11000\n\n        if alt < 0 or alt > 47000:\n            print(\"Altitude must be in [0, 47000]\")\n            return None, None\n\n        if alt == 0:\n            return T0, rho0\n\n        if 0 < alt <= trop:\n            temperature = T0 + betabelow * alt\n            pressure = p0 * (temperature / T0) ** ((-1) * 9.80665 / (betabelow * R))\n        elif trop < alt < 47000:\n            temperature = T0 + betabelow * trop\n            pressure = (\n                p0 * (temperature / T0) ** ((-1) * 9.80665 / (betabelow * R))\n            ) * math.exp(-9.80665 * (alt - trop) / (R * temperature))\n\n        density = pressure / (R * temperature)\n        return temperature, density\n\n    def calculate_true_airspeed(row):\n        GS = row[\"groundspeed\"]\n        track = np.radians(row[\"track\"])\n        u_wind = row[\"u_component_of_wind\"]\n        v_wind = row[\"v_component_of_wind\"]\n\n        V = (\n            np.sqrt(\n                (GS * np.sin(track) - u_wind) ** 2 + (GS * np.cos(track) - v_wind) ** 2\n            )\n            * ktstofts\n        )\n        return V\n\n    def calculate_vertical_speed(row):\n        return row[\"vertical_rate\"] / 60\n\n    def calculate_temp_deviation(row):\n        isa_temp, _ = isa(row[\"altitude\"])\n        return row[\"temperature\"] - isa_temp\n\n    def calculate_horizontal_acceleration(group):\n        group = group.sort_values(\"timestamp\")\n        group[\"V\"] = group.apply(calculate_true_airspeed, axis=1)\n        group[\"dV_dt\"] = (\n            group[\"V\"].diff() / group[\"timestamp\"].diff().dt.total_seconds()\n        )\n        return group\n\n    def calculate_wind_acceleration(group):\n        group = group.sort_values(\"timestamp\")\n        group[\"W_long\"] = (\n            group[\"u_component_of_wind\"] * np.sin(np.radians(group[\"track\"]))\n            + group[\"v_component_of_wind\"] * np.cos(np.radians(group[\"track\"]))\n        ) * ktstofts\n        group[\"dWi_dt\"] = (\n            group[\"W_long\"].diff() / group[\"timestamp\"].diff().dt.total_seconds()\n        )\n        return group\n\n    def identify_flight_phases(group, flight_phases_refinement=False):\n        group = group.sort_values(\"timestamp\").reset_index(drop=True)\n        group[\"altitude_diff\"] = group[\"altitude\"].diff()\n\n        # Applies a Savitzky-Golay filter to smooth the altitude profile, reducing noise.\n        altitude_smooth = signal.savgol_filter(\n            group[\"altitude\"],\n            window_length=min(21, len(group) // 2 * 2 + 1),\n            polyorder=3,\n        )\n\n        # Calculate the rate of climb (ROC)\n        group[\"ROC\"] = np.gradient(\n            altitude_smooth, group[\"timestamp\"].astype(int) / 10**9\n        )\n        max_altitude = group[\"altitude\"].max()\n        takeoff_end = group[group[\"altitude\"] > group[\"altitude\"].quantile(0.1)].index[\n            0\n        ]\n        top_of_climb = group[group[\"altitude\"] > max_altitude * 0.95].index[0]\n\n        takeoff_phase = group.loc[:takeoff_end]\n        initial_climb_phase = group.loc[takeoff_end:top_of_climb]\n        cruise_phase = group.loc[top_of_climb:]\n\n        if flight_phases_refinement:\n            # Refine takeoff phase (focus on the most significant part of the takeoff)\n            takeoff_phase = takeoff_phase[\n                takeoff_phase[\"ROC\"] > takeoff_phase[\"ROC\"].quantile(0.5)\n            ]\n\n            # Refine initial climb phase\n            initial_climb_phase = initial_climb_phase[\n                (initial_climb_phase[\"ROC\"] > initial_climb_phase[\"ROC\"].quantile(0.25))\n                & (initial_climb_phase[\"altitude\"] < max_altitude * 0.8)\n            ]\n\n        return takeoff_phase, initial_climb_phase, cruise_phase\n\n    def calculate_thrust_minus_drag_for_phases(trajectory_df, flight_phases_refinement):\n        td_list = []\n\n        for flight_id, group in tqdm.tqdm(\n            trajectory_df.groupby(\"flight_id\"), desc=\"Calculating T-D for each flight\"\n        ):\n            takeoff_phase, initial_climb_phase, _ = identify_flight_phases(\n                group, flight_phases_refinement\n            )\n\n            # You can combine takeoff and initial climb if desired\n            relevant_phase = pd.concat([takeoff_phase, initial_climb_phase])\n\n            if relevant_phase.empty:\n                continue\n\n            # Perform calculations only on the relevant phase\n            relevant_phase[\"V\"] = relevant_phase.apply(calculate_true_airspeed, axis=1)\n            relevant_phase[\"dh_dt\"] = relevant_phase.apply(\n                calculate_vertical_speed, axis=1\n            )\n            relevant_phase[\"delta_t\"] = relevant_phase.apply(\n                calculate_temp_deviation, axis=1\n            )\n\n            relevant_phase = calculate_horizontal_acceleration(relevant_phase)\n            relevant_phase = calculate_wind_acceleration(relevant_phase)\n\n            # Calculate T - D\n            relevant_phase[\"T_minus_D\"] = (\n                32.17405\n                * relevant_phase[\"dh_dt\"]\n                / relevant_phase[\"V\"]\n                * (\n                    relevant_phase[\"temperature\"]\n                    / (relevant_phase[\"temperature\"] - relevant_phase[\"delta_t\"])\n                )\n                + relevant_phase[\"dV_dt\"]\n                + relevant_phase[\"dWi_dt\"]\n            )\n\n            # Add flight ID for linking later\n            relevant_phase[\"flight_id\"] = flight_id\n\n            # Collect the relevant data\n            td_list.append(relevant_phase)\n\n        # Concatenate all flights' data\n        td_df = pd.concat(td_list, ignore_index=True)\n\n        # Drop any rows with missing T_minus_D values\n        td_df = td_df.dropna(subset=[\"T_minus_D\"])\n\n        return td_df\n\n    def aggregate_features(td_df):\n        numerical_cols = td_df.select_dtypes(include=np.number).columns.tolist()\n        if \"flight_id\" in numerical_cols:\n            numerical_cols.remove(\"flight_id\")\n        agg_funcs = {col: [\"mean\", \"ax\", \"td\"] for col in numerical_cols}\n        aggregated_features = td_df.groupby(\"flight_id\").agg(agg_funcs).reset_index()\n        aggregated_features.columns = [\n            \"_\".join(col).rstrip(\"_\") for col in aggregated_features.columns.values\n        ]\n\n        return aggregated_features\n\n    if use_trajectory:\n        td_df = calculate_thrust_minus_drag_for_phases(\n            trajectory_df, flight_phases_refinement\n        )\n        aggregated_features = aggregate_features(td_df)\n        merged_df = pd.merge(\n            train_df,\n            aggregated_features,\n            left_on=\"flight_id\",\n            right_on=\"flight_id\",\n            how=\"inner\",\n        )\n    else:\n        merged_df = train_df.copy()\n\n    merged_df.to_csv(aggregated_features_path, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-calculate-flight-duration": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "calculate_flight_duration"
+          ],
+          "command": [
+            "sh",
+            "-c",
             "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef add_external_data(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        train_enriched_file: OutputPath('CSV'),\n        test_enriched_file: OutputPath('CSV')\n):\n    \"\"\"Adds external aircraft information.\"\"\"\n    import pandas as pd\n\n    external_information = {\n        \"B738\": {\n            \"MTOW(kg)\": 70530,\n            \"passengers\": 162,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 145,\n        },\n        \"A333\": {\n            \"MTOW(kg)\": 230000,\n            \"passengers\": 295,\n            \"ROC_Initial_Climb(ft/min)\": 2000,\n            \"V2 (IAS)\": 145,\n        },\n        \"B77W\": {\n            \"MTOW(kg)\": 351500,\n            \"passengers\": 365,\n            \"ROC_Initial_Climb(ft/min)\": 2000,\n            \"V2 (IAS)\": 149,\n        },\n        \"B38M\": {\n            \"MTOW(kg)\": 82600,\n            \"passengers\": 162,\n            \"ROC_Initial_Climb(ft/min)\": 2500,\n            \"V2 (IAS)\": 145,\n        },\n        \"A320\": {\n            \"MTOW(kg)\": 73900,\n            \"passengers\": 150,\n            \"ROC_Initial_Climb(ft/min)\": 2500,\n            \"V2 (IAS)\": 145,\n        },\n        \"E190\": {\n            \"MTOW(kg)\": 45995,\n            \"passengers\": 94,\n            \"ROC_Initial_Climb(ft/min)\": 3400,\n            \"V2 (IAS)\": 138,\n        },\n        \"CRJ9\": {\n            \"MTOW(kg)\": 38330,\n            \"passengers\": 80,\n            \"ROC_Initial_Climb(ft/min)\": 2500,\n            \"V2 (IAS)\": 140,\n        },\n        \"A21N\": {\n            \"MTOW(kg)\": 97000,\n            \"passengers\": 180,\n            \"ROC_Initial_Climb(ft/min)\": 2000,\n            \"V2 (IAS)\": 145,\n        },\n        \"A20N\": {\n            \"MTOW(kg)\": 79000,\n            \"passengers\": 150,\n            \"ROC_Initial_Climb(ft/min)\": 2200,\n            \"V2 (IAS)\": 145,\n        },\n        \"B739\": {\n            \"MTOW(kg)\": 79015,\n            \"passengers\": 177,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 149,\n        },\n        \"BCS3\": {\n            \"MTOW(kg)\": 69900,\n            \"passengers\": 120,\n            \"ROC_Initial_Climb(ft/min)\": 3100,\n            \"V2 (IAS)\": 165,\n        },\n        \"E195\": {\n            \"MTOW(kg)\": 52290,\n            \"passengers\": 100,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 140,\n        },\n        \"A321\": {\n            \"MTOW(kg)\": 83000,\n            \"passengers\": 185,\n            \"ROC_Initial_Climb(ft/min)\": 2500,\n            \"V2 (IAS)\": 145,\n        },\n        \"A359\": {\n            \"MTOW(kg)\": 268000,\n            \"passengers\": 314,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 150,\n        },\n        \"A319\": {\n            \"MTOW(kg)\": 64000,\n            \"passengers\": 124,\n            \"ROC_Initial_Climb(ft/min)\": 2500,\n            \"V2 (IAS)\": 135,\n        },\n        \"A332\": {\n            \"MTOW(kg)\": 230000,\n            \"passengers\": 253,\n            \"ROC_Initial_Climb(ft/min)\": 2000,\n            \"V2 (IAS)\": 145,\n        },\n        \"B788\": {\n            \"MTOW(kg)\": 228000,\n            \"passengers\": 210,\n            \"ROC_Initial_Climb(ft/min)\": 2700,\n            \"V2 (IAS)\": 165,\n        },\n        \"B789\": {\n            \"MTOW(kg)\": 253000,\n            \"passengers\": 406,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 165,\n        },\n        \"BCS1\": {\n            \"MTOW(kg)\": 63100,\n            \"passengers\": 100,\n            \"ROC_Initial_Climb(ft/min)\": 3500,\n            \"V2 (IAS)\": 140,\n        },\n        \"B763\": {\n            \"MTOW(kg)\": 186880,\n            \"passengers\": 269,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 160,\n        },\n        \"AT76\": {\n            \"MTOW(kg)\": 23000,\n            \"passengers\": 78,\n            \"ROC_Initial_Climb(ft/min)\": 1350,\n            \"V2 (IAS)\": 116,\n        },\n        \"B772\": {\n            \"MTOW(kg)\": 247210,\n            \"passengers\": 305,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 170,\n        },\n        \"B737\": {\n            \"MTOW(kg)\": 66320,\n            \"passengers\": 128,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 150,\n        },\n        \"A343\": {\n            \"MTOW(kg)\": 275000,\n            \"passengers\": 295,\n            \"ROC_Initial_Climb(ft/min)\": 1400,\n            \"V2 (IAS)\": 145,\n        },\n        \"B39M\": {\n            \"MTOW(kg)\": 88300,\n            \"passengers\": 178,\n            \"ROC_Initial_Climb(ft/min)\": 2300,\n            \"V2 (IAS)\": 150,\n        },\n        \"B752\": {\n            \"MTOW(kg)\": 115680,\n            \"passengers\": 200,\n            \"ROC_Initial_Climb(ft/min)\": 3500,\n            \"V2 (IAS)\": 145,\n        },\n        \"B773\": {\n            \"MTOW(kg)\": 299370,\n            \"passengers\": 368,\n            \"ROC_Initial_Climb(ft/min)\": 3000,\n            \"V2 (IAS)\": 168,\n        },\n        \"E290\": {\n            \"MTOW(kg)\": 45995,\n            \"passengers\": 94,\n            \"ROC_Initial_Climb(ft/min)\": 3400,\n            \"V2 (IAS)\": 138,\n        },\n    }\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    external_df = pd.DataFrame.from_dict(external_information, orient='index')\n    external_df.reset_index(inplace=True)\n    external_df.rename(columns={'index': 'aircraft_type'}, inplace=True)\n\n    train_enriched = pd.merge(train_df, external_df, on='aircraft_type',\n                              how='left')\n    test_enriched = pd.merge(test_df, external_df, on='aircraft_type',\n                             how='left')\n\n    train_enriched.to_csv(train_enriched_file, index=False)\n    test_enriched.to_csv(test_enriched_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_flight_duration(input_df: InputPath(\"CSV\"), output_df: OutputPath(\"CSV\")):\n    \"\"\"Calculates flight duration in minutes.\"\"\"\n    import pandas as pd\n\n    def get_duration(df):\n        df[\"actual_offblock_time\"] = pd.to_datetime(df[\"actual_offblock_time\"])\n        df[\"arrival_time\"] = pd.to_datetime(df[\"arrival_time\"])\n        df[\"duration\"] = (\n            df[\"arrival_time\"] - df[\"actual_offblock_time\"]\n        ).dt.total_seconds() / 60\n        return df\n\n    df = pd.read_csv(input_df)\n    df_with_duration = get_duration(df)\n    df_with_duration.to_csv(output_df, index=False)\n\n"
           ],
           "image": "python:3.7"
         }
       },
-      "exec-clean-with-isolation-forest": {
+      "exec-clean-dataframe-with-isolation-forest": {
         "container": {
           "args": [
             "--executor_input",
             "{{$}}",
             "--function_to_execute",
-            "clean_with_isolation_forest"
+            "clean_dataframe_with_isolation_forest"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'scikit-learn' 'pandas' 'numpy' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_dataframe_with_isolation_forest(\n    input_df: InputPath(\"CSV\"),\n    output_df: OutputPath(\"CSV\"),\n    contamination: float = 0.01,\n):\n    \"\"\"Cleans a dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from sklearn.preprocessing import StandardScaler\n    from sklearn.ensemble import IsolationForest\n\n    df = pd.read_csv(input_df)\n    print(\"Shape before clean: \", df.shape)\n\n    cleaned_df = df.copy()\n    cleaned_df = cleaned_df.dropna()\n\n    numeric_columns = cleaned_df.select_dtypes(include=[np.number]).columns\n\n    scaler = StandardScaler()\n    scaled_data = scaler.fit_transform(cleaned_df[numeric_columns])\n\n    iso_forest = IsolationForest(contamination=contamination, random_state=42)\n    outlier_labels = iso_forest.fit_predict(scaled_data)\n\n    cleaned_df = cleaned_df[outlier_labels == 1].reset_index(drop=True)\n\n    print(\"Shape after clean: \", cleaned_df.shape)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-clean-trajectory-with-isolation-forest": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "clean_trajectory_with_isolation_forest"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'scikit-learn' 'pandas' 'numpy' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_trajectory_with_isolation_forest(\n    input_df: InputPath(\"CSV\"),\n    output_df: OutputPath(\"CSV\"),\n    contamination: float = 0.01,\n):\n    \"\"\"Cleans a trajectory dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from sklearn.preprocessing import StandardScaler\n    from sklearn.ensemble import IsolationForest\n\n    df = pd.read_csv(input_df)\n    print(\"Shape before clean: \", df.shape)\n\n    cleaned_df = df.copy()\n\n    cleaned_df = cleaned_df[\n        (cleaned_df[\"altitude\"] >= 0) & (cleaned_df[\"altitude\"] <= 47000)\n    ]\n    cleaned_df = cleaned_df.dropna()\n\n    numeric_columns = cleaned_df.select_dtypes(include=[np.number]).columns\n\n    def clean_group(group):\n        if len(group) <= 1:\n            return group\n\n        scaler = StandardScaler()\n        scaled_data = scaler.fit_transform(group[numeric_columns])\n\n        iso_forest = IsolationForest(contamination=contamination, random_state=42)\n        outlier_labels = iso_forest.fit_predict(scaled_data)\n\n        return group[outlier_labels == 1]\n\n    cleaned_df = cleaned_df.groupby(\"flight_id\").apply(clean_group)\n\n    cleaned_df = cleaned_df.reset_index(drop=True)\n\n    print(\"Shape after clean: \", cleaned_df.shape)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-encode-categorical-features": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "encode_categorical_features"
           ],
           "command": [
             "sh",
@@ -263,27 +371,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_with_isolation_forest(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        train_cleaned_file: OutputPath('CSV'),\n        test_cleaned_file: OutputPath('CSV')\n):\n    \"\"\"Cleans data using Isolation Forest.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from sklearn.ensemble import IsolationForest\n    from sklearn.preprocessing import StandardScaler\n\n    def clean_dataframe_with_isolation_forest(df, contamination=0.01):\n        cleaned_df = df.copy()\n        cleaned_df = cleaned_df.dropna()\n\n        numeric_columns = cleaned_df.select_dtypes(include=[np.number]).columns\n        scaler = StandardScaler()\n        scaled_data = scaler.fit_transform(cleaned_df[numeric_columns])\n\n        iso_forest = IsolationForest(contamination=contamination,\n                                     random_state=42)\n        outlier_labels = iso_forest.fit_predict(scaled_data)\n        cleaned_df = cleaned_df[outlier_labels == 1].reset_index(drop=True)\n\n        return cleaned_df\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    train_cleaned = clean_dataframe_with_isolation_forest(train_df)\n    test_cleaned = clean_dataframe_with_isolation_forest(test_df)\n\n    train_cleaned.to_csv(train_cleaned_file, index=False)\n    test_cleaned.to_csv(test_cleaned_file, index=False)\n\n"
-          ],
-          "image": "python:3.7"
-        }
-      },
-      "exec-encode-features": {
-        "container": {
-          "args": [
-            "--executor_input",
-            "{{$}}",
-            "--function_to_execute",
-            "encode_features"
-          ],
-          "command": [
-            "sh",
-            "-c",
-            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
-            "sh",
-            "-ec",
-            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef encode_features(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        train_encoded_file: OutputPath('CSV'),\n        test_encoded_file: OutputPath('CSV')\n):\n    \"\"\"Encodes categorical features.\"\"\"\n    import pandas as pd\n    from sklearn.preprocessing import LabelEncoder\n\n    def encode_categorical_features(df):\n        categorical_col = [\"adep\", \"country_code_adep\", \"ades\",\n                           \"country_code_ades\",\n                           \"aircraft_type\", \"airline\"]\n\n        encoder = LabelEncoder()\n        for col in categorical_col:\n            df[col + \"_encoded\"] = encoder.fit_transform(df[col])\n            df = df.drop(columns=[col])\n\n        df = pd.get_dummies(df, columns=[\"wtc\"])\n        df[\"wtc_M\"] = df[\"wtc_M\"].astype(int)\n        df[\"wtc_H\"] = df[\"wtc_H\"].astype(int)\n\n        return df\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    train_encoded = encode_categorical_features(train_df)\n    test_encoded = encode_categorical_features(test_df)\n\n    train_encoded.to_csv(train_encoded_file, index=False)\n    test_encoded.to_csv(test_encoded_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef encode_categorical_features(\n    input_file: InputPath(\"CSV\"), output_file: OutputPath(\"CSV\"), preserve_columns: list\n):\n    \"\"\"Encodes categorical features in the dataframe, with the option to preserve certain columns.\"\"\"\n    import pandas as pd\n    from sklearn.preprocessing import LabelEncoder\n\n    df = pd.read_csv(input_file)\n\n    df_encoded = df.copy()\n\n    categorical_col = [\n        \"adep\",\n        \"country_code_adep\",\n        \"ades\",\n        \"country_code_ades\",\n        \"aircraft_type\",\n        \"airline\",\n    ]\n\n    encoder = LabelEncoder()\n\n    for col in categorical_col:\n        df_encoded[col + \"_encoded\"] = encoder.fit_transform(df_encoded[col])\n        if col not in preserve_columns:\n            df_encoded = df_encoded.drop(columns=[col])\n\n    oneHot_col = [\"wtc\"]\n    df_encoded = pd.get_dummies(df_encoded, columns=oneHot_col)\n\n    df_encoded[\"wtc_M\"] = df_encoded[\"wtc_M\"].astype(int)\n    df_encoded[\"wtc_H\"] = df_encoded[\"wtc_H\"].astype(int)\n\n    df_encoded.to_csv(output_file, index=False)\n\n"
           ],
           "image": "python:3.7"
         }
@@ -299,51 +387,31 @@
           "command": [
             "sh",
             "-c",
-            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'fsspec' 'gcsfs' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'fsspec' 'gcsfs' 'pyarrow' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef load_data(\n        data_path: str,\n        train_file: OutputPath('CSV'),\n        test_file: OutputPath('CSV')\n):\n    \"\"\"Loads and preprocesses the data.\"\"\"\n    import pandas as pd\n\n    train_df = pd.read_csv(f\"{data_path}/challenge_set.csv\",\n                           parse_dates=['date', 'actual_offblock_time',\n                                        'arrival_time'])\n    test_df = pd.read_csv(f\"{data_path}/submission_set.csv\",\n                          parse_dates=['date', 'actual_offblock_time',\n                                       'arrival_time']).drop([\"tow\"], axis=1)\n\n    def get_duration(df):\n        df['duration'] = (df['arrival_time'] - df[\n            'actual_offblock_time']).dt.total_seconds() / 60\n        return df\n\n    train_df = get_duration(train_df)\n    test_df = get_duration(test_df)\n\n    datetime_columns = ['date', 'actual_offblock_time', 'arrival_time']\n    for col in datetime_columns:\n        train_df[col] = train_df[col].dt.strftime('%Y-%m-%d %H:%M:%S')\n        test_df[col] = test_df[col].dt.strftime('%Y-%m-%d %H:%M:%S')\n\n    train_df.to_csv(train_file, index=False)\n    test_df.to_csv(test_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef load_data(\n        data_path: str,\n        train_file: OutputPath(\"CSV\"),\n        test_file: OutputPath(\"CSV\"),\n        trajectory_file: OutputPath(\"CSV\")\n):\n    \"\"\"Loads the flight data and trajectory data.\"\"\"\n    import pandas as pd\n\n    # Load main flight data\n    train_df = pd.read_csv(\n        f\"{data_path}/challenge_set.csv\",\n        parse_dates=[\"date\", \"actual_offblock_time\", \"arrival_time\"]\n    )\n\n    test_df = pd.read_csv(\n        f\"{data_path}/submission_set.csv\",\n        parse_dates=[\"date\", \"actual_offblock_time\", \"arrival_time\"]\n    ).drop([\"tow\"], axis=1)\n\n    # Format datetime columns\n    datetime_columns = [\"date\", \"actual_offblock_time\", \"arrival_time\"]\n    for col in datetime_columns:\n        train_df[col] = train_df[col].dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n        test_df[col] = test_df[col].dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n\n    trajectory_df = pd.read_parquet(f\"{data_path}/2022-01-01.parquet\")\n\n    train_df.to_csv(train_file, index=False)\n    test_df.to_csv(test_file, index=False)\n    trajectory_df.to_csv(trajectory_file, index=False)\n\n"
           ],
           "image": "python:3.7"
         }
       },
-      "exec-select-feature": {
+      "exec-normalize-dataframe": {
         "container": {
           "args": [
             "--executor_input",
             "{{$}}",
             "--function_to_execute",
-            "select_feature"
+            "normalize_dataframe"
           ],
           "command": [
             "sh",
             "-c",
-            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef select_feature(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        train_selected_feature_file: OutputPath('CSV'),\n        test_selected_feature_file: OutputPath('CSV'),\n):\n    import pandas as pd\n\n    def drop_features(df):\n        drop_cols = [\n            # \"flight_id\",\n            \"date\",\n            \"callsign\",\n            \"name_adep\",\n            \"name_ades\",\n            \"actual_offblock_time\",\n            \"arrival_time\",\n        ]\n        dropped_df = df.drop(columns=drop_cols, errors='ignore')\n\n        return dropped_df\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    train_df = drop_features(train_df)\n    test_df = drop_features(test_df)\n\n    train_df.to_csv(train_selected_feature_file, index=False)\n    test_df.to_csv(test_selected_feature_file, index=False)\n\n"
-          ],
-          "image": "python:3.7"
-        }
-      },
-      "exec-train-ensemble-model": {
-        "container": {
-          "args": [
-            "--executor_input",
-            "{{$}}",
-            "--function_to_execute",
-            "train_ensemble_model"
-          ],
-          "command": [
-            "sh",
-            "-c",
-            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'xgboost' 'catboost' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
-            "sh",
-            "-ec",
-            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n        train_file: InputPath('CSV'),\n        test_file: InputPath('CSV'),\n        catboost_model_file: OutputPath('Joblib'),\n        xgboost_model_file: OutputPath('Joblib'),\n        predictions_file: OutputPath('CSV'),\n        metrics_file: OutputPath('CSV'),\n        parameters_file: OutputPath('JSON'),\n        metrics: Output[Metrics]\n):\n    \"\"\"Trains an ensemble of CatBoost and XGBoost models.\"\"\"\n    import pandas as pd\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.metrics import mean_squared_error\n    import numpy as np\n    import joblib\n    import json\n\n    train_df = pd.read_csv(train_file)\n\n    X_train = train_df.drop(['tow'], axis=1)\n    y_train = train_df['tow']\n\n\n    catboost_params = {\n        'random_state': 42,\n        'depth': 9,\n        'iterations': 2000,\n        'learning_rate': 0.15\n    }\n\n    xgboost_params = {\n        'random_state': 42,\n        'learning_rate': 0.05,\n        'max_depth': 8,\n        'n_estimators': 2000\n    }\n\n    parameters = {\n        'train_samples': len(X_train),\n        'features': list(X_train.columns),\n        'catboost_params': catboost_params,\n        'xgboost_params': xgboost_params\n    }\n\n    with open(parameters_file, 'w') as f:\n        json.dump(parameters, f)\n\n    catboost_model = CatBoostRegressor(**catboost_params)\n    catboost_model.fit(X_train, y_train)\n    catboost_pred = catboost_model.predict(X_train)\n    catboost_rmse = np.sqrt(mean_squared_error(y_train, catboost_pred))\n\n    xgboost_model = XGBRegressor(**xgboost_params)\n    xgboost_model.fit(X_train, y_train)\n    xgboost_pred = xgboost_model.predict(X_train)\n    xgboost_rmse = np.sqrt(mean_squared_error(y_train, xgboost_pred))\n\n    metrics.log_metric(\"catboost_rmse\", catboost_rmse)\n    metrics.log_metric(\"xgboost_rmse\", xgboost_rmse)\n\n    ensemble_pred = (catboost_pred + xgboost_pred) / 2\n    ensemble_rmse = np.sqrt(mean_squared_error(y_train, ensemble_pred))\n    metrics.log_metric(\"ensemble_rmse\", ensemble_rmse)\n\n    joblib.dump(catboost_model, catboost_model_file)\n    joblib.dump(xgboost_model, xgboost_model_file)\n\n    results_df = pd.DataFrame({\n        'flight_id': X_train['flight_id'],\n        'tow': ensemble_pred\n    })\n    results_df.to_csv(predictions_file, index=False)\n\n    metrics_df = pd.DataFrame({\n        'metric': [\n            'CatBoost RMSE',\n            'XGBoost RMSE',\n            'Ensemble RMSE'\n        ],\n        'value': [\n            catboost_rmse,\n            xgboost_rmse,\n            ensemble_rmse\n        ]\n    })\n    metrics_df.to_csv(metrics_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef normalize_dataframe(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    exclude_columns: list,\n    split_by_flown_distance: bool = False,\n):\n    \"\"\"Normalizes the dataframe and excludes specified columns from normalization.\"\"\"\n    import pandas as pd\n    from sklearn.preprocessing import StandardScaler\n    import numpy as np\n\n    df = pd.read_csv(input_file)\n\n    if split_by_flown_distance:\n        exclude_columns.append(\"flown_distance\")\n\n    df_normalized = df.copy()\n    columns_to_normalize = df.select_dtypes(include=[np.number]).columns.difference(\n        exclude_columns\n    )\n\n    scaler = StandardScaler()\n    df_normalized[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])\n\n    df_normalized.to_csv(output_file, index=False)\n\n"
           ],
           "image": "python:3.7"
         }
@@ -356,18 +424,6 @@
   },
   "root": {
     "dag": {
-      "outputs": {
-        "artifacts": {
-          "train-ensemble-model-metrics": {
-            "artifactSelectors": [
-              {
-                "outputArtifactKey": "metrics",
-                "producerSubtask": "train-ensemble-model"
-              }
-            ]
-          }
-        }
-      },
       "tasks": {
         "add-external-data": {
           "cachingOptions": {
@@ -377,6 +433,7 @@
             "name": "comp-add-external-data"
           },
           "dependentTasks": [
+            "calculate-flight-duration",
             "load-data"
           ],
           "inputs": {
@@ -389,9 +446,14 @@
               },
               "train_file": {
                 "taskOutputArtifact": {
-                  "outputArtifactKey": "train_file",
-                  "producerTask": "load-data"
+                  "outputArtifactKey": "output_df",
+                  "producerTask": "calculate-flight-duration"
                 }
+              }
+            },
+            "parameters": {
+              "external_info_file": {
+                "componentInputParameter": "external_data_path"
               }
             }
           },
@@ -399,64 +461,166 @@
             "name": "add-external-data"
           }
         },
-        "clean-with-isolation-forest": {
+        "calculate-and-aggregate-features": {
           "cachingOptions": {
             "enableCache": true
           },
           "componentRef": {
-            "name": "comp-clean-with-isolation-forest"
+            "name": "comp-calculate-and-aggregate-features"
+          },
+          "dependentTasks": [
+            "clean-dataframe-with-isolation-forest",
+            "clean-trajectory-with-isolation-forest"
+          ],
+          "inputs": {
+            "artifacts": {
+              "train_df_path": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_df",
+                  "producerTask": "clean-dataframe-with-isolation-forest"
+                }
+              },
+              "trajectory_df_path": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_df",
+                  "producerTask": "clean-trajectory-with-isolation-forest"
+                }
+              }
+            },
+            "parameters": {
+              "flight_phases_refinement": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              },
+              "use_trajectory": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "calculate-and-aggregate-features"
+          }
+        },
+        "calculate-flight-duration": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-calculate-flight-duration"
+          },
+          "dependentTasks": [
+            "load-data"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_df": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "train_file",
+                  "producerTask": "load-data"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "calculate-flight-duration"
+          }
+        },
+        "clean-dataframe-with-isolation-forest": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-clean-dataframe-with-isolation-forest"
           },
           "dependentTasks": [
             "add-external-data"
           ],
           "inputs": {
             "artifacts": {
-              "test_file": {
-                "taskOutputArtifact": {
-                  "outputArtifactKey": "test_enriched_file",
-                  "producerTask": "add-external-data"
-                }
-              },
-              "train_file": {
+              "input_df": {
                 "taskOutputArtifact": {
                   "outputArtifactKey": "train_enriched_file",
                   "producerTask": "add-external-data"
                 }
               }
-            }
-          },
-          "taskInfo": {
-            "name": "clean-with-isolation-forest"
-          }
-        },
-        "encode-features": {
-          "cachingOptions": {
-            "enableCache": true
-          },
-          "componentRef": {
-            "name": "comp-encode-features"
-          },
-          "dependentTasks": [
-            "clean-with-isolation-forest"
-          ],
-          "inputs": {
-            "artifacts": {
-              "test_file": {
-                "taskOutputArtifact": {
-                  "outputArtifactKey": "test_cleaned_file",
-                  "producerTask": "clean-with-isolation-forest"
-                }
-              },
-              "train_file": {
-                "taskOutputArtifact": {
-                  "outputArtifactKey": "train_cleaned_file",
-                  "producerTask": "clean-with-isolation-forest"
+            },
+            "parameters": {
+              "contamination": {
+                "runtimeValue": {
+                  "constant": 0.01
                 }
               }
             }
           },
           "taskInfo": {
-            "name": "encode-features"
+            "name": "clean-dataframe-with-isolation-forest"
+          }
+        },
+        "clean-trajectory-with-isolation-forest": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-clean-trajectory-with-isolation-forest"
+          },
+          "dependentTasks": [
+            "load-data"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_df": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "trajectory_file",
+                  "producerTask": "load-data"
+                }
+              }
+            },
+            "parameters": {
+              "contamination": {
+                "runtimeValue": {
+                  "constant": 0.01
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "clean-trajectory-with-isolation-forest"
+          }
+        },
+        "encode-categorical-features": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-encode-categorical-features"
+          },
+          "dependentTasks": [
+            "normalize-dataframe"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "normalize-dataframe"
+                }
+              }
+            },
+            "parameters": {
+              "preserve_columns": {
+                "runtimeValue": {
+                  "constant": [
+                    "aircraft_type"
+                  ]
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "encode-categorical-features"
           }
         },
         "load-data": {
@@ -477,64 +641,43 @@
             "name": "load-data"
           }
         },
-        "select-feature": {
+        "normalize-dataframe": {
           "cachingOptions": {
             "enableCache": true
           },
           "componentRef": {
-            "name": "comp-select-feature"
+            "name": "comp-normalize-dataframe"
           },
           "dependentTasks": [
-            "encode-features"
+            "calculate-and-aggregate-features"
           ],
           "inputs": {
             "artifacts": {
-              "test_file": {
+              "input_file": {
                 "taskOutputArtifact": {
-                  "outputArtifactKey": "test_encoded_file",
-                  "producerTask": "encode-features"
+                  "outputArtifactKey": "aggregated_features_path",
+                  "producerTask": "calculate-and-aggregate-features"
+                }
+              }
+            },
+            "parameters": {
+              "exclude_columns": {
+                "runtimeValue": {
+                  "constant": [
+                    "flight_id",
+                    "tow"
+                  ]
                 }
               },
-              "train_file": {
-                "taskOutputArtifact": {
-                  "outputArtifactKey": "train_encoded_file",
-                  "producerTask": "encode-features"
+              "split_by_flown_distance": {
+                "runtimeValue": {
+                  "constant": true
                 }
               }
             }
           },
           "taskInfo": {
-            "name": "select-feature"
-          }
-        },
-        "train-ensemble-model": {
-          "cachingOptions": {
-            "enableCache": true
-          },
-          "componentRef": {
-            "name": "comp-train-ensemble-model"
-          },
-          "dependentTasks": [
-            "select-feature"
-          ],
-          "inputs": {
-            "artifacts": {
-              "test_file": {
-                "taskOutputArtifact": {
-                  "outputArtifactKey": "test_selected_feature_file",
-                  "producerTask": "select-feature"
-                }
-              },
-              "train_file": {
-                "taskOutputArtifact": {
-                  "outputArtifactKey": "train_selected_feature_file",
-                  "producerTask": "select-feature"
-                }
-              }
-            }
-          },
-          "taskInfo": {
-            "name": "train-ensemble-model"
+            "name": "normalize-dataframe"
           }
         }
       }
@@ -543,16 +686,9 @@
       "parameters": {
         "data_path": {
           "parameterType": "STRING"
-        }
-      }
-    },
-    "outputDefinitions": {
-      "artifacts": {
-        "train-ensemble-model-metrics": {
-          "artifactType": {
-            "schemaTitle": "system.Metrics",
-            "schemaVersion": "0.0.1"
-          }
+        },
+        "external_data_path": {
+          "parameterType": "STRING"
         }
       }
     }

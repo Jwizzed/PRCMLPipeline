@@ -1,13 +1,14 @@
 from google.cloud import aiplatform
 from kfp import compiler
 
-from pipelines.flight_tow_pipeline import flight_tow_pipeline
+from kubeflow.pipelines.flight_tow_pipeline import flight_tow_pipeline
 
 
 def run_pipeline(
     project_id: str,
     pipeline_root: str,
     data_path: str,
+    external_data_path: str,
     location: str = "us-central1",
     pipeline_name: str = "flight-tow-prediction",
 ):
@@ -26,6 +27,7 @@ def run_pipeline(
         pipeline_root=pipeline_root,
         parameter_values={
             "data_path": data_path,
+            "external_data_path": external_data_path,
         },
     )
 
@@ -36,9 +38,11 @@ if __name__ == "__main__":
     PROJECT_ID = "prc-data-pipeline"
     PIPELINE_ROOT = "gs://prc-data-pipeline/pipeline"
     DATA_PATH = "gs://prc-data-pipeline/data"
+    EXTERNAL_DATA_PATH = "gs://prc-data-pipeline/data/external_data.json"
 
     run_pipeline(
         project_id=PROJECT_ID,
         pipeline_root=PIPELINE_ROOT,
         data_path=DATA_PATH,
+        external_data_path=EXTERNAL_DATA_PATH
     )
