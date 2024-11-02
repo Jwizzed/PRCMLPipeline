@@ -101,10 +101,14 @@ def calculate_and_aggregate_features(
             polyorder=3,
         )
 
+        if isinstance(group["timestamp"].iloc[0], str):
+            # Convert string timestamp to pandas datetime
+            group["timestamp"] = pd.to_datetime(group["timestamp"])
+        timestamp_seconds = group["timestamp"].astype('int64') // 10 ** 9
+
         # Calculate the rate of climb (ROC)
-        group["ROC"] = np.gradient(
-            altitude_smooth, group["timestamp"].astype(int) / 10**9
-        )
+        group["ROC"] = np.gradient(altitude_smooth, timestamp_seconds)
+
         max_altitude = group["altitude"].max()
         takeoff_end = group[group["altitude"] > group["altitude"].quantile(0.1)].index[
             0
@@ -132,7 +136,7 @@ def calculate_and_aggregate_features(
     def calculate_thrust_minus_drag_for_phases(trajectory_df, flight_phases_refinement):
         td_list = []
 
-        for flight_id, group in tqdm.tqdm(
+        for flight_id, group in tqdm(
             trajectory_df.groupby("flight_id"), desc="Calculating T-D for each flight"
         ):
             takeoff_phase, initial_climb_phase, _ = identify_flight_phases(
@@ -188,7 +192,7 @@ def calculate_and_aggregate_features(
         numerical_cols = td_df.select_dtypes(include=np.number).columns.tolist()
         if "flight_id" in numerical_cols:
             numerical_cols.remove("flight_id")
-        agg_funcs = {col: ["mean", "ax", "td"] for col in numerical_cols}
+        agg_funcs = {col: ["mean", "max", "std"] for col in numerical_cols}
         aggregated_features = td_df.groupby("flight_id").agg(agg_funcs).reset_index()
         aggregated_features.columns = [
             "_".join(col).rstrip("_") for col in aggregated_features.columns.values
