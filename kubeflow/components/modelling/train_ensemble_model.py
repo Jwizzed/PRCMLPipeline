@@ -4,7 +4,7 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 @component(
     packages_to_install=["pandas", "scikit-learn", "catboost", "xgboost", "joblib"]
 )
-def ensemble_models(
+def train_ensemble_model(
     x_train_file: InputPath("CSV"),
     y_train_file: InputPath("CSV"),
     x_test_file: InputPath("CSV"),
@@ -29,13 +29,11 @@ def ensemble_models(
     from sklearn.metrics import mean_squared_error
     import joblib
 
-    # Load data
     X_train = pd.read_csv(x_train_file)
     y_train = pd.read_csv(y_train_file)
     X_test = pd.read_csv(x_test_file)
     y_test = pd.read_csv(y_test_file)
 
-    # Train CatBoost
     if find_best_parameters:
         catboost_model = CatBoostRegressor(random_state=42)
         catboost_param_grid = {
@@ -71,7 +69,6 @@ def ensemble_models(
         best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)
         catboost_params = None
 
-    # Train XGBoost
     if find_best_parameters:
         xgboost_model = XGBRegressor(random_state=42)
         xgboost_param_grid = {
@@ -103,21 +100,17 @@ def ensemble_models(
         best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)
         xgboost_params = None
 
-    # Save models
     joblib.dump(best_catboost, catboost_model_output)
     joblib.dump(best_xgboost, xgboost_model_output)
 
-    # Make predictions
     y_pred_catboost = best_catboost.predict(X_test)
     y_pred_xgboost = best_xgboost.predict(X_test)
     y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2
 
-    # Calculate metrics
     catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))
     xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))
     ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))
 
-    # Feature importance
     catboost_importance = pd.DataFrame(
         {
             "feature": X_train.columns,

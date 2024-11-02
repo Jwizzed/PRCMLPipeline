@@ -22,7 +22,6 @@ def train_xgboost_model(
     from sklearn.metrics import mean_squared_error
     import joblib
 
-    # Load data
     X_train = pd.read_csv(x_train_file)
     y_train = pd.read_csv(y_train_file)
     X_test = pd.read_csv(x_test_file)
@@ -58,10 +57,8 @@ def train_xgboost_model(
 
     rmse = float(np.sqrt(mean_squared_error(y_test, y_pred)))
 
-    # Save model
     joblib.dump(model, model_output)
 
-    # Feature importance
     feature_importance = pd.DataFrame(
         {"feature": X_train.columns, "importance": model.feature_importances_}
     ).sort_values("importance", ascending=False)

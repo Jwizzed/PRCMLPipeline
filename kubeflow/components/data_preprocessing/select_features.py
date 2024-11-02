@@ -2,7 +2,7 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(packages_to_install=["pandas"])
-def drop_features_component(
+def drop_features(
     input_file: InputPath("CSV"),
     output_file: OutputPath("CSV"),
     final_drop: bool = False,
@@ -29,7 +29,7 @@ def drop_features_component(
 
 
 @component(packages_to_install=["pandas", "scikit-learn"])
-def feature_selection_component(
+def feature_selection(
     X_train_file: InputPath("CSV"),
     y_train_file: InputPath("CSV"),
     X_test_file: InputPath("CSV"),
@@ -79,67 +79,27 @@ def feature_selection_component(
 
 
 @component(packages_to_install=["pandas", "scikit-learn"])
-def split_wtc_component(
-    input_file: InputPath("CSV"),
-    X_wtc_M_file: OutputPath("CSV"),
-    X_wtc_H_file: OutputPath("CSV"),
-    y_wtc_M_file: OutputPath("CSV"),
-    y_wtc_H_file: OutputPath("CSV"),
+def process_category_split(
+        X_file: InputPath("CSV"),
+        y_file: InputPath("CSV"),
+        X_train_output: OutputPath("CSV"),
+        X_test_output: OutputPath("CSV"),
+        y_train_output: OutputPath("CSV"),
+        y_test_output: OutputPath("CSV"),
 ):
-    """Splits data by Wake Turbulence Category."""
-    import pandas as pd
-
-    df = pd.read_csv(input_file)
-
-    X = df.drop(["tow"], axis=1)
-    y = df[["flight_id", "tow"]]
-
-    X_wtc_M = X[X["wtc_M"] == 1].drop(["wtc_H", "wtc_M"], axis=1).reset_index(drop=True)
-    X_wtc_H = X[X["wtc_H"] == 1].drop(["wtc_H", "wtc_M"], axis=1).reset_index(drop=True)
-
-    y_wtc_M = (
-        y[y["flight_id"].isin(X_wtc_M.flight_id.unique())]
-        .drop("flight_id", axis=1)
-        .reset_index(drop=True)
-    )
-    y_wtc_H = (
-        y[y["flight_id"].isin(X_wtc_H.flight_id.unique())]
-        .drop("flight_id", axis=1)
-        .reset_index(drop=True)
-    )
-
-    X_wtc_M = X_wtc_M.drop("flight_id", axis=1).reset_index(drop=True)
-    X_wtc_H = X_wtc_H.drop("flight_id", axis=1).reset_index(drop=True)
-
-    X_wtc_M.to_csv(X_wtc_M_file, index=False)
-    X_wtc_H.to_csv(X_wtc_H_file, index=False)
-    y_wtc_M.to_csv(y_wtc_M_file, index=False)
-    y_wtc_H.to_csv(y_wtc_H_file, index=False)
-
-
-@component(packages_to_install=["pandas", "scikit-learn"])
-def train_test_split_component(
-    input_file: InputPath("CSV"),
-    X_train_file: OutputPath("CSV"),
-    X_test_file: OutputPath("CSV"),
-    y_train_file: OutputPath("CSV"),
-    y_test_file: OutputPath("CSV"),
-    test_size: float = 0.2,
-    random_state: int = 42,
-):
-    """Performs train-test split on the input data."""
+    """Performs train-test split and prints shapes for a category."""
     import pandas as pd
     from sklearn.model_selection import train_test_split
 
-    df = pd.read_csv(input_file)
-    X = df.drop(["tow"], axis=1)
-    y = df[["tow"]]
+    X = pd.read_csv(X_file)
+    y = pd.read_csv(y_file)
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state
+        X, y, test_size=0.2, random_state=42
     )
 
-    X_train.to_csv(X_train_file, index=False)
-    X_test.to_csv(X_test_file, index=False)
-    y_train.to_csv(y_train_file, index=False)
-    y_test.to_csv(y_test_file, index=False)
+    X_train.to_csv(X_train_output, index=False)
+    X_test.to_csv(X_test_output, index=False)
+    y_train.to_csv(y_train_output, index=False)
+    y_test.to_csv(y_test_output, index=False)
+
