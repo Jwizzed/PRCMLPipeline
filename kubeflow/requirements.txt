@@ -1,0 +1,17 @@
+pandas
+scikit-learn
+tqdm
+catboost
+xgboost
+Black
+kaleido
+optuna
+icecream
+kfp==2.0.0
+fastapi
+uvicorn
+joblib
+google-cloud-aiplatform
+
+fsspec
+gcsfs

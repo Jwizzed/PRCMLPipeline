@@ -24,7 +24,7 @@ def predict_and_save(
     for model_name, preds in predictions.items():
         results_df[f'tow_{model_name}'] = preds
 
-    csv_path = "results/team_nice_jacket_v1_43c9f53d-3900-4d9a-b19f-42b1c388ca71.csv"
+    csv_path = "results/team_nice_jacket_v5_43c9f53d-3900-4d9a-b19f-42b1c388ca71.csv"
     results_df.to_csv(csv_path, index=False)
 
     with mlflow.start_run(run_name="predictions_logging", nested=True):

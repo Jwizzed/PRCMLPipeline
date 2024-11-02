@@ -1,0 +1,3701 @@
+{
+  "components": {
+    "comp-add-external-data": {
+      "executorLabel": "exec-add-external-data",
+      "inputDefinitions": {
+        "artifacts": {
+          "test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "external_info_file": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "test_enriched_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "train_enriched_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-calculate-and-aggregate-features": {
+      "executorLabel": "exec-calculate-and-aggregate-features",
+      "inputDefinitions": {
+        "artifacts": {
+          "train_df_path": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "trajectory_df_path": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "flight_phases_refinement": {
+            "parameterType": "BOOLEAN"
+          },
+          "use_trajectory": {
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "aggregated_features_path": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-calculate-flight-duration": {
+      "executorLabel": "exec-calculate-flight-duration",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-clean-dataframe-with-isolation-forest": {
+      "executorLabel": "exec-clean-dataframe-with-isolation-forest",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "contamination": {
+            "defaultValue": 0.01,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-clean-trajectory-with-isolation-forest": {
+      "executorLabel": "exec-clean-trajectory-with-isolation-forest",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "contamination": {
+            "defaultValue": 0.01,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_df": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features": {
+      "executorLabel": "exec-drop-features",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features-2": {
+      "executorLabel": "exec-drop-features-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features-3": {
+      "executorLabel": "exec-drop-features-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features-4": {
+      "executorLabel": "exec-drop-features-4",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features-5": {
+      "executorLabel": "exec-drop-features-5",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features-6": {
+      "executorLabel": "exec-drop-features-6",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-drop-features-7": {
+      "executorLabel": "exec-drop-features-7",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_drop": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-encode-categorical-features": {
+      "executorLabel": "exec-encode-categorical-features",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "preserve_columns": {
+            "parameterType": "LIST"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-feature-selection": {
+      "executorLabel": "exec-feature-selection",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "k": {
+            "defaultValue": 15.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "feature_scores_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "selected_features_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-feature-selection-2": {
+      "executorLabel": "exec-feature-selection-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "k": {
+            "defaultValue": 15.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "feature_scores_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "selected_features_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-feature-selection-3": {
+      "executorLabel": "exec-feature-selection-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "k": {
+            "defaultValue": 15.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "feature_scores_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "selected_features_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-feature-selection-4": {
+      "executorLabel": "exec-feature-selection-4",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "k": {
+            "defaultValue": 15.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "feature_scores_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "selected_features_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-feature-selection-5": {
+      "executorLabel": "exec-feature-selection-5",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "k": {
+            "defaultValue": 15.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "feature_scores_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "selected_features_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-feature-selection-6": {
+      "executorLabel": "exec-feature-selection-6",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "k": {
+            "defaultValue": 15.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_selected_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "feature_scores_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "selected_features_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-load-data": {
+      "executorLabel": "exec-load-data",
+      "inputDefinitions": {
+        "parameters": {
+          "data_path": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "trajectory_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-normalize-dataframe": {
+      "executorLabel": "exec-normalize-dataframe",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "exclude_columns": {
+            "parameterType": "LIST"
+          },
+          "split_by_flown_distance": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "output_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-process-category-split": {
+      "executorLabel": "exec-process-category-split",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-process-category-split-2": {
+      "executorLabel": "exec-process-category-split-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-process-category-split-3": {
+      "executorLabel": "exec-process-category-split-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-process-category-split-4": {
+      "executorLabel": "exec-process-category-split-4",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-process-category-split-5": {
+      "executorLabel": "exec-process-category-split-5",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-process-category-split-6": {
+      "executorLabel": "exec-process-category-split-6",
+      "inputDefinitions": {
+        "artifacts": {
+          "X_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-split-by-mtow": {
+      "executorLabel": "exec-split-by-mtow",
+      "inputDefinitions": {
+        "artifacts": {
+          "input_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "is_test": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "X_b77w_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_high_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_low_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_medium_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_non_b77w_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "X_very_low_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_b77w_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_high_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_low_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_medium_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_non_b77w_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_very_low_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-train-ensemble-model": {
+      "executorLabel": "exec-train-ensemble-model",
+      "inputDefinitions": {
+        "artifacts": {
+          "x_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "x_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "catboost_depth": {
+            "defaultValue": 9.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_iterations": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_learning_rate": {
+            "defaultValue": 0.15,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "find_best_parameters": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          },
+          "xgboost_learning_rate": {
+            "defaultValue": 0.05,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "xgboost_max_depth": {
+            "defaultValue": 8.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "xgboost_n_estimators": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "catboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "xgboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRUCT"
+          }
+        }
+      }
+    },
+    "comp-train-ensemble-model-2": {
+      "executorLabel": "exec-train-ensemble-model-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "x_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "x_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "catboost_depth": {
+            "defaultValue": 9.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_iterations": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_learning_rate": {
+            "defaultValue": 0.15,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "find_best_parameters": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          },
+          "xgboost_learning_rate": {
+            "defaultValue": 0.05,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "xgboost_max_depth": {
+            "defaultValue": 8.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "xgboost_n_estimators": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "catboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "xgboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRUCT"
+          }
+        }
+      }
+    },
+    "comp-train-ensemble-model-3": {
+      "executorLabel": "exec-train-ensemble-model-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "x_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "x_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "catboost_depth": {
+            "defaultValue": 9.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_iterations": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_learning_rate": {
+            "defaultValue": 0.15,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "find_best_parameters": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          },
+          "xgboost_learning_rate": {
+            "defaultValue": 0.05,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "xgboost_max_depth": {
+            "defaultValue": 8.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "xgboost_n_estimators": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "catboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "xgboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRUCT"
+          }
+        }
+      }
+    },
+    "comp-train-ensemble-model-4": {
+      "executorLabel": "exec-train-ensemble-model-4",
+      "inputDefinitions": {
+        "artifacts": {
+          "x_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "x_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "catboost_depth": {
+            "defaultValue": 9.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_iterations": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_learning_rate": {
+            "defaultValue": 0.15,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "find_best_parameters": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          },
+          "xgboost_learning_rate": {
+            "defaultValue": 0.05,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "xgboost_max_depth": {
+            "defaultValue": 8.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "xgboost_n_estimators": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "catboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "xgboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRUCT"
+          }
+        }
+      }
+    },
+    "comp-train-ensemble-model-5": {
+      "executorLabel": "exec-train-ensemble-model-5",
+      "inputDefinitions": {
+        "artifacts": {
+          "x_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "x_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "catboost_depth": {
+            "defaultValue": 9.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_iterations": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_learning_rate": {
+            "defaultValue": 0.15,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "find_best_parameters": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          },
+          "xgboost_learning_rate": {
+            "defaultValue": 0.05,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "xgboost_max_depth": {
+            "defaultValue": 8.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "xgboost_n_estimators": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "catboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "xgboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRUCT"
+          }
+        }
+      }
+    },
+    "comp-train-ensemble-model-6": {
+      "executorLabel": "exec-train-ensemble-model-6",
+      "inputDefinitions": {
+        "artifacts": {
+          "x_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "x_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_test_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "y_train_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "catboost_depth": {
+            "defaultValue": 9.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_iterations": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "catboost_learning_rate": {
+            "defaultValue": 0.15,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "find_best_parameters": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          },
+          "xgboost_learning_rate": {
+            "defaultValue": 0.05,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "xgboost_max_depth": {
+            "defaultValue": 8.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "xgboost_n_estimators": {
+            "defaultValue": 2000.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "catboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "xgboost_model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRUCT"
+          }
+        }
+      }
+    }
+  },
+  "deploymentSpec": {
+    "executors": {
+      "exec-add-external-data": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "add_external_data"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'fsspec' 'gcsfs' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef add_external_data(\n        train_file: InputPath(\"CSV\"),\n        test_file: InputPath(\"CSV\"),\n        external_info_file: str,\n        train_enriched_file: OutputPath(\"CSV\"),\n        test_enriched_file: OutputPath(\"CSV\"),\n):\n    \"\"\"Adds external aircraft information.\"\"\"\n    import pandas as pd\n    import fsspec\n    import json\n\n    # Read JSON file from GCS using fsspec\n    with fsspec.open(external_info_file, \"r\") as file:\n        external_information = json.load(file)\n\n    external_df = pd.DataFrame.from_dict(external_information, orient=\"index\")\n    external_df.reset_index(inplace=True)\n    external_df.rename(columns={\"index\": \"aircraft_type\"}, inplace=True)\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    train_enriched = pd.merge(train_df, external_df, on=\"aircraft_type\",\n                              how=\"left\")\n    test_enriched = pd.merge(test_df, external_df, on=\"aircraft_type\",\n                             how=\"left\")\n\n    train_enriched.to_csv(train_enriched_file, index=False)\n    test_enriched.to_csv(test_enriched_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-calculate-and-aggregate-features": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "calculate_and_aggregate_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'numpy' 'tqdm' 'scipy' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_and_aggregate_features(\n    trajectory_df_path: InputPath(\"CSV\"),\n    train_df_path: InputPath(\"CSV\"),\n    aggregated_features_path: OutputPath(\"CSV\"),\n    use_trajectory: bool,\n    flight_phases_refinement: bool,\n):\n    \"\"\"Calculates thrust minus drag for flight phases and aggregates features.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from scipy import signal\n    from tqdm import tqdm\n\n    import math\n\n    trajectory_df = pd.read_csv(trajectory_df_path)\n    train_df = pd.read_csv(train_df_path)\n    ktstofts = 1.6878098571012\n\n    def isa(alt):\n        T0 = 288.15\n        p0 = 101325\n        rho0 = 1.225\n        a0 = 340.294\n        k = 1.4\n        R = 287.05287\n        betabelow = -0.0065\n        trop = 11000\n\n        if alt < 0 or alt > 47000:\n            print(\"Altitude must be in [0, 47000]\")\n            return None, None\n\n        if alt == 0:\n            return T0, rho0\n\n        if 0 < alt <= trop:\n            temperature = T0 + betabelow * alt\n            pressure = p0 * (temperature / T0) ** ((-1) * 9.80665 / (betabelow * R))\n        elif trop < alt < 47000:\n            temperature = T0 + betabelow * trop\n            pressure = (\n                p0 * (temperature / T0) ** ((-1) * 9.80665 / (betabelow * R))\n            ) * math.exp(-9.80665 * (alt - trop) / (R * temperature))\n\n        density = pressure / (R * temperature)\n        return temperature, density\n\n    def calculate_true_airspeed(row):\n        GS = row[\"groundspeed\"]\n        track = np.radians(row[\"track\"])\n        u_wind = row[\"u_component_of_wind\"]\n        v_wind = row[\"v_component_of_wind\"]\n\n        V = (\n            np.sqrt(\n                (GS * np.sin(track) - u_wind) ** 2 + (GS * np.cos(track) - v_wind) ** 2\n            )\n            * ktstofts\n        )\n        return V\n\n    def calculate_vertical_speed(row):\n        return row[\"vertical_rate\"] / 60\n\n    def calculate_temp_deviation(row):\n        isa_temp, _ = isa(row[\"altitude\"])\n        return row[\"temperature\"] - isa_temp\n\n    def calculate_horizontal_acceleration(group):\n        group = group.sort_values(\"timestamp\")\n        group[\"V\"] = group.apply(calculate_true_airspeed, axis=1)\n        group[\"dV_dt\"] = (\n            group[\"V\"].diff() / group[\"timestamp\"].diff().dt.total_seconds()\n        )\n        return group\n\n    def calculate_wind_acceleration(group):\n        group = group.sort_values(\"timestamp\")\n        group[\"W_long\"] = (\n            group[\"u_component_of_wind\"] * np.sin(np.radians(group[\"track\"]))\n            + group[\"v_component_of_wind\"] * np.cos(np.radians(group[\"track\"]))\n        ) * ktstofts\n        group[\"dWi_dt\"] = (\n            group[\"W_long\"].diff() / group[\"timestamp\"].diff().dt.total_seconds()\n        )\n        return group\n\n    def identify_flight_phases(group, flight_phases_refinement=False):\n        group = group.sort_values(\"timestamp\").reset_index(drop=True)\n        group[\"altitude_diff\"] = group[\"altitude\"].diff()\n\n        # Applies a Savitzky-Golay filter to smooth the altitude profile, reducing noise.\n        altitude_smooth = signal.savgol_filter(\n            group[\"altitude\"],\n            window_length=min(21, len(group) // 2 * 2 + 1),\n            polyorder=3,\n        )\n\n        if isinstance(group[\"timestamp\"].iloc[0], str):\n            # Convert string timestamp to pandas datetime\n            group[\"timestamp\"] = pd.to_datetime(group[\"timestamp\"])\n        timestamp_seconds = group[\"timestamp\"].astype('int64') // 10 ** 9\n\n        # Calculate the rate of climb (ROC)\n        group[\"ROC\"] = np.gradient(altitude_smooth, timestamp_seconds)\n\n        max_altitude = group[\"altitude\"].max()\n        takeoff_end = group[group[\"altitude\"] > group[\"altitude\"].quantile(0.1)].index[\n            0\n        ]\n        top_of_climb = group[group[\"altitude\"] > max_altitude * 0.95].index[0]\n\n        takeoff_phase = group.loc[:takeoff_end]\n        initial_climb_phase = group.loc[takeoff_end:top_of_climb]\n        cruise_phase = group.loc[top_of_climb:]\n\n        if flight_phases_refinement:\n            # Refine takeoff phase (focus on the most significant part of the takeoff)\n            takeoff_phase = takeoff_phase[\n                takeoff_phase[\"ROC\"] > takeoff_phase[\"ROC\"].quantile(0.5)\n            ]\n\n            # Refine initial climb phase\n            initial_climb_phase = initial_climb_phase[\n                (initial_climb_phase[\"ROC\"] > initial_climb_phase[\"ROC\"].quantile(0.25))\n                & (initial_climb_phase[\"altitude\"] < max_altitude * 0.8)\n            ]\n\n        return takeoff_phase, initial_climb_phase, cruise_phase\n\n    def calculate_thrust_minus_drag_for_phases(trajectory_df, flight_phases_refinement):\n        td_list = []\n\n        for flight_id, group in tqdm(\n            trajectory_df.groupby(\"flight_id\"), desc=\"Calculating T-D for each flight\"\n        ):\n            takeoff_phase, initial_climb_phase, _ = identify_flight_phases(\n                group, flight_phases_refinement\n            )\n\n            # You can combine takeoff and initial climb if desired\n            relevant_phase = pd.concat([takeoff_phase, initial_climb_phase])\n\n            if relevant_phase.empty:\n                continue\n\n            # Perform calculations only on the relevant phase\n            relevant_phase[\"V\"] = relevant_phase.apply(calculate_true_airspeed, axis=1)\n            relevant_phase[\"dh_dt\"] = relevant_phase.apply(\n                calculate_vertical_speed, axis=1\n            )\n            relevant_phase[\"delta_t\"] = relevant_phase.apply(\n                calculate_temp_deviation, axis=1\n            )\n\n            relevant_phase = calculate_horizontal_acceleration(relevant_phase)\n            relevant_phase = calculate_wind_acceleration(relevant_phase)\n\n            # Calculate T - D\n            relevant_phase[\"T_minus_D\"] = (\n                32.17405\n                * relevant_phase[\"dh_dt\"]\n                / relevant_phase[\"V\"]\n                * (\n                    relevant_phase[\"temperature\"]\n                    / (relevant_phase[\"temperature\"] - relevant_phase[\"delta_t\"])\n                )\n                + relevant_phase[\"dV_dt\"]\n                + relevant_phase[\"dWi_dt\"]\n            )\n\n            # Add flight ID for linking later\n            relevant_phase[\"flight_id\"] = flight_id\n\n            # Collect the relevant data\n            td_list.append(relevant_phase)\n\n        # Concatenate all flights' data\n        td_df = pd.concat(td_list, ignore_index=True)\n\n        # Drop any rows with missing T_minus_D values\n        td_df = td_df.dropna(subset=[\"T_minus_D\"])\n\n        return td_df\n\n    def aggregate_features(td_df):\n        numerical_cols = td_df.select_dtypes(include=np.number).columns.tolist()\n        if \"flight_id\" in numerical_cols:\n            numerical_cols.remove(\"flight_id\")\n        agg_funcs = {col: [\"mean\", \"max\", \"std\"] for col in numerical_cols}\n        aggregated_features = td_df.groupby(\"flight_id\").agg(agg_funcs).reset_index()\n        aggregated_features.columns = [\n            \"_\".join(col).rstrip(\"_\") for col in aggregated_features.columns.values\n        ]\n\n        return aggregated_features\n\n    if use_trajectory:\n        td_df = calculate_thrust_minus_drag_for_phases(\n            trajectory_df, flight_phases_refinement\n        )\n        aggregated_features = aggregate_features(td_df)\n        merged_df = pd.merge(\n            train_df,\n            aggregated_features,\n            left_on=\"flight_id\",\n            right_on=\"flight_id\",\n            how=\"inner\",\n        )\n    else:\n        merged_df = train_df.copy()\n\n    merged_df.to_csv(aggregated_features_path, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-calculate-flight-duration": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "calculate_flight_duration"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_flight_duration(input_df: InputPath(\"CSV\"), output_df: OutputPath(\"CSV\")):\n    \"\"\"Calculates flight duration in minutes.\"\"\"\n    import pandas as pd\n\n    def get_duration(df):\n        df[\"actual_offblock_time\"] = pd.to_datetime(df[\"actual_offblock_time\"])\n        df[\"arrival_time\"] = pd.to_datetime(df[\"arrival_time\"])\n        df[\"duration\"] = (\n            df[\"arrival_time\"] - df[\"actual_offblock_time\"]\n        ).dt.total_seconds() / 60\n        return df\n\n    df = pd.read_csv(input_df)\n    df_with_duration = get_duration(df)\n    df_with_duration.to_csv(output_df, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-clean-dataframe-with-isolation-forest": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "clean_dataframe_with_isolation_forest"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'scikit-learn' 'pandas' 'numpy' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_dataframe_with_isolation_forest(\n    input_df: InputPath(\"CSV\"),\n    output_df: OutputPath(\"CSV\"),\n    contamination: float = 0.01,\n):\n    \"\"\"Cleans a dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from sklearn.preprocessing import StandardScaler\n    from sklearn.ensemble import IsolationForest\n\n    df = pd.read_csv(input_df)\n    print(\"Shape before clean: \", df.shape)\n\n    cleaned_df = df.copy()\n    cleaned_df = cleaned_df.dropna()\n\n    numeric_columns = cleaned_df.select_dtypes(include=[np.number]).columns\n\n    scaler = StandardScaler()\n    scaled_data = scaler.fit_transform(cleaned_df[numeric_columns])\n\n    iso_forest = IsolationForest(contamination=contamination, random_state=42)\n    outlier_labels = iso_forest.fit_predict(scaled_data)\n\n    cleaned_df = cleaned_df[outlier_labels == 1].reset_index(drop=True)\n\n    print(\"Shape after clean: \", cleaned_df.shape)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-clean-trajectory-with-isolation-forest": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "clean_trajectory_with_isolation_forest"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'scikit-learn' 'pandas' 'numpy' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_trajectory_with_isolation_forest(\n    input_df: InputPath(\"CSV\"),\n    output_df: OutputPath(\"CSV\"),\n    contamination: float = 0.01,\n):\n    \"\"\"Cleans a trajectory dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from sklearn.preprocessing import StandardScaler\n    from sklearn.ensemble import IsolationForest\n\n    df = pd.read_csv(input_df)\n    print(\"Shape before clean: \", df.shape)\n\n    cleaned_df = df.copy()\n\n    cleaned_df = cleaned_df[\n        (cleaned_df[\"altitude\"] >= 0) & (cleaned_df[\"altitude\"] <= 47000)\n    ]\n    cleaned_df = cleaned_df.dropna()\n\n    numeric_columns = cleaned_df.select_dtypes(include=[np.number]).columns\n\n    def clean_group(group):\n        if len(group) <= 1:\n            return group\n\n        scaler = StandardScaler()\n        scaled_data = scaler.fit_transform(group[numeric_columns])\n\n        iso_forest = IsolationForest(contamination=contamination, random_state=42)\n        outlier_labels = iso_forest.fit_predict(scaled_data)\n\n        return group[outlier_labels == 1]\n\n    cleaned_df = cleaned_df.groupby(\"flight_id\").apply(clean_group)\n\n    cleaned_df = cleaned_df.reset_index(drop=True)\n\n    print(\"Shape after clean: \", cleaned_df.shape)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features-4": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features-5": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features-6": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-drop-features-7": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "drop_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n\n    df = pd.read_csv(input_file)\n\n    drop_cols = [\n        \"date\",\n        \"callsign\",\n        \"name_adep\",\n        \"name_ades\",\n        \"actual_offblock_time\",\n        \"arrival_time\",\n    ]\n\n    if final_drop:\n        drop_cols.extend([\"aircraft_type\"])\n\n    dropped_df = df.drop(columns=drop_cols, errors=\"ignore\")\n    dropped_df.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-encode-categorical-features": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "encode_categorical_features"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef encode_categorical_features(\n    input_file: InputPath(\"CSV\"), output_file: OutputPath(\"CSV\"), preserve_columns: list\n):\n    \"\"\"Encodes categorical features in the dataframe, with the option to preserve certain columns.\"\"\"\n    import pandas as pd\n    from sklearn.preprocessing import LabelEncoder\n\n    df = pd.read_csv(input_file)\n\n    df_encoded = df.copy()\n\n    categorical_col = [\n        \"adep\",\n        \"country_code_adep\",\n        \"ades\",\n        \"country_code_ades\",\n        \"aircraft_type\",\n        \"airline\",\n    ]\n\n    encoder = LabelEncoder()\n\n    for col in categorical_col:\n        df_encoded[col + \"_encoded\"] = encoder.fit_transform(df_encoded[col])\n        if col not in preserve_columns:\n            df_encoded = df_encoded.drop(columns=[col])\n\n    oneHot_col = [\"wtc\"]\n    df_encoded = pd.get_dummies(df_encoded, columns=oneHot_col)\n\n    df_encoded[\"wtc_M\"] = df_encoded[\"wtc_M\"].astype(int)\n    df_encoded[\"wtc_H\"] = df_encoded[\"wtc_H\"].astype(int)\n\n    df_encoded.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-feature-selection": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "feature_selection"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from sklearn.feature_selection import SelectKBest, f_regression\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    selector = SelectKBest(score_func=f_regression, k=k)\n    selector.fit(X_train, y_train)\n\n    selected_features = X_train.columns[selector.get_support()]\n\n    selected_features_df = pd.DataFrame(\n        selected_features, columns=[\"Selected Features\"]\n    )\n\n    feature_scores_df = pd.DataFrame(\n        {\n            \"Feature\": X_train.columns,\n            \"Score\": selector.scores_,\n            \"p-value\": selector.pvalues_,\n        }\n    )\n\n    X_train_selected = pd.DataFrame(\n        selector.transform(X_train), columns=selected_features, index=X_train.index\n    )\n\n    X_test_selected = pd.DataFrame(\n        selector.transform(X_test), columns=selected_features, index=X_test.index\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-feature-selection-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "feature_selection"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from sklearn.feature_selection import SelectKBest, f_regression\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    selector = SelectKBest(score_func=f_regression, k=k)\n    selector.fit(X_train, y_train)\n\n    selected_features = X_train.columns[selector.get_support()]\n\n    selected_features_df = pd.DataFrame(\n        selected_features, columns=[\"Selected Features\"]\n    )\n\n    feature_scores_df = pd.DataFrame(\n        {\n            \"Feature\": X_train.columns,\n            \"Score\": selector.scores_,\n            \"p-value\": selector.pvalues_,\n        }\n    )\n\n    X_train_selected = pd.DataFrame(\n        selector.transform(X_train), columns=selected_features, index=X_train.index\n    )\n\n    X_test_selected = pd.DataFrame(\n        selector.transform(X_test), columns=selected_features, index=X_test.index\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-feature-selection-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "feature_selection"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from sklearn.feature_selection import SelectKBest, f_regression\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    selector = SelectKBest(score_func=f_regression, k=k)\n    selector.fit(X_train, y_train)\n\n    selected_features = X_train.columns[selector.get_support()]\n\n    selected_features_df = pd.DataFrame(\n        selected_features, columns=[\"Selected Features\"]\n    )\n\n    feature_scores_df = pd.DataFrame(\n        {\n            \"Feature\": X_train.columns,\n            \"Score\": selector.scores_,\n            \"p-value\": selector.pvalues_,\n        }\n    )\n\n    X_train_selected = pd.DataFrame(\n        selector.transform(X_train), columns=selected_features, index=X_train.index\n    )\n\n    X_test_selected = pd.DataFrame(\n        selector.transform(X_test), columns=selected_features, index=X_test.index\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-feature-selection-4": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "feature_selection"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from sklearn.feature_selection import SelectKBest, f_regression\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    selector = SelectKBest(score_func=f_regression, k=k)\n    selector.fit(X_train, y_train)\n\n    selected_features = X_train.columns[selector.get_support()]\n\n    selected_features_df = pd.DataFrame(\n        selected_features, columns=[\"Selected Features\"]\n    )\n\n    feature_scores_df = pd.DataFrame(\n        {\n            \"Feature\": X_train.columns,\n            \"Score\": selector.scores_,\n            \"p-value\": selector.pvalues_,\n        }\n    )\n\n    X_train_selected = pd.DataFrame(\n        selector.transform(X_train), columns=selected_features, index=X_train.index\n    )\n\n    X_test_selected = pd.DataFrame(\n        selector.transform(X_test), columns=selected_features, index=X_test.index\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-feature-selection-5": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "feature_selection"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from sklearn.feature_selection import SelectKBest, f_regression\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    selector = SelectKBest(score_func=f_regression, k=k)\n    selector.fit(X_train, y_train)\n\n    selected_features = X_train.columns[selector.get_support()]\n\n    selected_features_df = pd.DataFrame(\n        selected_features, columns=[\"Selected Features\"]\n    )\n\n    feature_scores_df = pd.DataFrame(\n        {\n            \"Feature\": X_train.columns,\n            \"Score\": selector.scores_,\n            \"p-value\": selector.pvalues_,\n        }\n    )\n\n    X_train_selected = pd.DataFrame(\n        selector.transform(X_train), columns=selected_features, index=X_train.index\n    )\n\n    X_test_selected = pd.DataFrame(\n        selector.transform(X_test), columns=selected_features, index=X_test.index\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-feature-selection-6": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "feature_selection"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from sklearn.feature_selection import SelectKBest, f_regression\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    selector = SelectKBest(score_func=f_regression, k=k)\n    selector.fit(X_train, y_train)\n\n    selected_features = X_train.columns[selector.get_support()]\n\n    selected_features_df = pd.DataFrame(\n        selected_features, columns=[\"Selected Features\"]\n    )\n\n    feature_scores_df = pd.DataFrame(\n        {\n            \"Feature\": X_train.columns,\n            \"Score\": selector.scores_,\n            \"p-value\": selector.pvalues_,\n        }\n    )\n\n    X_train_selected = pd.DataFrame(\n        selector.transform(X_train), columns=selected_features, index=X_train.index\n    )\n\n    X_test_selected = pd.DataFrame(\n        selector.transform(X_test), columns=selected_features, index=X_test.index\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-load-data": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "load_data"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'fsspec' 'gcsfs' 'pyarrow' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef load_data(\n        data_path: str,\n        train_file: OutputPath(\"CSV\"),\n        test_file: OutputPath(\"CSV\"),\n        trajectory_file: OutputPath(\"CSV\")\n):\n    \"\"\"Loads the flight data and trajectory data.\"\"\"\n    import pandas as pd\n\n    # Load main flight data\n    train_df = pd.read_csv(\n        f\"{data_path}/challenge_set.csv\",\n        parse_dates=[\"date\", \"actual_offblock_time\", \"arrival_time\"]\n    )\n\n    test_df = pd.read_csv(\n        f\"{data_path}/submission_set.csv\",\n        parse_dates=[\"date\", \"actual_offblock_time\", \"arrival_time\"]\n    ).drop([\"tow\"], axis=1)\n\n    # Format datetime columns\n    datetime_columns = [\"date\", \"actual_offblock_time\", \"arrival_time\"]\n    for col in datetime_columns:\n        train_df[col] = train_df[col].dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n        test_df[col] = test_df[col].dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n\n    trajectory_df = pd.read_parquet(f\"{data_path}/2022-01-01.parquet\")\n\n    train_df.to_csv(train_file, index=False)\n    test_df.to_csv(test_file, index=False)\n    trajectory_df.to_csv(trajectory_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-normalize-dataframe": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "normalize_dataframe"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef normalize_dataframe(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    exclude_columns: list,\n    split_by_flown_distance: bool = False,\n):\n    \"\"\"Normalizes the dataframe and excludes specified columns from normalization.\"\"\"\n    import pandas as pd\n    from sklearn.preprocessing import StandardScaler\n    import numpy as np\n\n    df = pd.read_csv(input_file)\n\n    if split_by_flown_distance:\n        exclude_columns.append(\"flown_distance\")\n\n    df_normalized = df.copy()\n    columns_to_normalize = df.select_dtypes(include=[np.number]).columns.difference(\n        exclude_columns\n    )\n\n    scaler = StandardScaler()\n    df_normalized[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])\n\n    df_normalized.to_csv(output_file, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-process-category-split": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "process_category_split"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from sklearn.model_selection import train_test_split\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = train_test_split(\n        X, y, test_size=0.2, random_state=42\n    )\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-process-category-split-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "process_category_split"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from sklearn.model_selection import train_test_split\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = train_test_split(\n        X, y, test_size=0.2, random_state=42\n    )\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-process-category-split-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "process_category_split"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from sklearn.model_selection import train_test_split\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = train_test_split(\n        X, y, test_size=0.2, random_state=42\n    )\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-process-category-split-4": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "process_category_split"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from sklearn.model_selection import train_test_split\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = train_test_split(\n        X, y, test_size=0.2, random_state=42\n    )\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-process-category-split-5": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "process_category_split"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from sklearn.model_selection import train_test_split\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = train_test_split(\n        X, y, test_size=0.2, random_state=42\n    )\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-process-category-split-6": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "process_category_split"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from sklearn.model_selection import train_test_split\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = train_test_split(\n        X, y, test_size=0.2, random_state=42\n    )\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-split-by-mtow": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "split_by_mtow"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef split_by_mtow(\n        input_file: InputPath(\"CSV\"),\n        X_very_low_output: OutputPath(\"CSV\"),\n        X_low_output: OutputPath(\"CSV\"),\n        X_medium_output: OutputPath(\"CSV\"),\n        X_high_output: OutputPath(\"CSV\"),\n        X_non_b77w_output: OutputPath(\"CSV\"),\n        X_b77w_output: OutputPath(\"CSV\"),\n        y_very_low_output: OutputPath(\"CSV\"),\n        y_low_output: OutputPath(\"CSV\"),\n        y_medium_output: OutputPath(\"CSV\"),\n        y_high_output: OutputPath(\"CSV\"),\n        y_non_b77w_output: OutputPath(\"CSV\"),\n        y_b77w_output: OutputPath(\"CSV\"),\n        is_test: bool = False\n):\n    \"\"\"Splits the data by Maximum Take-Off Weight (MTOW).\"\"\"\n    import pandas as pd\n    from sklearn.preprocessing import StandardScaler\n\n    df = pd.read_csv(input_file)\n\n    def process_subset(subset_df):\n        subset_df = subset_df.copy()\n        scaler = StandardScaler()\n        subset_df['MTOW(kg)'] = scaler.fit_transform(subset_df[['MTOW(kg)']])\n\n        if not is_test:\n            X = subset_df.drop(['tow', 'MTOW_range'], axis=1).reset_index(\n                drop=True)\n            y = subset_df[['flight_id', 'tow']].drop('flight_id',\n                                                     axis=1).reset_index(\n                drop=True)\n            return X, y\n        else:\n            X = subset_df.drop(['MTOW_range'], axis=1).reset_index(drop=True)\n            return X, None\n\n    narrow_body_df = df[df[\"MTOW(kg)\"] <= 115680].copy()\n    wide_body_df = df[df[\"MTOW(kg)\"] > 115680].copy()\n\n    narrow_body_df['MTOW_range'] = pd.qcut(narrow_body_df['MTOW(kg)'],\n                                           q=4,\n                                           labels=['Very Low', 'Low', 'Medium',\n                                                   'High'])\n\n    wide_body_df['MTOW_range'] = wide_body_df['aircraft_type'].apply(\n        lambda x: 'B77W' if x == 'B77W' else 'NonB77W'\n    )\n\n    X_very_low, y_very_low = process_subset(\n        narrow_body_df[narrow_body_df['MTOW_range'] == 'Very Low'])\n    X_low, y_low = process_subset(\n        narrow_body_df[narrow_body_df['MTOW_range'] == 'Low'])\n    X_medium, y_medium = process_subset(\n        narrow_body_df[narrow_body_df['MTOW_range'] == 'Medium'])\n    X_high, y_high = process_subset(\n        narrow_body_df[narrow_body_df['MTOW_range'] == 'High'])\n    X_non_b77w, y_non_b77w = process_subset(\n        wide_body_df[wide_body_df['MTOW_range'] == 'NonB77W'])\n    X_b77w, y_b77w = process_subset(\n        wide_body_df[wide_body_df['MTOW_range'] == 'B77W'])\n\n    X_very_low.to_csv(X_very_low_output, index=False)\n    X_low.to_csv(X_low_output, index=False)\n    X_medium.to_csv(X_medium_output, index=False)\n    X_high.to_csv(X_high_output, index=False)\n    X_non_b77w.to_csv(X_non_b77w_output, index=False)\n    X_b77w.to_csv(X_b77w_output, index=False)\n\n    if not is_test:\n        y_very_low.to_csv(y_very_low_output, index=False)\n        y_low.to_csv(y_low_output, index=False)\n        y_medium.to_csv(y_medium_output, index=False)\n        y_high.to_csv(y_high_output, index=False)\n        y_non_b77w.to_csv(y_non_b77w_output, index=False)\n        y_b77w.to_csv(y_b77w_output, index=False)\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-train-ensemble-model": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "train_ensemble_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'catboost' 'xgboost' 'joblib' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n    x_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    x_test_file: InputPath(\"CSV\"),\n    y_test_file: InputPath(\"CSV\"),\n    catboost_model_output: OutputPath(\"PKL\"),\n    xgboost_model_output: OutputPath(\"PKL\"),\n    model_name: str,\n    find_best_parameters: bool = False,\n    catboost_depth: int = 9,\n    catboost_iterations: int = 2000,\n    catboost_learning_rate: float = 0.15,\n    xgboost_learning_rate: float = 0.05,\n    xgboost_max_depth: int = 8,\n    xgboost_n_estimators: int = 2000,\n) -> dict:\n    \"\"\"Trains both CatBoost and XGBoost models and creates an ensemble.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import GridSearchCV\n    from sklearn.metrics import mean_squared_error\n    import joblib\n\n    X_train = pd.read_csv(x_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(x_test_file)\n    y_test = pd.read_csv(y_test_file)\n\n    if find_best_parameters:\n        catboost_model = CatBoostRegressor(random_state=42)\n        catboost_param_grid = {\n            \"iterations\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"depth\": [4, 6, 8],\n        }\n\n        catboost_grid_search = GridSearchCV(\n            catboost_model,\n            catboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        catboost_grid_search.fit(\n            X_train,\n            y_train,\n            eval_set=(X_test, y_test),\n            early_stopping_rounds=50,\n            verbose=100,\n        )\n\n        best_catboost = catboost_grid_search.best_estimator_\n        catboost_params = catboost_grid_search.best_params_\n    else:\n        best_catboost = CatBoostRegressor(\n            random_state=42,\n            depth=catboost_depth,\n            iterations=catboost_iterations,\n            learning_rate=catboost_learning_rate,\n        )\n        best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)\n        catboost_params = None\n\n    if find_best_parameters:\n        xgboost_model = XGBRegressor(random_state=42)\n        xgboost_param_grid = {\n            \"n_estimators\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"max_depth\": [4, 6, 8],\n        }\n\n        xgboost_grid_search = GridSearchCV(\n            xgboost_model,\n            xgboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        xgboost_grid_search.fit(\n            X_train, y_train, eval_set=[(X_test, y_test)], verbose=100\n        )\n\n        best_xgboost = xgboost_grid_search.best_estimator_\n        xgboost_params = xgboost_grid_search.best_params_\n    else:\n        best_xgboost = XGBRegressor(\n            random_state=42,\n            learning_rate=xgboost_learning_rate,\n            max_depth=xgboost_max_depth,\n            n_estimators=xgboost_n_estimators,\n        )\n        best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)\n        xgboost_params = None\n\n    joblib.dump(best_catboost, catboost_model_output)\n    joblib.dump(best_xgboost, xgboost_model_output)\n\n    y_pred_catboost = best_catboost.predict(X_test)\n    y_pred_xgboost = best_xgboost.predict(X_test)\n    y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2\n\n    catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))\n    xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))\n    ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))\n\n    catboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"catboost_importance\": best_catboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    xgboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"xgboost_importance\": best_xgboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    feature_importance = pd.concat([catboost_importance, xgboost_importance], axis=1)\n    feature_importance[\"mean_importance\"] = feature_importance.mean(axis=1)\n    feature_importance = feature_importance.sort_values(\n        \"mean_importance\", ascending=False\n    )\n\n    return {\n        \"model_name\": model_name,\n        \"catboost_rmse\": catboost_rmse,\n        \"xgboost_rmse\": xgboost_rmse,\n        \"ensemble_rmse\": ensemble_rmse,\n        \"catboost_parameters\": catboost_params,\n        \"xgboost_parameters\": xgboost_params,\n        \"top_features\": feature_importance.head(10).to_dict(),\n        \"ensemble_predictions\": y_pred_ensemble.tolist(),\n        \"catboost_predictions\": y_pred_catboost.tolist(),\n        \"xgboost_predictions\": y_pred_xgboost.tolist(),\n    }\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-train-ensemble-model-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "train_ensemble_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'catboost' 'xgboost' 'joblib' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n    x_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    x_test_file: InputPath(\"CSV\"),\n    y_test_file: InputPath(\"CSV\"),\n    catboost_model_output: OutputPath(\"PKL\"),\n    xgboost_model_output: OutputPath(\"PKL\"),\n    model_name: str,\n    find_best_parameters: bool = False,\n    catboost_depth: int = 9,\n    catboost_iterations: int = 2000,\n    catboost_learning_rate: float = 0.15,\n    xgboost_learning_rate: float = 0.05,\n    xgboost_max_depth: int = 8,\n    xgboost_n_estimators: int = 2000,\n) -> dict:\n    \"\"\"Trains both CatBoost and XGBoost models and creates an ensemble.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import GridSearchCV\n    from sklearn.metrics import mean_squared_error\n    import joblib\n\n    X_train = pd.read_csv(x_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(x_test_file)\n    y_test = pd.read_csv(y_test_file)\n\n    if find_best_parameters:\n        catboost_model = CatBoostRegressor(random_state=42)\n        catboost_param_grid = {\n            \"iterations\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"depth\": [4, 6, 8],\n        }\n\n        catboost_grid_search = GridSearchCV(\n            catboost_model,\n            catboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        catboost_grid_search.fit(\n            X_train,\n            y_train,\n            eval_set=(X_test, y_test),\n            early_stopping_rounds=50,\n            verbose=100,\n        )\n\n        best_catboost = catboost_grid_search.best_estimator_\n        catboost_params = catboost_grid_search.best_params_\n    else:\n        best_catboost = CatBoostRegressor(\n            random_state=42,\n            depth=catboost_depth,\n            iterations=catboost_iterations,\n            learning_rate=catboost_learning_rate,\n        )\n        best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)\n        catboost_params = None\n\n    if find_best_parameters:\n        xgboost_model = XGBRegressor(random_state=42)\n        xgboost_param_grid = {\n            \"n_estimators\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"max_depth\": [4, 6, 8],\n        }\n\n        xgboost_grid_search = GridSearchCV(\n            xgboost_model,\n            xgboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        xgboost_grid_search.fit(\n            X_train, y_train, eval_set=[(X_test, y_test)], verbose=100\n        )\n\n        best_xgboost = xgboost_grid_search.best_estimator_\n        xgboost_params = xgboost_grid_search.best_params_\n    else:\n        best_xgboost = XGBRegressor(\n            random_state=42,\n            learning_rate=xgboost_learning_rate,\n            max_depth=xgboost_max_depth,\n            n_estimators=xgboost_n_estimators,\n        )\n        best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)\n        xgboost_params = None\n\n    joblib.dump(best_catboost, catboost_model_output)\n    joblib.dump(best_xgboost, xgboost_model_output)\n\n    y_pred_catboost = best_catboost.predict(X_test)\n    y_pred_xgboost = best_xgboost.predict(X_test)\n    y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2\n\n    catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))\n    xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))\n    ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))\n\n    catboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"catboost_importance\": best_catboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    xgboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"xgboost_importance\": best_xgboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    feature_importance = pd.concat([catboost_importance, xgboost_importance], axis=1)\n    feature_importance[\"mean_importance\"] = feature_importance.mean(axis=1)\n    feature_importance = feature_importance.sort_values(\n        \"mean_importance\", ascending=False\n    )\n\n    return {\n        \"model_name\": model_name,\n        \"catboost_rmse\": catboost_rmse,\n        \"xgboost_rmse\": xgboost_rmse,\n        \"ensemble_rmse\": ensemble_rmse,\n        \"catboost_parameters\": catboost_params,\n        \"xgboost_parameters\": xgboost_params,\n        \"top_features\": feature_importance.head(10).to_dict(),\n        \"ensemble_predictions\": y_pred_ensemble.tolist(),\n        \"catboost_predictions\": y_pred_catboost.tolist(),\n        \"xgboost_predictions\": y_pred_xgboost.tolist(),\n    }\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-train-ensemble-model-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "train_ensemble_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'catboost' 'xgboost' 'joblib' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n    x_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    x_test_file: InputPath(\"CSV\"),\n    y_test_file: InputPath(\"CSV\"),\n    catboost_model_output: OutputPath(\"PKL\"),\n    xgboost_model_output: OutputPath(\"PKL\"),\n    model_name: str,\n    find_best_parameters: bool = False,\n    catboost_depth: int = 9,\n    catboost_iterations: int = 2000,\n    catboost_learning_rate: float = 0.15,\n    xgboost_learning_rate: float = 0.05,\n    xgboost_max_depth: int = 8,\n    xgboost_n_estimators: int = 2000,\n) -> dict:\n    \"\"\"Trains both CatBoost and XGBoost models and creates an ensemble.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import GridSearchCV\n    from sklearn.metrics import mean_squared_error\n    import joblib\n\n    X_train = pd.read_csv(x_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(x_test_file)\n    y_test = pd.read_csv(y_test_file)\n\n    if find_best_parameters:\n        catboost_model = CatBoostRegressor(random_state=42)\n        catboost_param_grid = {\n            \"iterations\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"depth\": [4, 6, 8],\n        }\n\n        catboost_grid_search = GridSearchCV(\n            catboost_model,\n            catboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        catboost_grid_search.fit(\n            X_train,\n            y_train,\n            eval_set=(X_test, y_test),\n            early_stopping_rounds=50,\n            verbose=100,\n        )\n\n        best_catboost = catboost_grid_search.best_estimator_\n        catboost_params = catboost_grid_search.best_params_\n    else:\n        best_catboost = CatBoostRegressor(\n            random_state=42,\n            depth=catboost_depth,\n            iterations=catboost_iterations,\n            learning_rate=catboost_learning_rate,\n        )\n        best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)\n        catboost_params = None\n\n    if find_best_parameters:\n        xgboost_model = XGBRegressor(random_state=42)\n        xgboost_param_grid = {\n            \"n_estimators\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"max_depth\": [4, 6, 8],\n        }\n\n        xgboost_grid_search = GridSearchCV(\n            xgboost_model,\n            xgboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        xgboost_grid_search.fit(\n            X_train, y_train, eval_set=[(X_test, y_test)], verbose=100\n        )\n\n        best_xgboost = xgboost_grid_search.best_estimator_\n        xgboost_params = xgboost_grid_search.best_params_\n    else:\n        best_xgboost = XGBRegressor(\n            random_state=42,\n            learning_rate=xgboost_learning_rate,\n            max_depth=xgboost_max_depth,\n            n_estimators=xgboost_n_estimators,\n        )\n        best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)\n        xgboost_params = None\n\n    joblib.dump(best_catboost, catboost_model_output)\n    joblib.dump(best_xgboost, xgboost_model_output)\n\n    y_pred_catboost = best_catboost.predict(X_test)\n    y_pred_xgboost = best_xgboost.predict(X_test)\n    y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2\n\n    catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))\n    xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))\n    ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))\n\n    catboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"catboost_importance\": best_catboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    xgboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"xgboost_importance\": best_xgboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    feature_importance = pd.concat([catboost_importance, xgboost_importance], axis=1)\n    feature_importance[\"mean_importance\"] = feature_importance.mean(axis=1)\n    feature_importance = feature_importance.sort_values(\n        \"mean_importance\", ascending=False\n    )\n\n    return {\n        \"model_name\": model_name,\n        \"catboost_rmse\": catboost_rmse,\n        \"xgboost_rmse\": xgboost_rmse,\n        \"ensemble_rmse\": ensemble_rmse,\n        \"catboost_parameters\": catboost_params,\n        \"xgboost_parameters\": xgboost_params,\n        \"top_features\": feature_importance.head(10).to_dict(),\n        \"ensemble_predictions\": y_pred_ensemble.tolist(),\n        \"catboost_predictions\": y_pred_catboost.tolist(),\n        \"xgboost_predictions\": y_pred_xgboost.tolist(),\n    }\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-train-ensemble-model-4": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "train_ensemble_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'catboost' 'xgboost' 'joblib' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n    x_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    x_test_file: InputPath(\"CSV\"),\n    y_test_file: InputPath(\"CSV\"),\n    catboost_model_output: OutputPath(\"PKL\"),\n    xgboost_model_output: OutputPath(\"PKL\"),\n    model_name: str,\n    find_best_parameters: bool = False,\n    catboost_depth: int = 9,\n    catboost_iterations: int = 2000,\n    catboost_learning_rate: float = 0.15,\n    xgboost_learning_rate: float = 0.05,\n    xgboost_max_depth: int = 8,\n    xgboost_n_estimators: int = 2000,\n) -> dict:\n    \"\"\"Trains both CatBoost and XGBoost models and creates an ensemble.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import GridSearchCV\n    from sklearn.metrics import mean_squared_error\n    import joblib\n\n    X_train = pd.read_csv(x_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(x_test_file)\n    y_test = pd.read_csv(y_test_file)\n\n    if find_best_parameters:\n        catboost_model = CatBoostRegressor(random_state=42)\n        catboost_param_grid = {\n            \"iterations\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"depth\": [4, 6, 8],\n        }\n\n        catboost_grid_search = GridSearchCV(\n            catboost_model,\n            catboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        catboost_grid_search.fit(\n            X_train,\n            y_train,\n            eval_set=(X_test, y_test),\n            early_stopping_rounds=50,\n            verbose=100,\n        )\n\n        best_catboost = catboost_grid_search.best_estimator_\n        catboost_params = catboost_grid_search.best_params_\n    else:\n        best_catboost = CatBoostRegressor(\n            random_state=42,\n            depth=catboost_depth,\n            iterations=catboost_iterations,\n            learning_rate=catboost_learning_rate,\n        )\n        best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)\n        catboost_params = None\n\n    if find_best_parameters:\n        xgboost_model = XGBRegressor(random_state=42)\n        xgboost_param_grid = {\n            \"n_estimators\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"max_depth\": [4, 6, 8],\n        }\n\n        xgboost_grid_search = GridSearchCV(\n            xgboost_model,\n            xgboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        xgboost_grid_search.fit(\n            X_train, y_train, eval_set=[(X_test, y_test)], verbose=100\n        )\n\n        best_xgboost = xgboost_grid_search.best_estimator_\n        xgboost_params = xgboost_grid_search.best_params_\n    else:\n        best_xgboost = XGBRegressor(\n            random_state=42,\n            learning_rate=xgboost_learning_rate,\n            max_depth=xgboost_max_depth,\n            n_estimators=xgboost_n_estimators,\n        )\n        best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)\n        xgboost_params = None\n\n    joblib.dump(best_catboost, catboost_model_output)\n    joblib.dump(best_xgboost, xgboost_model_output)\n\n    y_pred_catboost = best_catboost.predict(X_test)\n    y_pred_xgboost = best_xgboost.predict(X_test)\n    y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2\n\n    catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))\n    xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))\n    ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))\n\n    catboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"catboost_importance\": best_catboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    xgboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"xgboost_importance\": best_xgboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    feature_importance = pd.concat([catboost_importance, xgboost_importance], axis=1)\n    feature_importance[\"mean_importance\"] = feature_importance.mean(axis=1)\n    feature_importance = feature_importance.sort_values(\n        \"mean_importance\", ascending=False\n    )\n\n    return {\n        \"model_name\": model_name,\n        \"catboost_rmse\": catboost_rmse,\n        \"xgboost_rmse\": xgboost_rmse,\n        \"ensemble_rmse\": ensemble_rmse,\n        \"catboost_parameters\": catboost_params,\n        \"xgboost_parameters\": xgboost_params,\n        \"top_features\": feature_importance.head(10).to_dict(),\n        \"ensemble_predictions\": y_pred_ensemble.tolist(),\n        \"catboost_predictions\": y_pred_catboost.tolist(),\n        \"xgboost_predictions\": y_pred_xgboost.tolist(),\n    }\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-train-ensemble-model-5": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "train_ensemble_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'catboost' 'xgboost' 'joblib' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n    x_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    x_test_file: InputPath(\"CSV\"),\n    y_test_file: InputPath(\"CSV\"),\n    catboost_model_output: OutputPath(\"PKL\"),\n    xgboost_model_output: OutputPath(\"PKL\"),\n    model_name: str,\n    find_best_parameters: bool = False,\n    catboost_depth: int = 9,\n    catboost_iterations: int = 2000,\n    catboost_learning_rate: float = 0.15,\n    xgboost_learning_rate: float = 0.05,\n    xgboost_max_depth: int = 8,\n    xgboost_n_estimators: int = 2000,\n) -> dict:\n    \"\"\"Trains both CatBoost and XGBoost models and creates an ensemble.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import GridSearchCV\n    from sklearn.metrics import mean_squared_error\n    import joblib\n\n    X_train = pd.read_csv(x_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(x_test_file)\n    y_test = pd.read_csv(y_test_file)\n\n    if find_best_parameters:\n        catboost_model = CatBoostRegressor(random_state=42)\n        catboost_param_grid = {\n            \"iterations\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"depth\": [4, 6, 8],\n        }\n\n        catboost_grid_search = GridSearchCV(\n            catboost_model,\n            catboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        catboost_grid_search.fit(\n            X_train,\n            y_train,\n            eval_set=(X_test, y_test),\n            early_stopping_rounds=50,\n            verbose=100,\n        )\n\n        best_catboost = catboost_grid_search.best_estimator_\n        catboost_params = catboost_grid_search.best_params_\n    else:\n        best_catboost = CatBoostRegressor(\n            random_state=42,\n            depth=catboost_depth,\n            iterations=catboost_iterations,\n            learning_rate=catboost_learning_rate,\n        )\n        best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)\n        catboost_params = None\n\n    if find_best_parameters:\n        xgboost_model = XGBRegressor(random_state=42)\n        xgboost_param_grid = {\n            \"n_estimators\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"max_depth\": [4, 6, 8],\n        }\n\n        xgboost_grid_search = GridSearchCV(\n            xgboost_model,\n            xgboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        xgboost_grid_search.fit(\n            X_train, y_train, eval_set=[(X_test, y_test)], verbose=100\n        )\n\n        best_xgboost = xgboost_grid_search.best_estimator_\n        xgboost_params = xgboost_grid_search.best_params_\n    else:\n        best_xgboost = XGBRegressor(\n            random_state=42,\n            learning_rate=xgboost_learning_rate,\n            max_depth=xgboost_max_depth,\n            n_estimators=xgboost_n_estimators,\n        )\n        best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)\n        xgboost_params = None\n\n    joblib.dump(best_catboost, catboost_model_output)\n    joblib.dump(best_xgboost, xgboost_model_output)\n\n    y_pred_catboost = best_catboost.predict(X_test)\n    y_pred_xgboost = best_xgboost.predict(X_test)\n    y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2\n\n    catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))\n    xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))\n    ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))\n\n    catboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"catboost_importance\": best_catboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    xgboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"xgboost_importance\": best_xgboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    feature_importance = pd.concat([catboost_importance, xgboost_importance], axis=1)\n    feature_importance[\"mean_importance\"] = feature_importance.mean(axis=1)\n    feature_importance = feature_importance.sort_values(\n        \"mean_importance\", ascending=False\n    )\n\n    return {\n        \"model_name\": model_name,\n        \"catboost_rmse\": catboost_rmse,\n        \"xgboost_rmse\": xgboost_rmse,\n        \"ensemble_rmse\": ensemble_rmse,\n        \"catboost_parameters\": catboost_params,\n        \"xgboost_parameters\": xgboost_params,\n        \"top_features\": feature_importance.head(10).to_dict(),\n        \"ensemble_predictions\": y_pred_ensemble.tolist(),\n        \"catboost_predictions\": y_pred_catboost.tolist(),\n        \"xgboost_predictions\": y_pred_xgboost.tolist(),\n    }\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      },
+      "exec-train-ensemble-model-6": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "train_ensemble_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'catboost' 'xgboost' 'joblib' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_ensemble_model(\n    x_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    x_test_file: InputPath(\"CSV\"),\n    y_test_file: InputPath(\"CSV\"),\n    catboost_model_output: OutputPath(\"PKL\"),\n    xgboost_model_output: OutputPath(\"PKL\"),\n    model_name: str,\n    find_best_parameters: bool = False,\n    catboost_depth: int = 9,\n    catboost_iterations: int = 2000,\n    catboost_learning_rate: float = 0.15,\n    xgboost_learning_rate: float = 0.05,\n    xgboost_max_depth: int = 8,\n    xgboost_n_estimators: int = 2000,\n) -> dict:\n    \"\"\"Trains both CatBoost and XGBoost models and creates an ensemble.\"\"\"\n    import pandas as pd\n    import numpy as np\n    from catboost import CatBoostRegressor\n    from xgboost import XGBRegressor\n    from sklearn.model_selection import GridSearchCV\n    from sklearn.metrics import mean_squared_error\n    import joblib\n\n    X_train = pd.read_csv(x_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(x_test_file)\n    y_test = pd.read_csv(y_test_file)\n\n    if find_best_parameters:\n        catboost_model = CatBoostRegressor(random_state=42)\n        catboost_param_grid = {\n            \"iterations\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"depth\": [4, 6, 8],\n        }\n\n        catboost_grid_search = GridSearchCV(\n            catboost_model,\n            catboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        catboost_grid_search.fit(\n            X_train,\n            y_train,\n            eval_set=(X_test, y_test),\n            early_stopping_rounds=50,\n            verbose=100,\n        )\n\n        best_catboost = catboost_grid_search.best_estimator_\n        catboost_params = catboost_grid_search.best_params_\n    else:\n        best_catboost = CatBoostRegressor(\n            random_state=42,\n            depth=catboost_depth,\n            iterations=catboost_iterations,\n            learning_rate=catboost_learning_rate,\n        )\n        best_catboost.fit(X_train, y_train, eval_set=(X_test, y_test), verbose=100)\n        catboost_params = None\n\n    if find_best_parameters:\n        xgboost_model = XGBRegressor(random_state=42)\n        xgboost_param_grid = {\n            \"n_estimators\": [1000, 2000],\n            \"learning_rate\": [0.01, 0.1],\n            \"max_depth\": [4, 6, 8],\n        }\n\n        xgboost_grid_search = GridSearchCV(\n            xgboost_model,\n            xgboost_param_grid,\n            scoring=\"neg_mean_squared_error\",\n            cv=3,\n            verbose=100,\n        )\n        xgboost_grid_search.fit(\n            X_train, y_train, eval_set=[(X_test, y_test)], verbose=100\n        )\n\n        best_xgboost = xgboost_grid_search.best_estimator_\n        xgboost_params = xgboost_grid_search.best_params_\n    else:\n        best_xgboost = XGBRegressor(\n            random_state=42,\n            learning_rate=xgboost_learning_rate,\n            max_depth=xgboost_max_depth,\n            n_estimators=xgboost_n_estimators,\n        )\n        best_xgboost.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=100)\n        xgboost_params = None\n\n    joblib.dump(best_catboost, catboost_model_output)\n    joblib.dump(best_xgboost, xgboost_model_output)\n\n    y_pred_catboost = best_catboost.predict(X_test)\n    y_pred_xgboost = best_xgboost.predict(X_test)\n    y_pred_ensemble = (y_pred_catboost + y_pred_xgboost) / 2\n\n    catboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_catboost)))\n    xgboost_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_xgboost)))\n    ensemble_rmse = float(np.sqrt(mean_squared_error(y_test, y_pred_ensemble)))\n\n    catboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"catboost_importance\": best_catboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    xgboost_importance = pd.DataFrame(\n        {\n            \"feature\": X_train.columns,\n            \"xgboost_importance\": best_xgboost.feature_importances_,\n        }\n    ).set_index(\"feature\")\n\n    feature_importance = pd.concat([catboost_importance, xgboost_importance], axis=1)\n    feature_importance[\"mean_importance\"] = feature_importance.mean(axis=1)\n    feature_importance = feature_importance.sort_values(\n        \"mean_importance\", ascending=False\n    )\n\n    return {\n        \"model_name\": model_name,\n        \"catboost_rmse\": catboost_rmse,\n        \"xgboost_rmse\": xgboost_rmse,\n        \"ensemble_rmse\": ensemble_rmse,\n        \"catboost_parameters\": catboost_params,\n        \"xgboost_parameters\": xgboost_params,\n        \"top_features\": feature_importance.head(10).to_dict(),\n        \"ensemble_predictions\": y_pred_ensemble.tolist(),\n        \"catboost_predictions\": y_pred_catboost.tolist(),\n        \"xgboost_predictions\": y_pred_xgboost.tolist(),\n    }\n\n"
+          ],
+          "image": "python:3.7"
+        }
+      }
+    }
+  },
+  "pipelineInfo": {
+    "description": "Pipeline for predicting Take-Off Weight (TOW)",
+    "name": "flight-tow-prediction-pipeline"
+  },
+  "root": {
+    "dag": {
+      "tasks": {
+        "add-external-data": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-add-external-data"
+          },
+          "dependentTasks": [
+            "calculate-flight-duration",
+            "load-data"
+          ],
+          "inputs": {
+            "artifacts": {
+              "test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "test_file",
+                  "producerTask": "load-data"
+                }
+              },
+              "train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_df",
+                  "producerTask": "calculate-flight-duration"
+                }
+              }
+            },
+            "parameters": {
+              "external_info_file": {
+                "componentInputParameter": "external_data_path"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "add-external-data"
+          }
+        },
+        "calculate-and-aggregate-features": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-calculate-and-aggregate-features"
+          },
+          "dependentTasks": [
+            "clean-dataframe-with-isolation-forest",
+            "clean-trajectory-with-isolation-forest"
+          ],
+          "inputs": {
+            "artifacts": {
+              "train_df_path": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_df",
+                  "producerTask": "clean-dataframe-with-isolation-forest"
+                }
+              },
+              "trajectory_df_path": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_df",
+                  "producerTask": "clean-trajectory-with-isolation-forest"
+                }
+              }
+            },
+            "parameters": {
+              "flight_phases_refinement": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              },
+              "use_trajectory": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "calculate-and-aggregate-features"
+          }
+        },
+        "calculate-flight-duration": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-calculate-flight-duration"
+          },
+          "dependentTasks": [
+            "load-data"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_df": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "train_file",
+                  "producerTask": "load-data"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "calculate-flight-duration"
+          }
+        },
+        "clean-dataframe-with-isolation-forest": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-clean-dataframe-with-isolation-forest"
+          },
+          "dependentTasks": [
+            "add-external-data"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_df": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "train_enriched_file",
+                  "producerTask": "add-external-data"
+                }
+              }
+            },
+            "parameters": {
+              "contamination": {
+                "runtimeValue": {
+                  "constant": 0.01
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "clean-dataframe-with-isolation-forest"
+          }
+        },
+        "clean-trajectory-with-isolation-forest": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-clean-trajectory-with-isolation-forest"
+          },
+          "dependentTasks": [
+            "load-data"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_df": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "trajectory_file",
+                  "producerTask": "load-data"
+                }
+              }
+            },
+            "parameters": {
+              "contamination": {
+                "runtimeValue": {
+                  "constant": 0.01
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "clean-trajectory-with-isolation-forest"
+          }
+        },
+        "drop-features": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features"
+          },
+          "dependentTasks": [
+            "encode-categorical-features"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "encode-categorical-features"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features"
+          }
+        },
+        "drop-features-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features-2"
+          },
+          "dependentTasks": [
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_very_low_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features-2"
+          }
+        },
+        "drop-features-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features-3"
+          },
+          "dependentTasks": [
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_low_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features-3"
+          }
+        },
+        "drop-features-4": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features-4"
+          },
+          "dependentTasks": [
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_medium_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features-4"
+          }
+        },
+        "drop-features-5": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features-5"
+          },
+          "dependentTasks": [
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_high_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features-5"
+          }
+        },
+        "drop-features-6": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features-6"
+          },
+          "dependentTasks": [
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_non_b77w_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features-6"
+          }
+        },
+        "drop-features-7": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-drop-features-7"
+          },
+          "dependentTasks": [
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_b77w_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            },
+            "parameters": {
+              "final_drop": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "drop-features-7"
+          }
+        },
+        "encode-categorical-features": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-encode-categorical-features"
+          },
+          "dependentTasks": [
+            "normalize-dataframe"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "normalize-dataframe"
+                }
+              }
+            },
+            "parameters": {
+              "preserve_columns": {
+                "runtimeValue": {
+                  "constant": [
+                    "aircraft_type"
+                  ]
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "encode-categorical-features"
+          }
+        },
+        "feature-selection": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-feature-selection"
+          },
+          "dependentTasks": [
+            "process-category-split"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_output",
+                  "producerTask": "process-category-split"
+                }
+              },
+              "X_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_output",
+                  "producerTask": "process-category-split"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "feature-selection"
+          }
+        },
+        "feature-selection-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-feature-selection-2"
+          },
+          "dependentTasks": [
+            "process-category-split-2"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_output",
+                  "producerTask": "process-category-split-2"
+                }
+              },
+              "X_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_output",
+                  "producerTask": "process-category-split-2"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-2"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "feature-selection-2"
+          }
+        },
+        "feature-selection-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-feature-selection-3"
+          },
+          "dependentTasks": [
+            "process-category-split-3"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_output",
+                  "producerTask": "process-category-split-3"
+                }
+              },
+              "X_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_output",
+                  "producerTask": "process-category-split-3"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-3"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "feature-selection-3"
+          }
+        },
+        "feature-selection-4": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-feature-selection-4"
+          },
+          "dependentTasks": [
+            "process-category-split-4"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_output",
+                  "producerTask": "process-category-split-4"
+                }
+              },
+              "X_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_output",
+                  "producerTask": "process-category-split-4"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-4"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "feature-selection-4"
+          }
+        },
+        "feature-selection-5": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-feature-selection-5"
+          },
+          "dependentTasks": [
+            "process-category-split-5"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_output",
+                  "producerTask": "process-category-split-5"
+                }
+              },
+              "X_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_output",
+                  "producerTask": "process-category-split-5"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-5"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "feature-selection-5"
+          }
+        },
+        "feature-selection-6": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-feature-selection-6"
+          },
+          "dependentTasks": [
+            "process-category-split-6"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_output",
+                  "producerTask": "process-category-split-6"
+                }
+              },
+              "X_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_output",
+                  "producerTask": "process-category-split-6"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-6"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "feature-selection-6"
+          }
+        },
+        "load-data": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-load-data"
+          },
+          "inputs": {
+            "parameters": {
+              "data_path": {
+                "componentInputParameter": "data_path"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "load-data"
+          }
+        },
+        "normalize-dataframe": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-normalize-dataframe"
+          },
+          "dependentTasks": [
+            "calculate-and-aggregate-features"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "aggregated_features_path",
+                  "producerTask": "calculate-and-aggregate-features"
+                }
+              }
+            },
+            "parameters": {
+              "exclude_columns": {
+                "runtimeValue": {
+                  "constant": [
+                    "MTOW(kg)",
+                    "flight_id",
+                    "tow",
+                    "date",
+                    "callsign",
+                    "adep",
+                    "ades",
+                    "actual_offblock_time",
+                    "arrival_time",
+                    "aircraft_type",
+                    "wtc",
+                    "airline"
+                  ]
+                }
+              },
+              "split_by_flown_distance": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "normalize-dataframe"
+          }
+        },
+        "process-category-split": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-process-category-split"
+          },
+          "dependentTasks": [
+            "drop-features-2",
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features-2"
+                }
+              },
+              "y_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_very_low_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "process-category-split"
+          }
+        },
+        "process-category-split-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-process-category-split-2"
+          },
+          "dependentTasks": [
+            "drop-features-3",
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features-3"
+                }
+              },
+              "y_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_low_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "process-category-split-2"
+          }
+        },
+        "process-category-split-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-process-category-split-3"
+          },
+          "dependentTasks": [
+            "drop-features-4",
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features-4"
+                }
+              },
+              "y_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_medium_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "process-category-split-3"
+          }
+        },
+        "process-category-split-4": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-process-category-split-4"
+          },
+          "dependentTasks": [
+            "drop-features-5",
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features-5"
+                }
+              },
+              "y_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_high_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "process-category-split-4"
+          }
+        },
+        "process-category-split-5": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-process-category-split-5"
+          },
+          "dependentTasks": [
+            "drop-features-6",
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features-6"
+                }
+              },
+              "y_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_non_b77w_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "process-category-split-5"
+          }
+        },
+        "process-category-split-6": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-process-category-split-6"
+          },
+          "dependentTasks": [
+            "drop-features-7",
+            "split-by-mtow"
+          ],
+          "inputs": {
+            "artifacts": {
+              "X_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features-7"
+                }
+              },
+              "y_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_b77w_output",
+                  "producerTask": "split-by-mtow"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "process-category-split-6"
+          }
+        },
+        "split-by-mtow": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-split-by-mtow"
+          },
+          "dependentTasks": [
+            "drop-features"
+          ],
+          "inputs": {
+            "artifacts": {
+              "input_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "output_file",
+                  "producerTask": "drop-features"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "split-by-mtow"
+          }
+        },
+        "train-ensemble-model": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-train-ensemble-model"
+          },
+          "dependentTasks": [
+            "feature-selection",
+            "process-category-split"
+          ],
+          "inputs": {
+            "artifacts": {
+              "x_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_selected_file",
+                  "producerTask": "feature-selection"
+                }
+              },
+              "x_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_selected_file",
+                  "producerTask": "feature-selection"
+                }
+              },
+              "y_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_test_output",
+                  "producerTask": "process-category-split"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split"
+                }
+              }
+            },
+            "parameters": {
+              "find_best_parameters": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "very_low_ensemble"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "train-ensemble-model"
+          }
+        },
+        "train-ensemble-model-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-train-ensemble-model-2"
+          },
+          "dependentTasks": [
+            "feature-selection-2",
+            "process-category-split-2"
+          ],
+          "inputs": {
+            "artifacts": {
+              "x_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_selected_file",
+                  "producerTask": "feature-selection-2"
+                }
+              },
+              "x_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_selected_file",
+                  "producerTask": "feature-selection-2"
+                }
+              },
+              "y_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_test_output",
+                  "producerTask": "process-category-split-2"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-2"
+                }
+              }
+            },
+            "parameters": {
+              "find_best_parameters": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "low_ensemble"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "train-ensemble-model-2"
+          }
+        },
+        "train-ensemble-model-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-train-ensemble-model-3"
+          },
+          "dependentTasks": [
+            "feature-selection-3",
+            "process-category-split-3"
+          ],
+          "inputs": {
+            "artifacts": {
+              "x_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_selected_file",
+                  "producerTask": "feature-selection-3"
+                }
+              },
+              "x_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_selected_file",
+                  "producerTask": "feature-selection-3"
+                }
+              },
+              "y_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_test_output",
+                  "producerTask": "process-category-split-3"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-3"
+                }
+              }
+            },
+            "parameters": {
+              "find_best_parameters": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "medium_ensemble"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "train-ensemble-model-3"
+          }
+        },
+        "train-ensemble-model-4": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-train-ensemble-model-4"
+          },
+          "dependentTasks": [
+            "feature-selection-4",
+            "process-category-split-4"
+          ],
+          "inputs": {
+            "artifacts": {
+              "x_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_selected_file",
+                  "producerTask": "feature-selection-4"
+                }
+              },
+              "x_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_selected_file",
+                  "producerTask": "feature-selection-4"
+                }
+              },
+              "y_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_test_output",
+                  "producerTask": "process-category-split-4"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-4"
+                }
+              }
+            },
+            "parameters": {
+              "find_best_parameters": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "high_ensemble"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "train-ensemble-model-4"
+          }
+        },
+        "train-ensemble-model-5": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-train-ensemble-model-5"
+          },
+          "dependentTasks": [
+            "feature-selection-5",
+            "process-category-split-5"
+          ],
+          "inputs": {
+            "artifacts": {
+              "x_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_selected_file",
+                  "producerTask": "feature-selection-5"
+                }
+              },
+              "x_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_selected_file",
+                  "producerTask": "feature-selection-5"
+                }
+              },
+              "y_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_test_output",
+                  "producerTask": "process-category-split-5"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-5"
+                }
+              }
+            },
+            "parameters": {
+              "find_best_parameters": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "non_b77w_ensemble"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "train-ensemble-model-5"
+          }
+        },
+        "train-ensemble-model-6": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-train-ensemble-model-6"
+          },
+          "dependentTasks": [
+            "feature-selection-6",
+            "process-category-split-6"
+          ],
+          "inputs": {
+            "artifacts": {
+              "x_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_test_selected_file",
+                  "producerTask": "feature-selection-6"
+                }
+              },
+              "x_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "X_train_selected_file",
+                  "producerTask": "feature-selection-6"
+                }
+              },
+              "y_test_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_test_output",
+                  "producerTask": "process-category-split-6"
+                }
+              },
+              "y_train_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "y_train_output",
+                  "producerTask": "process-category-split-6"
+                }
+              }
+            },
+            "parameters": {
+              "find_best_parameters": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "b77w_ensemble"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "train-ensemble-model-6"
+          }
+        }
+      }
+    },
+    "inputDefinitions": {
+      "parameters": {
+        "data_path": {
+          "parameterType": "STRING"
+        },
+        "external_data_path": {
+          "parameterType": "STRING"
+        }
+      }
+    }
+  },
+  "schemaVersion": "2.1.0",
+  "sdkVersion": "kfp-2.0.0"
+}
