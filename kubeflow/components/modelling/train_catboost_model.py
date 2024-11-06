@@ -1,6 +1,5 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
-
 @component(
     packages_to_install=[
         "catboost",
