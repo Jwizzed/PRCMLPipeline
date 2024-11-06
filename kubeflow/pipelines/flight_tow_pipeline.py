@@ -1,16 +1,16 @@
 from kfp.v2 import dsl
 
 from kubeflow.components.data_ingestion.ingest_data import load_data
-from kubeflow.components.data_preprocessing.clean_df_with_isolation_forest import \
+from kubeflow.components.data_preprocessing.clean_data import \
     clean_dataframe_with_isolation_forest, \
     clean_trajectory_with_isolation_forest
-from kubeflow.components.data_preprocessing.encode_category_data import \
+from kubeflow.components.data_preprocessing.encode_feature import \
     encode_categorical_features
-from kubeflow.components.data_preprocessing.find_thrus_minus_drag import \
+from kubeflow.components.data_preprocessing.aggregate_feature import \
     calculate_and_aggregate_features
-from kubeflow.components.data_preprocessing.get_duration import \
+from kubeflow.components.data_preprocessing.calculate_duration import \
     calculate_flight_duration
-from kubeflow.components.data_preprocessing.get_external_data import \
+from kubeflow.components.data_preprocessing.enrich_data import \
     add_external_data
 from kubeflow.components.data_preprocessing.normalize_data import \
     normalize_dataframe

@@ -11,18 +11,14 @@ def split_train_test(
 ):
     """Splits the data into train and test sets."""
     import pandas as pd
-    from sklearn.model_selection import train_test_split
+    from kubeflow.src.data_preprocessing.split_data.train_test_split_strategy import \
+        TrainTestSplitStrategy
 
     df = pd.read_csv(input_file)
+    strategy = TrainTestSplitStrategy()
+    split_results = strategy.split(df)
 
-    X = df.drop(['tow'], axis=1)
-    y = df[['tow']]
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
-    )
-
-    X_train.to_csv(X_train_output, index=False)
-    X_test.to_csv(X_test_output, index=False)
-    y_train.to_csv(y_train_output, index=False)
-    y_test.to_csv(y_test_output, index=False)
+    split_results['train'][0].to_csv(X_train_output, index=False)
+    split_results['test'][0].to_csv(X_test_output, index=False)
+    split_results['train'][1].to_csv(y_train_output, index=False)
+    split_results['test'][1].to_csv(y_test_output, index=False)

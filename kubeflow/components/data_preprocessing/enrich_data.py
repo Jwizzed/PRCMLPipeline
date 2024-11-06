@@ -11,24 +11,13 @@ def add_external_data(
 ):
     """Adds external aircraft information."""
     import pandas as pd
-    import fsspec
-    import json
-
-    # Read JSON file from GCS using fsspec
-    with fsspec.open(external_info_file, "r") as file:
-        external_information = json.load(file)
-
-    external_df = pd.DataFrame.from_dict(external_information, orient="index")
-    external_df.reset_index(inplace=True)
-    external_df.rename(columns={"index": "aircraft_type"}, inplace=True)
+    from kubeflow.src.data_preprocessing.enrich_data import DataEnricher
 
     train_df = pd.read_csv(train_file)
     test_df = pd.read_csv(test_file)
 
-    train_enriched = pd.merge(train_df, external_df, on="aircraft_type",
-                              how="left")
-    test_enriched = pd.merge(test_df, external_df, on="aircraft_type",
-                             how="left")
+    enricher = DataEnricher(external_info_file)
+    train_enriched, test_enriched = enricher.enrich_data(train_df, test_df)
 
     train_enriched.to_csv(train_enriched_file, index=False)
     test_enriched.to_csv(test_enriched_file, index=False)

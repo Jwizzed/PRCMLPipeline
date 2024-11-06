@@ -11,26 +11,13 @@ def split_by_wtc(
 ):
     """Splits the data by Wake Turbulence Category (WTC)."""
     import pandas as pd
+    from kubeflow.src.data_preprocessing.split_data.wtc_split_strategy import WTCSplitStrategy
 
     df = pd.read_csv(input_file)
+    strategy = WTCSplitStrategy()
+    split_results = strategy.split(df)
 
-    X = df.drop(['tow'], axis=1)
-    y = df[['flight_id', 'tow']]
-
-    X_wtc_M = X[X['wtc_M'] == 1].drop(["wtc_H", "wtc_M"], axis=1).reset_index(
-        drop=True)
-    X_wtc_H = X[X['wtc_H'] == 1].drop(["wtc_H", "wtc_M"], axis=1).reset_index(
-        drop=True)
-
-    y_wtc_M = y[y['flight_id'].isin(X_wtc_M.flight_id.unique())].drop(
-        'flight_id', axis=1).reset_index(drop=True)
-    y_wtc_H = y[y['flight_id'].isin(X_wtc_H.flight_id.unique())].drop(
-        'flight_id', axis=1).reset_index(drop=True)
-
-    X_wtc_M = X_wtc_M.drop('flight_id', axis=1).reset_index(drop=True)
-    X_wtc_H = X_wtc_H.drop('flight_id', axis=1).reset_index(drop=True)
-
-    X_wtc_M.to_csv(X_wtc_M_output, index=False)
-    X_wtc_H.to_csv(X_wtc_H_output, index=False)
-    y_wtc_M.to_csv(y_wtc_M_output, index=False)
-    y_wtc_H.to_csv(y_wtc_H_output, index=False)
+    split_results['wtc_M'][0].to_csv(X_wtc_M_output, index=False)
+    split_results['wtc_H'][0].to_csv(X_wtc_H_output, index=False)
+    split_results['wtc_M'][1].to_csv(y_wtc_M_output, index=False)
+    split_results['wtc_H'][1].to_csv(y_wtc_H_output, index=False)
