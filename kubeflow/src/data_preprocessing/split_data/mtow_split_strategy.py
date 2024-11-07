@@ -3,7 +3,7 @@ from typing import Dict, Tuple, Union
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-from kubeflow.src.split_data.split_data_strategy import SplitDataStrategy
+from kubeflow.src.data_preprocessing.split_data.split_data_strategy import SplitDataStrategy
 
 
 class MTOWSplitStrategy(SplitDataStrategy):

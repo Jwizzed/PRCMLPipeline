@@ -1,7 +1,9 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
-@component(packages_to_install=["pandas"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas"])
 def split_by_wtc(
         input_file: InputPath("CSV"),
         X_wtc_M_output: OutputPath("CSV"),

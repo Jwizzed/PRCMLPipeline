@@ -1,7 +1,9 @@
 from kfp.v2.dsl import component, OutputPath
 
 
-@component(packages_to_install=["pandas", "fsspec", "gcsfs", "pyarrow"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas", "fsspec", "gcsfs", "pyarrow"])
 def load_data(
         data_path: str,
         train_file: OutputPath("CSV"),
