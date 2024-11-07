@@ -1,7 +1,9 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
-@component(packages_to_install=["pandas", "scikit-learn"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas", "scikit-learn"])
 def split_by_mtow(
         input_file: InputPath("CSV"),
         X_very_low_output: OutputPath("CSV"),

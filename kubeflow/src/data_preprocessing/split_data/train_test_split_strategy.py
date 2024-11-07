@@ -3,7 +3,7 @@ from typing import Dict, Tuple
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from kubeflow.src.split_data.split_data_strategy import SplitDataStrategy
+from kubeflow.src.data_preprocessing.split_data.split_data_strategy import SplitDataStrategy
 
 
 class TrainTestSplitStrategy(SplitDataStrategy):

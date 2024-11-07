@@ -1,7 +1,9 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
-@component(packages_to_install=["pandas", "numpy", "tqdm", "scipy"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas", "numpy", "tqdm", "scipy"])
 def calculate_and_aggregate_features(
         trajectory_df_path: InputPath("CSV"),
         train_df_path: InputPath("CSV"),

@@ -1,6 +1,8 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
+
 @component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
     packages_to_install=[
         "catboost",
         "pandas",

@@ -1,7 +1,9 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
-@component(packages_to_install=["pandas"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas"])
 def drop_features(
         input_file: InputPath("CSV"),
         output_file: OutputPath("CSV"),
@@ -16,7 +18,9 @@ def drop_features(
     dropped_df.to_csv(output_file, index=False)
 
 
-@component(packages_to_install=["pandas", "scikit-learn"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas", "scikit-learn"])
 def feature_selection(
         X_train_file: InputPath("CSV"),
         y_train_file: InputPath("CSV"),
@@ -47,7 +51,9 @@ def feature_selection(
     feature_scores_df.to_csv(feature_scores_file, index=False)
 
 
-@component(packages_to_install=["pandas", "scikit-learn"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["pandas", "scikit-learn"])
 def process_category_split(
         X_file: InputPath("CSV"),
         y_file: InputPath("CSV"),

@@ -1,7 +1,9 @@
 from kfp.v2.dsl import component, InputPath, OutputPath
 
 
-@component(packages_to_install=["scikit-learn", "pandas", "numpy"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["scikit-learn", "pandas", "numpy"])
 def clean_dataframe_with_isolation_forest(
         input_df: InputPath("CSV"),
         output_df: OutputPath("CSV"),
@@ -16,7 +18,9 @@ def clean_dataframe_with_isolation_forest(
     cleaned_df.to_csv(output_df, index=False)
 
 
-@component(packages_to_install=["scikit-learn", "pandas", "numpy"])
+@component(
+    base_image='gcr.io/prc-data-pipeline/ml-image',
+    packages_to_install=["scikit-learn", "pandas", "numpy"])
 def clean_trajectory_with_isolation_forest(
         input_df: InputPath("CSV"),
         output_df: OutputPath("CSV"),
