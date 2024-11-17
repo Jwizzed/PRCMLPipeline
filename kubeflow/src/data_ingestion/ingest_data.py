@@ -8,12 +8,12 @@ class DataIngestor:
     def load_and_process_data(self):
         train_df = pd.read_csv(
             f"{self.data_path}/challenge_set.csv",
-            parse_dates=["date", "actual_offblock_time", "arrival_time"]
+            parse_dates=["date", "actual_offblock_time", "arrival_time"],
         )
 
         test_df = pd.read_csv(
             f"{self.data_path}/submission_set.csv",
-            parse_dates=["date", "actual_offblock_time", "arrival_time"]
+            parse_dates=["date", "actual_offblock_time", "arrival_time"],
         ).drop(["tow"], axis=1)
 
         # Format datetime columns

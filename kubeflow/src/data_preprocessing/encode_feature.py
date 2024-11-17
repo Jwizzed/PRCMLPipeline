@@ -21,8 +21,7 @@ class FeatureEncoder:
 
         # Label encoding
         for col in self.categorical_col:
-            df_encoded[col + "_encoded"] = self.encoder.fit_transform(
-                df_encoded[col])
+            df_encoded[col + "_encoded"] = self.encoder.fit_transform(df_encoded[col])
             if col not in self.preserve_columns:
                 df_encoded = df_encoded.drop(columns=[col])
 

@@ -12,8 +12,9 @@ class SplitDataStrategy(ABC):
     """
 
     @abstractmethod
-    def split(self, df: pd.DataFrame, **kwargs) -> Dict[
-        str, Tuple[pd.DataFrame, pd.DataFrame]]:
+    def split(
+        self, df: pd.DataFrame, **kwargs
+    ) -> Dict[str, Tuple[pd.DataFrame, pd.DataFrame]]:
         """
         Split the input DataFrame according to the strategy's logic.
 
@@ -25,9 +26,9 @@ class SplitDataStrategy(ABC):
         """
         pass
 
-    def process_subset(self, subset_df: pd.DataFrame, is_test: bool = False) -> \
-            Union[
-                Tuple[pd.DataFrame, pd.DataFrame], Tuple[pd.DataFrame, None]]:
+    def process_subset(
+        self, subset_df: pd.DataFrame, is_test: bool = False
+    ) -> Union[Tuple[pd.DataFrame, pd.DataFrame], Tuple[pd.DataFrame, None]]:
         """
         Process a subset of the data according to the strategy's requirements.
 

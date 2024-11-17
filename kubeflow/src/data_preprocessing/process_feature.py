@@ -5,8 +5,7 @@ from sklearn.model_selection import train_test_split
 
 class FeatureProcessor:
     @staticmethod
-    def drop_features(df: pd.DataFrame,
-                      final_drop: bool = False) -> pd.DataFrame:
+    def drop_features(df: pd.DataFrame, final_drop: bool = False) -> pd.DataFrame:
         drop_cols = [
             "date",
             "callsign",
@@ -22,8 +21,9 @@ class FeatureProcessor:
         return df.drop(columns=drop_cols, errors="ignore")
 
     @staticmethod
-    def select_features(X_train: pd.DataFrame, y_train: pd.DataFrame,
-                        X_test: pd.DataFrame, k: int = 15):
+    def select_features(
+        X_train: pd.DataFrame, y_train: pd.DataFrame, X_test: pd.DataFrame, k: int = 15
+    ):
         selector = SelectKBest(score_func=f_regression, k=k)
         selector.fit(X_train, y_train)
 
@@ -33,26 +33,28 @@ class FeatureProcessor:
             selected_features, columns=["Selected Features"]
         )
 
-        feature_scores_df = pd.DataFrame({
-            "Feature": X_train.columns,
-            "Score": selector.scores_,
-            "p-value": selector.pvalues_,
-        })
+        feature_scores_df = pd.DataFrame(
+            {
+                "Feature": X_train.columns,
+                "Score": selector.scores_,
+                "p-value": selector.pvalues_,
+            }
+        )
 
         X_train_selected = pd.DataFrame(
-            selector.transform(X_train),
-            columns=selected_features,
-            index=X_train.index
+            selector.transform(X_train), columns=selected_features, index=X_train.index
         )
 
         X_test_selected = pd.DataFrame(
-            selector.transform(X_test),
-            columns=selected_features,
-            index=X_test.index
+            selector.transform(X_test), columns=selected_features, index=X_test.index
         )
 
-        return (X_train_selected, X_test_selected,
-                selected_features_df, feature_scores_df)
+        return (
+            X_train_selected,
+            X_test_selected,
+            selected_features_df,
+            feature_scores_df,
+        )
 
     @staticmethod
     def split_data(X: pd.DataFrame, y: pd.DataFrame):
