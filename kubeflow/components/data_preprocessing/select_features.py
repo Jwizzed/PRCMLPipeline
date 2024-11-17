@@ -2,12 +2,12 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(
-    base_image='gcr.io/prc-data-pipeline/ml-image',
-    packages_to_install=["pandas"])
+    base_image="gcr.io/prc-data-pipeline/ml-image", packages_to_install=["pandas"]
+)
 def drop_features(
-        input_file: InputPath("CSV"),
-        output_file: OutputPath("CSV"),
-        final_drop: bool = False,
+    input_file: InputPath("CSV"),
+    output_file: OutputPath("CSV"),
+    final_drop: bool = False,
 ):
     """Drops specified features from the dataframe."""
     import pandas as pd
@@ -19,17 +19,18 @@ def drop_features(
 
 
 @component(
-    base_image='gcr.io/prc-data-pipeline/ml-image',
-    packages_to_install=["pandas", "scikit-learn"])
+    base_image="gcr.io/prc-data-pipeline/ml-image",
+    packages_to_install=["pandas", "scikit-learn"],
+)
 def feature_selection(
-        X_train_file: InputPath("CSV"),
-        y_train_file: InputPath("CSV"),
-        X_test_file: InputPath("CSV"),
-        X_train_selected_file: OutputPath("CSV"),
-        X_test_selected_file: OutputPath("CSV"),
-        selected_features_file: OutputPath("CSV"),
-        feature_scores_file: OutputPath("CSV"),
-        k: int = 15,
+    X_train_file: InputPath("CSV"),
+    y_train_file: InputPath("CSV"),
+    X_test_file: InputPath("CSV"),
+    X_train_selected_file: OutputPath("CSV"),
+    X_test_selected_file: OutputPath("CSV"),
+    selected_features_file: OutputPath("CSV"),
+    feature_scores_file: OutputPath("CSV"),
+    k: int = 15,
 ):
     """Performs feature selection using SelectKBest."""
     import pandas as pd
@@ -39,10 +40,8 @@ def feature_selection(
     y_train = pd.read_csv(y_train_file)
     X_test = pd.read_csv(X_test_file)
 
-    (X_train_selected, X_test_selected,
-     selected_features_df,
-     feature_scores_df) = FeatureProcessor.select_features(
-        X_train, y_train, X_test, k
+    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (
+        FeatureProcessor.select_features(X_train, y_train, X_test, k)
     )
 
     X_train_selected.to_csv(X_train_selected_file, index=False)
@@ -52,15 +51,16 @@ def feature_selection(
 
 
 @component(
-    base_image='gcr.io/prc-data-pipeline/ml-image',
-    packages_to_install=["pandas", "scikit-learn"])
+    base_image="gcr.io/prc-data-pipeline/ml-image",
+    packages_to_install=["pandas", "scikit-learn"],
+)
 def process_category_split(
-        X_file: InputPath("CSV"),
-        y_file: InputPath("CSV"),
-        X_train_output: OutputPath("CSV"),
-        X_test_output: OutputPath("CSV"),
-        y_train_output: OutputPath("CSV"),
-        y_test_output: OutputPath("CSV"),
+    X_file: InputPath("CSV"),
+    y_file: InputPath("CSV"),
+    X_train_output: OutputPath("CSV"),
+    X_test_output: OutputPath("CSV"),
+    y_train_output: OutputPath("CSV"),
+    y_test_output: OutputPath("CSV"),
 ):
     """Performs train-test split and prints shapes for a category."""
     import pandas as pd

@@ -2,8 +2,8 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(
-    base_image='gcr.io/prc-data-pipeline/ml-image',
-    packages_to_install=["pandas", "scikit-learn", "catboost", "xgboost", "joblib"]
+    base_image="gcr.io/prc-data-pipeline/ml-image",
+    packages_to_install=["pandas", "scikit-learn", "catboost", "xgboost", "joblib"],
 )
 def train_ensemble_model(
     x_train_file: InputPath("CSV"),

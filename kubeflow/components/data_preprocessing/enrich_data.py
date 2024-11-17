@@ -2,14 +2,15 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(
-    base_image='gcr.io/prc-data-pipeline/ml-image',
-    packages_to_install=["pandas", "fsspec", "gcsfs"])
+    base_image="gcr.io/prc-data-pipeline/ml-image",
+    packages_to_install=["pandas", "fsspec", "gcsfs"],
+)
 def add_external_data(
-        train_file: InputPath("CSV"),
-        test_file: InputPath("CSV"),
-        external_info_file: str,
-        train_enriched_file: OutputPath("CSV"),
-        test_enriched_file: OutputPath("CSV"),
+    train_file: InputPath("CSV"),
+    test_file: InputPath("CSV"),
+    external_info_file: str,
+    train_enriched_file: OutputPath("CSV"),
+    test_enriched_file: OutputPath("CSV"),
 ):
     """Adds external aircraft information."""
     import pandas as pd

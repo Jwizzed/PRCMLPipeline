@@ -2,11 +2,11 @@ from kfp.v2.dsl import component, InputPath, OutputPath
 
 
 @component(
-    base_image='gcr.io/prc-data-pipeline/ml-image',
-    packages_to_install=["pandas", "scikit-learn"])
+    base_image="gcr.io/prc-data-pipeline/ml-image",
+    packages_to_install=["pandas", "scikit-learn"],
+)
 def encode_categorical_features(
-        input_file: InputPath("CSV"), output_file: OutputPath("CSV"),
-        preserve_columns: list
+    input_file: InputPath("CSV"), output_file: OutputPath("CSV"), preserve_columns: list
 ):
     """Encodes categorical features in the dataframe, with the option to preserve certain columns."""
     import pandas as pd

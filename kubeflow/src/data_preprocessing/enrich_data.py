@@ -13,8 +13,7 @@ class DataEnricher:
         with fsspec.open(self.external_info_file, "r") as file:
             external_information = json.load(file)
 
-        external_df = pd.DataFrame.from_dict(external_information,
-                                             orient="index")
+        external_df = pd.DataFrame.from_dict(external_information, orient="index")
         external_df.reset_index(inplace=True)
         external_df.rename(columns={"index": "aircraft_type"}, inplace=True)
         return external_df
@@ -23,9 +22,7 @@ class DataEnricher:
         """Enriches training and test data with external information."""
         external_df = self.load_external_data()
 
-        train_enriched = pd.merge(train_df, external_df, on="aircraft_type",
-                                  how="left")
-        test_enriched = pd.merge(test_df, external_df, on="aircraft_type",
-                                 how="left")
+        train_enriched = pd.merge(train_df, external_df, on="aircraft_type", how="left")
+        test_enriched = pd.merge(test_df, external_df, on="aircraft_type", how="left")
 
         return train_enriched, test_enriched

@@ -160,6 +160,342 @@
         }
       }
     },
+    "comp-deploy-model": {
+      "executorLabel": "exec-deploy-model",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-10": {
+      "executorLabel": "exec-deploy-model-10",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-11": {
+      "executorLabel": "exec-deploy-model-11",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-12": {
+      "executorLabel": "exec-deploy-model-12",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-2": {
+      "executorLabel": "exec-deploy-model-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-3": {
+      "executorLabel": "exec-deploy-model-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-4": {
+      "executorLabel": "exec-deploy-model-4",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-5": {
+      "executorLabel": "exec-deploy-model-5",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-6": {
+      "executorLabel": "exec-deploy-model-6",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-7": {
+      "executorLabel": "exec-deploy-model-7",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-8": {
+      "executorLabel": "exec-deploy-model-8",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-deploy-model-9": {
+      "executorLabel": "exec-deploy-model-9",
+      "inputDefinitions": {
+        "artifacts": {
+          "model_file": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "deployment_path": {
+            "parameterType": "STRING"
+          },
+          "model_name": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "parameters": {
+          "gcs_path": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
     "comp-drop-features": {
       "executorLabel": "exec-drop-features",
       "inputDefinitions": {
@@ -1771,7 +2107,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef add_external_data(\n        train_file: InputPath(\"CSV\"),\n        test_file: InputPath(\"CSV\"),\n        external_info_file: str,\n        train_enriched_file: OutputPath(\"CSV\"),\n        test_enriched_file: OutputPath(\"CSV\"),\n):\n    \"\"\"Adds external aircraft information.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.enrich_data import DataEnricher\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    enricher = DataEnricher(external_info_file)\n    train_enriched, test_enriched = enricher.enrich_data(train_df, test_df)\n\n    train_enriched.to_csv(train_enriched_file, index=False)\n    test_enriched.to_csv(test_enriched_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef add_external_data(\n    train_file: InputPath(\"CSV\"),\n    test_file: InputPath(\"CSV\"),\n    external_info_file: str,\n    train_enriched_file: OutputPath(\"CSV\"),\n    test_enriched_file: OutputPath(\"CSV\"),\n):\n    \"\"\"Adds external aircraft information.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.enrich_data import DataEnricher\n\n    train_df = pd.read_csv(train_file)\n    test_df = pd.read_csv(test_file)\n\n    enricher = DataEnricher(external_info_file)\n    train_enriched, test_enriched = enricher.enrich_data(train_df, test_df)\n\n    train_enriched.to_csv(train_enriched_file, index=False)\n    test_enriched.to_csv(test_enriched_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1791,7 +2127,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_and_aggregate_features(\n        trajectory_df_path: InputPath(\"CSV\"),\n        train_df_path: InputPath(\"CSV\"),\n        aggregated_features_path: OutputPath(\"CSV\"),\n        use_trajectory: bool,\n        flight_phases_refinement: bool,\n):\n    \"\"\"Calculates thrust minus drag for flight phases and aggregates features.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.feature_engineering import FeatureEngineering\n\n    trajectory_df = pd.read_csv(trajectory_df_path)\n    train_df = pd.read_csv(train_df_path)\n\n    feature_engineering = FeatureEngineering()\n    merged_df = feature_engineering.process_data(\n        trajectory_df,\n        train_df,\n        use_trajectory,\n        flight_phases_refinement\n    )\n\n    merged_df.to_csv(aggregated_features_path, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_and_aggregate_features(\n    trajectory_df_path: InputPath(\"CSV\"),\n    train_df_path: InputPath(\"CSV\"),\n    aggregated_features_path: OutputPath(\"CSV\"),\n    use_trajectory: bool,\n    flight_phases_refinement: bool,\n):\n    \"\"\"Calculates thrust minus drag for flight phases and aggregates features.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.feature_engineering import FeatureEngineering\n\n    trajectory_df = pd.read_csv(trajectory_df_path)\n    train_df = pd.read_csv(train_df_path)\n\n    feature_engineering = FeatureEngineering()\n    merged_df = feature_engineering.process_data(\n        trajectory_df, train_df, use_trajectory, flight_phases_refinement\n    )\n\n    merged_df.to_csv(aggregated_features_path, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1811,7 +2147,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_flight_duration(input_df: InputPath(\"CSV\"),\n                              output_df: OutputPath(\"CSV\")):\n    \"\"\"Calculates flight duration in minutes.\"\"\"\n    from kubeflow.src.data_preprocessing.calculate_duration import DurationCalculator\n\n    calculator = DurationCalculator()\n    df_with_duration = calculator.calculate_duration(input_df)\n    df_with_duration.to_csv(output_df, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef calculate_flight_duration(input_df: InputPath(\"CSV\"), output_df: OutputPath(\"CSV\")):\n    \"\"\"Calculates flight duration in minutes.\"\"\"\n    from kubeflow.src.data_preprocessing.calculate_duration import DurationCalculator\n\n    calculator = DurationCalculator()\n    df_with_duration = calculator.calculate_duration(input_df)\n    df_with_duration.to_csv(output_df, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1831,7 +2167,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_dataframe_with_isolation_forest(\n        input_df: InputPath(\"CSV\"),\n        output_df: OutputPath(\"CSV\"),\n        contamination: float = 0.01,\n):\n    \"\"\"Cleans a dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.clean_data import DataCleaner\n\n    df = pd.read_csv(input_df)\n    cleaned_df = DataCleaner.clean_dataframe(df, contamination)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_dataframe_with_isolation_forest(\n    input_df: InputPath(\"CSV\"),\n    output_df: OutputPath(\"CSV\"),\n    contamination: float = 0.01,\n):\n    \"\"\"Cleans a dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.clean_data import DataCleaner\n\n    df = pd.read_csv(input_df)\n    cleaned_df = DataCleaner.clean_dataframe(df, contamination)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1851,7 +2187,247 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_trajectory_with_isolation_forest(\n        input_df: InputPath(\"CSV\"),\n        output_df: OutputPath(\"CSV\"),\n        contamination: float = 0.01,\n):\n    \"\"\"Cleans a trajectory dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.clean_data import DataCleaner\n\n    df = pd.read_csv(input_df)\n    cleaned_df = DataCleaner.clean_trajectory(df, contamination)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef clean_trajectory_with_isolation_forest(\n    input_df: InputPath(\"CSV\"),\n    output_df: OutputPath(\"CSV\"),\n    contamination: float = 0.01,\n):\n    \"\"\"Cleans a trajectory dataframe using Isolation Forest for outlier detection.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.clean_data import DataCleaner\n\n    df = pd.read_csv(input_df)\n    cleaned_df = DataCleaner.clean_trajectory(df, contamination)\n    cleaned_df.to_csv(output_df, index=False)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-10": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-11": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-12": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-4": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-5": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-6": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-7": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-8": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
+          ],
+          "image": "gcr.io/prc-data-pipeline/ml-image"
+        }
+      },
+      "exec-deploy-model-9": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "deploy_model"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'joblib' 'google-cloud-storage' 'kfp==2.0.0' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef deploy_model(\n    model_file: InputPath(\"PKL\"),\n    model_name: str,\n    deployment_path: str,\n    gcs_path: OutputPath(str),\n):\n    \"\"\"Deploys the model to Google Cloud Storage.\"\"\"\n    from google.cloud import storage\n\n    if deployment_path.startswith(\"gs://\"):\n        deployment_path = deployment_path[5:]\n\n    bucket_name, folder_path = deployment_path.split(\"/\", 1)\n\n    client = storage.Client()\n    bucket = client.bucket(bucket_name)\n\n    if not folder_path.endswith(\"/\"):\n        folder_path += \"/\"\n\n    destination_blob_name = f\"{folder_path}{model_name}.joblib\"\n    blob = bucket.blob(destination_blob_name)\n\n    blob.upload_from_filename(model_file)\n\n    gcs_url = f\"gs://{bucket_name}/{destination_blob_name}\"\n    with open(gcs_path, \"w\") as f:\n        f.write(gcs_url)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1871,7 +2447,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1891,7 +2467,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1911,7 +2487,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1931,7 +2507,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1951,7 +2527,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1971,7 +2547,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -1991,7 +2567,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef drop_features(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    final_drop: bool = False,\n):\n    \"\"\"Drops specified features from the dataframe.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    df = pd.read_csv(input_file)\n    dropped_df = FeatureProcessor.drop_features(df, final_drop)\n    dropped_df.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2011,7 +2587,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef encode_categorical_features(\n        input_file: InputPath(\"CSV\"), output_file: OutputPath(\"CSV\"),\n        preserve_columns: list\n):\n    \"\"\"Encodes categorical features in the dataframe, with the option to preserve certain columns.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.encode_feature import FeatureEncoder\n\n    df = pd.read_csv(input_file)\n    encoder = FeatureEncoder(preserve_columns)\n    df_encoded = encoder.encode_features(df)\n    df_encoded.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef encode_categorical_features(\n    input_file: InputPath(\"CSV\"), output_file: OutputPath(\"CSV\"), preserve_columns: list\n):\n    \"\"\"Encodes categorical features in the dataframe, with the option to preserve certain columns.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.encode_feature import FeatureEncoder\n\n    df = pd.read_csv(input_file)\n    encoder = FeatureEncoder(preserve_columns)\n    df_encoded = encoder.encode_features(df)\n    df_encoded.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2031,7 +2607,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n        X_train_file: InputPath(\"CSV\"),\n        y_train_file: InputPath(\"CSV\"),\n        X_test_file: InputPath(\"CSV\"),\n        X_train_selected_file: OutputPath(\"CSV\"),\n        X_test_selected_file: OutputPath(\"CSV\"),\n        selected_features_file: OutputPath(\"CSV\"),\n        feature_scores_file: OutputPath(\"CSV\"),\n        k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected,\n     selected_features_df,\n     feature_scores_df) = FeatureProcessor.select_features(\n        X_train, y_train, X_test, k\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (\n        FeatureProcessor.select_features(X_train, y_train, X_test, k)\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2051,7 +2627,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n        X_train_file: InputPath(\"CSV\"),\n        y_train_file: InputPath(\"CSV\"),\n        X_test_file: InputPath(\"CSV\"),\n        X_train_selected_file: OutputPath(\"CSV\"),\n        X_test_selected_file: OutputPath(\"CSV\"),\n        selected_features_file: OutputPath(\"CSV\"),\n        feature_scores_file: OutputPath(\"CSV\"),\n        k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected,\n     selected_features_df,\n     feature_scores_df) = FeatureProcessor.select_features(\n        X_train, y_train, X_test, k\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (\n        FeatureProcessor.select_features(X_train, y_train, X_test, k)\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2071,7 +2647,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n        X_train_file: InputPath(\"CSV\"),\n        y_train_file: InputPath(\"CSV\"),\n        X_test_file: InputPath(\"CSV\"),\n        X_train_selected_file: OutputPath(\"CSV\"),\n        X_test_selected_file: OutputPath(\"CSV\"),\n        selected_features_file: OutputPath(\"CSV\"),\n        feature_scores_file: OutputPath(\"CSV\"),\n        k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected,\n     selected_features_df,\n     feature_scores_df) = FeatureProcessor.select_features(\n        X_train, y_train, X_test, k\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (\n        FeatureProcessor.select_features(X_train, y_train, X_test, k)\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2091,7 +2667,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n        X_train_file: InputPath(\"CSV\"),\n        y_train_file: InputPath(\"CSV\"),\n        X_test_file: InputPath(\"CSV\"),\n        X_train_selected_file: OutputPath(\"CSV\"),\n        X_test_selected_file: OutputPath(\"CSV\"),\n        selected_features_file: OutputPath(\"CSV\"),\n        feature_scores_file: OutputPath(\"CSV\"),\n        k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected,\n     selected_features_df,\n     feature_scores_df) = FeatureProcessor.select_features(\n        X_train, y_train, X_test, k\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (\n        FeatureProcessor.select_features(X_train, y_train, X_test, k)\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2111,7 +2687,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n        X_train_file: InputPath(\"CSV\"),\n        y_train_file: InputPath(\"CSV\"),\n        X_test_file: InputPath(\"CSV\"),\n        X_train_selected_file: OutputPath(\"CSV\"),\n        X_test_selected_file: OutputPath(\"CSV\"),\n        selected_features_file: OutputPath(\"CSV\"),\n        feature_scores_file: OutputPath(\"CSV\"),\n        k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected,\n     selected_features_df,\n     feature_scores_df) = FeatureProcessor.select_features(\n        X_train, y_train, X_test, k\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (\n        FeatureProcessor.select_features(X_train, y_train, X_test, k)\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2131,7 +2707,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n        X_train_file: InputPath(\"CSV\"),\n        y_train_file: InputPath(\"CSV\"),\n        X_test_file: InputPath(\"CSV\"),\n        X_train_selected_file: OutputPath(\"CSV\"),\n        X_test_selected_file: OutputPath(\"CSV\"),\n        selected_features_file: OutputPath(\"CSV\"),\n        feature_scores_file: OutputPath(\"CSV\"),\n        k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected,\n     selected_features_df,\n     feature_scores_df) = FeatureProcessor.select_features(\n        X_train, y_train, X_test, k\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef feature_selection(\n    X_train_file: InputPath(\"CSV\"),\n    y_train_file: InputPath(\"CSV\"),\n    X_test_file: InputPath(\"CSV\"),\n    X_train_selected_file: OutputPath(\"CSV\"),\n    X_test_selected_file: OutputPath(\"CSV\"),\n    selected_features_file: OutputPath(\"CSV\"),\n    feature_scores_file: OutputPath(\"CSV\"),\n    k: int = 15,\n):\n    \"\"\"Performs feature selection using SelectKBest.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X_train = pd.read_csv(X_train_file)\n    y_train = pd.read_csv(y_train_file)\n    X_test = pd.read_csv(X_test_file)\n\n    (X_train_selected, X_test_selected, selected_features_df, feature_scores_df) = (\n        FeatureProcessor.select_features(X_train, y_train, X_test, k)\n    )\n\n    X_train_selected.to_csv(X_train_selected_file, index=False)\n    X_test_selected.to_csv(X_test_selected_file, index=False)\n    selected_features_df.to_csv(selected_features_file, index=False)\n    feature_scores_df.to_csv(feature_scores_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2151,7 +2727,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef load_data(\n        data_path: str,\n        train_file: OutputPath(\"CSV\"),\n        test_file: OutputPath(\"CSV\"),\n        trajectory_file: OutputPath(\"CSV\")\n):\n    \"\"\"Loads the flight data and trajectory data.\"\"\"\n    from kubeflow.src.data_ingestion.ingest_data import DataIngestor\n\n    loader = DataIngestor(data_path)\n    train_df, test_df, trajectory_df = loader.load_and_process_data()\n\n    train_df.to_csv(train_file, index=False)\n    test_df.to_csv(test_file, index=False)\n    trajectory_df.to_csv(trajectory_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef load_data(\n    data_path: str,\n    train_file: OutputPath(\"CSV\"),\n    test_file: OutputPath(\"CSV\"),\n    trajectory_file: OutputPath(\"CSV\"),\n):\n    \"\"\"Loads the flight data and trajectory data.\"\"\"\n    from kubeflow.src.data_ingestion.ingest_data import DataIngestor\n\n    loader = DataIngestor(data_path)\n    train_df, test_df, trajectory_df = loader.load_and_process_data()\n\n    train_df.to_csv(train_file, index=False)\n    test_df.to_csv(test_file, index=False)\n    trajectory_df.to_csv(trajectory_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2171,7 +2747,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef normalize_dataframe(\n        input_file: InputPath(\"CSV\"),\n        output_file: OutputPath(\"CSV\"),\n        exclude_columns: list,\n        split_by_flown_distance: bool = False,\n):\n    \"\"\"Normalizes the dataframe and excludes specified columns from normalization.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.normalize_data import DataNormalizer\n\n    df = pd.read_csv(input_file)\n\n    normalizer = DataNormalizer(exclude_columns, split_by_flown_distance)\n    df_normalized = normalizer.normalize_data(df)\n\n    df_normalized.to_csv(output_file, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef normalize_dataframe(\n    input_file: InputPath(\"CSV\"),\n    output_file: OutputPath(\"CSV\"),\n    exclude_columns: list,\n    split_by_flown_distance: bool = False,\n):\n    \"\"\"Normalizes the dataframe and excludes specified columns from normalization.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.normalize_data import DataNormalizer\n\n    df = pd.read_csv(input_file)\n\n    normalizer = DataNormalizer(exclude_columns, split_by_flown_distance)\n    df_normalized = normalizer.normalize_data(df)\n\n    df_normalized.to_csv(output_file, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2191,7 +2767,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n    X_file: InputPath(\"CSV\"),\n    y_file: InputPath(\"CSV\"),\n    X_train_output: OutputPath(\"CSV\"),\n    X_test_output: OutputPath(\"CSV\"),\n    y_train_output: OutputPath(\"CSV\"),\n    y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2211,7 +2787,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n    X_file: InputPath(\"CSV\"),\n    y_file: InputPath(\"CSV\"),\n    X_train_output: OutputPath(\"CSV\"),\n    X_test_output: OutputPath(\"CSV\"),\n    y_train_output: OutputPath(\"CSV\"),\n    y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2231,7 +2807,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n    X_file: InputPath(\"CSV\"),\n    y_file: InputPath(\"CSV\"),\n    X_train_output: OutputPath(\"CSV\"),\n    X_test_output: OutputPath(\"CSV\"),\n    y_train_output: OutputPath(\"CSV\"),\n    y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2251,7 +2827,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n    X_file: InputPath(\"CSV\"),\n    y_file: InputPath(\"CSV\"),\n    X_train_output: OutputPath(\"CSV\"),\n    X_test_output: OutputPath(\"CSV\"),\n    y_train_output: OutputPath(\"CSV\"),\n    y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2271,7 +2847,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n    X_file: InputPath(\"CSV\"),\n    y_file: InputPath(\"CSV\"),\n    X_train_output: OutputPath(\"CSV\"),\n    X_test_output: OutputPath(\"CSV\"),\n    y_train_output: OutputPath(\"CSV\"),\n    y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2291,7 +2867,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n        X_file: InputPath(\"CSV\"),\n        y_file: InputPath(\"CSV\"),\n        X_train_output: OutputPath(\"CSV\"),\n        X_test_output: OutputPath(\"CSV\"),\n        y_train_output: OutputPath(\"CSV\"),\n        y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef process_category_split(\n    X_file: InputPath(\"CSV\"),\n    y_file: InputPath(\"CSV\"),\n    X_train_output: OutputPath(\"CSV\"),\n    X_test_output: OutputPath(\"CSV\"),\n    y_train_output: OutputPath(\"CSV\"),\n    y_test_output: OutputPath(\"CSV\"),\n):\n    \"\"\"Performs train-test split and prints shapes for a category.\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.process_feature import FeatureProcessor\n\n    X = pd.read_csv(X_file)\n    y = pd.read_csv(y_file)\n\n    X_train, X_test, y_train, y_test = FeatureProcessor.split_data(X, y)\n\n    X_train.to_csv(X_train_output, index=False)\n    X_test.to_csv(X_test_output, index=False)\n    y_train.to_csv(y_train_output, index=False)\n    y_test.to_csv(y_test_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2311,7 +2887,7 @@
             "sh",
             "-ec",
             "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
-            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef split_by_mtow(\n        input_file: InputPath(\"CSV\"),\n        X_very_low_output: OutputPath(\"CSV\"),\n        X_low_output: OutputPath(\"CSV\"),\n        X_medium_output: OutputPath(\"CSV\"),\n        X_high_output: OutputPath(\"CSV\"),\n        X_non_b77w_output: OutputPath(\"CSV\"),\n        X_b77w_output: OutputPath(\"CSV\"),\n        y_very_low_output: OutputPath(\"CSV\"),\n        y_low_output: OutputPath(\"CSV\"),\n        y_medium_output: OutputPath(\"CSV\"),\n        y_high_output: OutputPath(\"CSV\"),\n        y_non_b77w_output: OutputPath(\"CSV\"),\n        y_b77w_output: OutputPath(\"CSV\"),\n        is_test: bool = False\n):\n    \"\"\"Splits the data by Maximum Take-Off Weight (MTOW).\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.split_data.mtow_split_strategy import MTOWSplitStrategy\n\n    df = pd.read_csv(input_file)\n    strategy = MTOWSplitStrategy()\n    split_results = strategy.split(df, is_test=is_test)\n\n    # Index 0 for X and 1 for y\n    split_results['very_low'][0].to_csv(X_very_low_output, index=False)\n    split_results['low'][0].to_csv(X_low_output, index=False)\n    split_results['medium'][0].to_csv(X_medium_output, index=False)\n    split_results['high'][0].to_csv(X_high_output, index=False)\n    split_results['non_b77w'][0].to_csv(X_non_b77w_output, index=False)\n    split_results['b77w'][0].to_csv(X_b77w_output, index=False)\n\n    if not is_test:\n        split_results['very_low'][1].to_csv(y_very_low_output, index=False)\n        split_results['low'][1].to_csv(y_low_output, index=False)\n        split_results['medium'][1].to_csv(y_medium_output, index=False)\n        split_results['high'][1].to_csv(y_high_output, index=False)\n        split_results['non_b77w'][1].to_csv(y_non_b77w_output, index=False)\n        split_results['b77w'][1].to_csv(y_b77w_output, index=False)\n\n"
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef split_by_mtow(\n    input_file: InputPath(\"CSV\"),\n    X_very_low_output: OutputPath(\"CSV\"),\n    X_low_output: OutputPath(\"CSV\"),\n    X_medium_output: OutputPath(\"CSV\"),\n    X_high_output: OutputPath(\"CSV\"),\n    X_non_b77w_output: OutputPath(\"CSV\"),\n    X_b77w_output: OutputPath(\"CSV\"),\n    y_very_low_output: OutputPath(\"CSV\"),\n    y_low_output: OutputPath(\"CSV\"),\n    y_medium_output: OutputPath(\"CSV\"),\n    y_high_output: OutputPath(\"CSV\"),\n    y_non_b77w_output: OutputPath(\"CSV\"),\n    y_b77w_output: OutputPath(\"CSV\"),\n    is_test: bool = False,\n):\n    \"\"\"Splits the data by Maximum Take-Off Weight (MTOW).\"\"\"\n    import pandas as pd\n    from kubeflow.src.data_preprocessing.split_data.mtow_split_strategy import (\n        MTOWSplitStrategy,\n    )\n\n    df = pd.read_csv(input_file)\n    strategy = MTOWSplitStrategy()\n    split_results = strategy.split(df, is_test=is_test)\n\n    # Index 0 for X and 1 for y\n    split_results[\"very_low\"][0].to_csv(X_very_low_output, index=False)\n    split_results[\"low\"][0].to_csv(X_low_output, index=False)\n    split_results[\"medium\"][0].to_csv(X_medium_output, index=False)\n    split_results[\"high\"][0].to_csv(X_high_output, index=False)\n    split_results[\"non_b77w\"][0].to_csv(X_non_b77w_output, index=False)\n    split_results[\"b77w\"][0].to_csv(X_b77w_output, index=False)\n\n    if not is_test:\n        split_results[\"very_low\"][1].to_csv(y_very_low_output, index=False)\n        split_results[\"low\"][1].to_csv(y_low_output, index=False)\n        split_results[\"medium\"][1].to_csv(y_medium_output, index=False)\n        split_results[\"high\"][1].to_csv(y_high_output, index=False)\n        split_results[\"non_b77w\"][1].to_csv(y_non_b77w_output, index=False)\n        split_results[\"b77w\"][1].to_csv(y_b77w_output, index=False)\n\n"
           ],
           "image": "gcr.io/prc-data-pipeline/ml-image"
         }
@@ -2608,6 +3184,414 @@
           },
           "taskInfo": {
             "name": "clean-trajectory-with-isolation-forest"
+          }
+        },
+        "deploy-model": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model"
+          },
+          "dependentTasks": [
+            "train-ensemble-model"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "catboost_model_output",
+                  "producerTask": "train-ensemble-model"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "very_low_catboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model"
+          }
+        },
+        "deploy-model-10": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-10"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-5"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "xgboost_model_output",
+                  "producerTask": "train-ensemble-model-5"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "non_b77w_xgboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-10"
+          }
+        },
+        "deploy-model-11": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-11"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-6"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "catboost_model_output",
+                  "producerTask": "train-ensemble-model-6"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "b77w_catboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-11"
+          }
+        },
+        "deploy-model-12": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-12"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-6"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "xgboost_model_output",
+                  "producerTask": "train-ensemble-model-6"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "b77w_xgboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-12"
+          }
+        },
+        "deploy-model-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-2"
+          },
+          "dependentTasks": [
+            "train-ensemble-model"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "xgboost_model_output",
+                  "producerTask": "train-ensemble-model"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "very_low_xgboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-2"
+          }
+        },
+        "deploy-model-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-3"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-2"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "catboost_model_output",
+                  "producerTask": "train-ensemble-model-2"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "low_catboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-3"
+          }
+        },
+        "deploy-model-4": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-4"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-2"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "xgboost_model_output",
+                  "producerTask": "train-ensemble-model-2"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "low_xgboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-4"
+          }
+        },
+        "deploy-model-5": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-5"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-3"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "catboost_model_output",
+                  "producerTask": "train-ensemble-model-3"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "medium_catboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-5"
+          }
+        },
+        "deploy-model-6": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-6"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-3"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "xgboost_model_output",
+                  "producerTask": "train-ensemble-model-3"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "medium_xgboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-6"
+          }
+        },
+        "deploy-model-7": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-7"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-4"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "catboost_model_output",
+                  "producerTask": "train-ensemble-model-4"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "high_catboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-7"
+          }
+        },
+        "deploy-model-8": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-8"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-4"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "xgboost_model_output",
+                  "producerTask": "train-ensemble-model-4"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "high_xgboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-8"
+          }
+        },
+        "deploy-model-9": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-deploy-model-9"
+          },
+          "dependentTasks": [
+            "train-ensemble-model-5"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model_file": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "catboost_model_output",
+                  "producerTask": "train-ensemble-model-5"
+                }
+              }
+            },
+            "parameters": {
+              "deployment_path": {
+                "componentInputParameter": "deployment_path"
+              },
+              "model_name": {
+                "runtimeValue": {
+                  "constant": "non_b77w_catboost"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "deploy-model-9"
           }
         },
         "drop-features": {
@@ -3688,6 +4672,9 @@
     "inputDefinitions": {
       "parameters": {
         "data_path": {
+          "parameterType": "STRING"
+        },
+        "deployment_path": {
           "parameterType": "STRING"
         },
         "external_data_path": {
