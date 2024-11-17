@@ -5,6 +5,7 @@ End-to-End PRC Data Challenge Pipeline
 ## Overview
 
 The PRC Data Challenge aims to engage data scientists, even those without an aviation background, to create teams and compete in building an open Machine Learning (ML) model capable of accurately inferring the Actual TakeOff Weight (ATOW) of a flown flight.
+![Pipeline Overview](/preview_imgs/pipeline_overview.png)
 
 ### The Data
 
