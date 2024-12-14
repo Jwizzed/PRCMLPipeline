@@ -167,6 +167,18 @@ COPY kubeflow/requirements.txt .
 RUN pip install -r requirements.txt
 ```
 
+### PySpark
+```
+brew install java
+```
+```
+brew install apache-spark
+```
+```angular2html
+export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec
+export PATH=$SPARK_HOME/bin:$PATH
+```
+
 ### Deployment Strategy
 
 Models are automatically deployed to Google Cloud Storage for inference, eliminating the need for local downloads. The deployment process handles:
